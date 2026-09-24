@@ -6,3 +6,8 @@ compatibility_date = "2024-03-20"
 binding = "DB"
 database_name = "forgeai_db"
 database_id = "51b2a9e5-94dc-43c3-b4cd-3a42d4a5116f" # ID fictif pour le dev local, à remplacer pour la prod
+
+pages_build_output_dir = "dist"
+
+[assets]
+directory = "dist"
