@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Folder, Settings, ChevronDown, Plus, Shield, ChevronRight } from 'lucide-react';
+import { Github, Settings, ChevronDown, Plus, Shield, ChevronRight } from 'lucide-react';
 
 export function NewProject() {
   const [envVars, setEnvVars] = useState([{ key: '', value: '' }]);
@@ -104,7 +104,7 @@ export function NewProject() {
                 </div>
                 
                 <div className="space-y-3">
-                  {envVars.map((env, i) => (
+                  {envVars.map((_env, i) => (
                     <div key={i} className="flex gap-3">
                       <input 
                         type="text" 

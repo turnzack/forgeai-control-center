@@ -1,5 +1,5 @@
 
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Mail, Shield, MoreVertical, Plus, UserPlus } from 'lucide-react';
 
 const members = [

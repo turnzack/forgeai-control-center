@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { Activity, CreditCard, Users, ArrowUpRight, ShieldCheck, Database, Zap, Sparkles } from 'lucide-react';
-import { motion, Variants } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 const containerVariants = {
   hidden: { opacity: 0 },
