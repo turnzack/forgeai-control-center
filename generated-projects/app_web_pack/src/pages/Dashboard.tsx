@@ -1,12 +1,7 @@
 
+import { useState, useEffect } from 'react';
 import { Activity, CreditCard, Users, ArrowUpRight, ShieldCheck, Database, Zap, Sparkles } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
-
-const stats = [
-  { name: 'Utilisateurs Actifs', value: '8,234', change: '+12.5%', icon: Users, color: 'from-blue-500 to-indigo-500' },
-  { name: 'Revenu Mensuel', value: '45,231 €', change: '+8.2%', icon: CreditCard, color: 'from-emerald-400 to-teal-500' },
-  { name: 'Requêtes API', value: '1.2M', change: '+24.1%', icon: Activity, color: 'from-purple-500 to-fuchsia-500' },
-];
 
 const containerVariants: Variants = {
   hidden: { opacity: 0 },
@@ -22,6 +17,24 @@ const itemVariants: Variants = {
 };
 
 export function Dashboard() {
+  const [apiStats, setApiStats] = useState<{ activeUsers: string, revenue: string, apiRequests: string } | null>(null);
+
+  useEffect(() => {
+    fetch('/api/stats')
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          setApiStats(data.stats);
+        }
+      })
+      .catch(err => console.error("Failed to fetch stats", err));
+  }, []);
+
+  const stats = [
+    { name: 'Utilisateurs Actifs', value: apiStats?.activeUsers || '...', change: '+12.5%', icon: Users, color: 'from-blue-500 to-indigo-500' },
+    { name: 'Revenu Mensuel', value: apiStats?.revenue || '...', change: '+8.2%', icon: CreditCard, color: 'from-emerald-400 to-teal-500' },
+    { name: 'Requêtes API', value: apiStats?.apiRequests || '...', change: '+24.1%', icon: Activity, color: 'from-purple-500 to-fuchsia-500' },
+  ];
   return (
     <div className="space-y-8">
       {/* Header animé */}
