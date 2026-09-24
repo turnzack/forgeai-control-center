@@ -1,13 +1,19 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { Github, Settings, ChevronDown, Plus, Shield, ChevronRight, LayoutTemplate, Box, MessageSquare, Briefcase, Rocket, Sparkles, Search } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { Github, Settings, ChevronDown, Plus, Shield, ChevronRight, LayoutTemplate, Box, MessageSquare, Briefcase, Rocket, Sparkles, Search, Loader2, CheckCircle } from 'lucide-react';
 import { availablePacks } from '../data/packs';
+import { bridgeClient } from '../lib/bridgeClient';
 
 export function NewProject() {
   const [envVars, setEnvVars] = useState([{ key: '', value: '' }]);
   const [selectedPack, setSelectedPack] = useState('saas_pack');
   const [searchQuery, setSearchQuery] = useState('');
-
+  const [projectName, setProjectName] = useState('my-forgeai-project');
+  
+  // Deploy states
+  const [deploying, setDeploying] = useState(false);
+  const [deployStep, setDeployStep] = useState(0); 
+  const [deployLog, setDeployLog] = useState<string>('');
   const filteredPacks = availablePacks.filter(pack => 
     pack.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -63,7 +69,8 @@ export function NewProject() {
                 <label className="text-sm font-medium text-gray-300">Project Name</label>
                 <input 
                   type="text" 
-                  defaultValue="forgeai-control-center"
+                  value={projectName}
+                  onChange={(e) => setProjectName(e.target.value)}
                   className="w-full bg-transparent border border-white/20 rounded-md px-4 py-2.5 text-sm text-white focus:outline-none focus:border-cyan transition-colors"
                 />
               </div>
@@ -177,12 +184,88 @@ export function NewProject() {
 
             <div className="p-6 border-t border-white/10 bg-[#000000]">
               <motion.button 
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full py-3 rounded-md bg-white text-black font-semibold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+                whileHover={deploying ? {} : { scale: 1.02 }}
+                whileTap={deploying ? {} : { scale: 0.98 }}
+                onClick={async () => {
+                  if (deploying) return;
+                  setDeploying(true);
+                  setDeployStep(1);
+                  setDeployLog("Initialisation de l'environnement virtuel...");
+                  
+                  try {
+                    // 2. La Demande (Vercel ➡️ VPS)
+                    await bridgeClient.createProject(projectName);
+                    setDeployStep(2);
+                    setDeployLog("Consultation de l'Agent Architecte (Llama 3 Cloudflare)...");
+                    
+                    // Simulation du délai de réponse IA (Le vrai appel TRPC se ferait ici)
+                    await new Promise(r => setTimeout(r, 2000));
+                    
+                    // 4. La Machinerie et l'Assemblage (VPS)
+                    setDeployStep(3);
+                    setDeployLog(`Assemblage du pack ${selectedPack} avec le moteur ForgeAI...`);
+                    const result = await bridgeClient.assembleFinalApp(projectName, selectedPack, true);
+                    
+                    if (result.success) {
+                      setDeployStep(4);
+                      setDeployLog("Projet créé avec succès ! 100% complété.");
+                    } else {
+                      throw new Error(result.message);
+                    }
+                  } catch (err: any) {
+                    setDeployLog(`Erreur : ${err.message}`);
+                    setDeployStep(0);
+                    setDeploying(false);
+                  }
+                }}
+                disabled={deploying}
+                className="w-full py-3 rounded-md bg-white text-black font-semibold text-sm hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.1)] flex items-center justify-center gap-2 disabled:opacity-50"
               >
-                Deploy
+                {deploying ? (
+                  <>
+                    <Loader2 className="w-5 h-5 animate-spin text-black" />
+                    {deployStep === 1 && "Création du projet..."}
+                    {deployStep === 2 && "IA Cloudflare en cours..."}
+                    {deployStep === 3 && "Assemblage par le VPS..."}
+                    {deployStep === 4 && "Terminé !"}
+                  </>
+                ) : (
+                  "Deploy"
+                )}
               </motion.button>
+              
+              <AnimatePresence>
+                {deploying && (
+                  <motion.div
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: 'auto' }}
+                    className="mt-4 p-4 rounded-md bg-[#111] border border-white/10"
+                  >
+                    <div className="flex flex-col space-y-3">
+                      <div className="flex items-center gap-3">
+                        {deployStep >= 1 ? <CheckCircle className="w-4 h-4 text-cyan" /> : <Loader2 className="w-4 h-4 animate-spin text-gray-500" />}
+                        <span className={`text-sm ${deployStep >= 1 ? 'text-white' : 'text-gray-500'}`}>1. Requête Vercel ➡️ VPS</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        {deployStep >= 2 ? <CheckCircle className="w-4 h-4 text-cyan" /> : (deployStep === 1 ? <Loader2 className="w-4 h-4 animate-spin text-cyan" /> : <div className="w-4 h-4" />)}
+                        <span className={`text-sm ${deployStep >= 2 ? 'text-white' : (deployStep === 1 ? 'text-cyan' : 'text-gray-500')}`}>2. Cerveau IA Cloudflare (Llama 3)</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        {deployStep >= 3 ? <CheckCircle className="w-4 h-4 text-cyan" /> : (deployStep === 2 ? <Loader2 className="w-4 h-4 animate-spin text-cyan" /> : <div className="w-4 h-4" />)}
+                        <span className={`text-sm ${deployStep >= 3 ? 'text-white' : (deployStep === 2 ? 'text-cyan' : 'text-gray-500')}`}>3. Machinerie et Assemblage VPS</span>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        {deployStep === 4 ? <CheckCircle className="w-4 h-4 text-cyan" /> : (deployStep === 3 ? <Loader2 className="w-4 h-4 animate-spin text-cyan" /> : <div className="w-4 h-4" />)}
+                        <span className={`text-sm ${deployStep === 4 ? 'text-white font-bold' : (deployStep === 3 ? 'text-cyan' : 'text-gray-500')}`}>4. {deployStep === 4 ? 'Résultat 100% prêt !' : 'Déploiement...'}</span>
+                      </div>
+                    </div>
+                    
+                    <div className="mt-4 p-3 bg-black rounded font-mono text-xs text-gray-400">
+                      &gt; {deployLog}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           </div>
         </div>
