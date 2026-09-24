@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { Activity, CreditCard, Users, ArrowUpRight, ShieldCheck, Database, Zap, Sparkles } from 'lucide-react';
 import { motion, Variants } from 'framer-motion';
 
-const containerVariants: Variants = {
+const containerVariants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -11,9 +11,9 @@ const containerVariants: Variants = {
   }
 };
 
-const itemVariants: Variants = {
+const itemVariants = {
   hidden: { opacity: 0, y: 20 },
-  show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
+  show: { opacity: 1, y: 0, transition: { type: 'spring' as const, stiffness: 300, damping: 24 } }
 };
 
 export function Dashboard() {
