@@ -2009,8 +2009,45 @@ const server = http.createServer(async (req, res) => {
     const pathname = url.pathname;
 
     /* ── Health — racine + alias ── */
-    if (req.method === "GET" && ["/", "/health", "/api/bridge/health", "/bridge/health"].includes(pathname)) {
+    if (req.method === "GET" && ["/health", "/api/bridge/health", "/bridge/health"].includes(pathname)) {
       return send(res, 200, { ok: true, bridge: "ForgeAI Local Bridge", version: "1.2.0", root: ROOT, port: PORT, status: "ready" });
+    }
+
+    /* ── Static Frontend Serving for VPS ── */
+    if (req.method === "GET" && !pathname.startsWith("/v1/") && !pathname.startsWith("/api/")) {
+      const clientDir = path.resolve(__dirname, "..", "dist", "public");
+      let filePath = path.join(clientDir, pathname === "/" ? "index.html" : pathname);
+      try {
+        let stat = await fs.stat(filePath);
+        if (stat.isDirectory()) {
+          filePath = path.join(filePath, "index.html");
+          stat = await fs.stat(filePath);
+        }
+        const ext = path.extname(filePath).toLowerCase();
+        const mimeTypes = {
+          ".html": "text/html",
+          ".js": "text/javascript",
+          ".css": "text/css",
+          ".json": "application/json",
+          ".png": "image/png",
+          ".jpg": "image/jpeg",
+          ".svg": "image/svg+xml",
+          ".ico": "image/x-icon",
+        };
+        const contentType = mimeTypes[ext] || "application/octet-stream";
+        const content = await fs.readFile(filePath);
+        res.writeHead(200, { "Content-Type": contentType });
+        return res.end(content);
+      } catch (err) {
+        // Fallback to index.html for SPA routing
+        try {
+          const indexContent = await fs.readFile(path.join(clientDir, "index.html"));
+          res.writeHead(200, { "Content-Type": "text/html" });
+          return res.end(indexContent);
+        } catch (e) {
+          // If frontend doesn't exist, ignore and let it 404 naturally later
+        }
+      }
     }
 
     /* ── Bridge polling — GET /v1/bridge/poll ── */
@@ -2389,15 +2426,15 @@ server.on("error", (err) => {
         }
       }
       setTimeout(() => {
-        server.listen(PORT, "127.0.0.1", () => {
-          console.log(`[ForgeAI Local Bridge] Relancé avec succès sur http://127.0.0.1:${PORT}`);
+        server.listen(PORT, "0.0.0.0", () => {
+          console.log(`[ForgeAI Local Bridge] Relancé avec succès sur http://0.0.0.0:${PORT}`);
         });
       }, 800);
     } catch (_) {}
   }
 });
 
-server.listen(PORT, "127.0.0.1", () => {
-  console.log(`[ForgeAI Local Bridge] http://127.0.0.1:${PORT} — workspace ${ROOT}`);
+server.listen(PORT, "0.0.0.0", () => {
+  console.log(`[ForgeAI Local Bridge] http://0.0.0.0:${PORT} — workspace ${ROOT}`);
   console.log(`[ForgeAI Local Bridge] Endpoints: /health · /v1/bridge/poll · /v1/bridge/push · /v1/projects/<projet>/files`);
 });

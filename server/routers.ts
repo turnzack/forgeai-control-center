@@ -4,6 +4,8 @@ import { systemRouter } from "./_core/systemRouter";
 import { publicProcedure, router } from "./_core/trpc";
 import { getCloudflareStatus, runCloudflareAgent } from "./agents";
 import { searchGitHubRepositories, buildGitHubQuery, validateRepositoryLicense } from "./githubSearch";
+import { CloudflareAIService } from "./services/CloudflareAIService";
+import { downloadRepoArchive, mountComponent } from "./githubDownload";
 import { z } from "zod";
 
 export const appRouter = router({
@@ -58,6 +60,60 @@ export const appRouter = router({
         spdxId: z.string().optional(),
       }))
       .query(({ input }) => validateRepositoryLicense(input.spdxId)),
+
+    hermesSearch: publicProcedure
+      .input(z.object({
+        packId: z.string(),
+        prompt: z.string().optional(),
+      }))
+      .mutation(async ({ input }) => {
+        const fullPrompt = \`Le pack est \${input.packId}. Le prompt utilisateur est: \${input.prompt || "Optimise pour ce pack."}. Génère les filtres GitHub stricts (mots-clés, licence MIT, frameworks).\`;
+        const aiResponse = await CloudflareAIService.ask({
+          prompt: fullPrompt,
+          missionId: "github-search",
+          lotId: input.packId
+        });
+
+        if (!aiResponse.ok) {
+          throw new Error("Hermes a échoué: " + aiResponse.error);
+        }
+
+        const query = buildGitHubQuery({
+          keywords: aiResponse.response.keywords?.join(" ") || input.packId.replace(/_/g, " "),
+          licenses: aiResponse.response.licenses || ["MIT", "Apache-2.0"],
+          frameworks: aiResponse.response.frameworks || ["react", "typescript"]
+        });
+
+        const results = await searchGitHubRepositories({ query });
+        return {
+          ai: aiResponse.response,
+          query,
+          results
+        };
+      }),
+
+    download: publicProcedure
+      .input(z.object({
+        owner: z.string(),
+        repo: z.string(),
+        ref: z.string().default("HEAD"),
+      }))
+      .mutation(async ({ input }) => {
+        const zipPath = await downloadRepoArchive(input.owner, input.repo, input.ref);
+        return { success: true, zipPath };
+      }),
+
+    mount: publicProcedure
+      .input(z.object({
+        owner: z.string(),
+        repo: z.string(),
+        commit: z.string(),
+        spdxId: z.string(),
+      }))
+      .mutation(async ({ input }) => {
+        const mountPath = await mountComponent(input.owner, input.repo, input.commit, input.spdxId);
+        return { success: true, mountPath };
+      }),
   }),
 
   // TODO: add feature routers here, e.g.

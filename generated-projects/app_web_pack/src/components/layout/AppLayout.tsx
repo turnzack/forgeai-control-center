@@ -1,4 +1,4 @@
-import { LayoutDashboard, Users, Settings, LogOut, Search, Bell, Rocket } from 'lucide-react';
+import { LayoutDashboard, Users, Settings, LogOut, Search, Bell, Rocket, BrainCircuit } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
 import { motion } from 'framer-motion';
 import { AnimatedBackground } from '../ui/AnimatedBackground';
@@ -8,6 +8,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
   const navigation = [
     { name: 'Tableau de bord', href: '/', icon: LayoutDashboard },
+    { name: 'Analyze & Select Gems', href: '/analyze', icon: BrainCircuit },
     { name: 'Déploiement', href: '/deploy', icon: Rocket },
     { name: 'Membres', href: '/members', icon: Users },
     { name: 'Paramètres', href: '/settings', icon: Settings },
