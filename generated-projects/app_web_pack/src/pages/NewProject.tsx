@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Github, Settings, ChevronDown, Plus, Shield, ChevronRight, LayoutTemplate, Box, MessageSquare, Briefcase, Rocket, Sparkles, Search, Loader2, CheckCircle } from 'lucide-react';
+import { Github, Settings, ChevronDown, Plus, Shield, ChevronRight, Box, Search, Loader2, CheckCircle } from 'lucide-react';
 import { availablePacks } from '../data/packs';
 import { bridgeClient } from '../lib/bridgeClient';
 
