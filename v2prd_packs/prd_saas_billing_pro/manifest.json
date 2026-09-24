@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "PRD: SaaS Billing Pro",
+  "version": "1.0.0",
+  "description": "Pack d'extensions PRD pour la catégorie SaaS Billing Pro.",
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.deepseek.com/*",
+        "*://chat.deepseek.com/*"
+      ],
+      "js": [
+        "inject_saas_billing_pro.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

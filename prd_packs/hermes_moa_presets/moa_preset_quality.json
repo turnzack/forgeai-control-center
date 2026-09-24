@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MoA Preset Quality",
+  "description": "Preset qualité supérieure pour HermesMoA — 5 agents, stratégie llm_judge, budget 0.15$",
+  "numAgents": 5,
+  "aggregationStrategy": "llm_judge",
+  "llmJudgeModel": "glm-4.6",
+  "maxBudgetUsd": 0.15,
+  "timeoutMs": 40000
+}

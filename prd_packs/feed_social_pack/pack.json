@@ -1,0 +1,51 @@
+{
+  "slug": "feed_social_pack",
+  "name": "🔄 PACK FEED SOCIAL",
+  "description": "Pack PRD V2 Souverain pour 🔄 PACK FEED SOCIAL. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "CHAT",
+  "archetype": "chat",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#0EA5E9",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Message",
+  "features": [
+    "Feed infini optimisé (pagination, cache).",
+    "Stories bar + viewer full-screen.",
+    "Réactions emoji + likes + counters.",
+    "Thread de commentaires mobile.",
+    "Section éléments sauvegardés.",
+    "Barre filtres sticky en haut du feed.",
+    "Intégrer slots sponsors dans feed.",
+    "Mix texte + images + vidéo auto-play.",
+    "Vue par hashtag / tags.",
+    "Teaser notifications en haut du feed."
+  ],
+  "modules": [
+    "prd_feed_infinite",
+    "prd_feed_stories",
+    "prd_feed_reactions",
+    "prd_feed_threads",
+    "prd_feed_bookmarks",
+    "prd_feed_filters",
+    "prd_feed_sponsors",
+    "prd_feed_media",
+    "prd_feed_hashtags",
+    "prd_feed_notifications"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

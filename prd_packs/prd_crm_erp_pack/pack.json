@@ -1,0 +1,31 @@
+{
+  "slug": "prd_crm_erp_pack",
+  "name": "🏢 PACK CRM & ERP",
+  "description": "Pack PRD V2 Souverain pour 🏢 PACK CRM & ERP. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "CRM",
+  "archetype": "crm",
+  "designTokens": {
+    "primary": "#4F46E5",
+    "accent": "#0EA5E9",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Lead",
+  "features": [
+    "Gestion centralisée des relations clients avec historique complet et segmentation métier."
+  ],
+  "modules": [],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

@@ -1,0 +1,30 @@
+{
+  "manifest_version": 3,
+  "name": "AIOS Stealth Bridge",
+  "version": "1.1.2",
+  "description": "Pont furtif entre AIOS Studio et les interfaces IA (Stitch, DeepSeek). Permet d'injecter un prompt depuis le popup directement dans la zone de saisie de l'IA cible.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": [
+    "https://stitch.withgoogle.com/*",
+    "https://chat.deepseek.com/*",
+    "http://localhost:3000/*",
+    "http://localhost:81/*"
+  ],
+  "action": {
+    "default_title": "AIOS Stealth Bridge",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://stitch.withgoogle.com/*",
+        "https://chat.deepseek.com/*",
+        "http://localhost:3000/*",
+        "http://localhost:81/*"
+      ],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

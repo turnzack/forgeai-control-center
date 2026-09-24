@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "PRD: Ecom Catalog",
+  "version": "1.0.0",
+  "description": "Pack d'extensions PRD pour la catégorie Ecom Catalog.",
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.deepseek.com/*",
+        "*://chat.deepseek.com/*"
+      ],
+      "js": [
+        "inject_ecom_catalog.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "forge_universelle",
+  "name": "🛠️ PACK FORGE UNIVERSELLE",
+  "description": "Pack PRD V2 Souverain pour 🛠️ PACK FORGE UNIVERSELLE. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Générer un projet Full-Stack performant, léger et universel."
+  ],
+  "modules": [],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

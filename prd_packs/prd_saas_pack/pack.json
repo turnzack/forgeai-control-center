@@ -1,0 +1,33 @@
+{
+  "slug": "prd_saas_pack",
+  "name": "📦 PACK SAAS MASTER",
+  "description": "Pack PRD V2 Souverain pour 📦 PACK SAAS MASTER. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "SAAS",
+  "archetype": "saas",
+  "designTokens": {
+    "primary": "#0EA5E9",
+    "accent": "#6366F1",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Gérer l'entrée sécurisée de l'application SaaS (inviolable, élégante et multi-tenant).",
+    "Gestion des abonnements SaaS, des paiements récurrents et des notifications Push.",
+    "Visualisation de données complexes en temps réel pour une prise de décision rapide."
+  ],
+  "modules": [],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

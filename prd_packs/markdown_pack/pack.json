@@ -1,0 +1,51 @@
+{
+  "slug": "markdown_pack",
+  "name": "✍️ PACK MARKDOWN",
+  "description": "Pack PRD V2 Souverain pour ✍️ PACK MARKDOWN. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Liste de fichiers .md avec preview.",
+    "Éditeur Markdown + preview live.",
+    "UI pour modifier frontmatter (YAML).",
+    "Générer outline (H1-H6) pour navigation.",
+    "Bibliothèque de snippets MD (FAQ, callout…).",
+    "Export markdown → PDF stylé.",
+    "Réécriture IA (ton, longueur) de sections MD.",
+    "Vérifier liens internes/externes.",
+    "Support Mermaid/diagrams intégrés.",
+    "Pack de templates MD (PRD, RFC, ADR)."
+  ],
+  "modules": [
+    "prd_markdown_browser",
+    "prd_markdown_live_editor",
+    "prd_markdown_frontmatter",
+    "prd_markdown_outline",
+    "prd_markdown_snippets",
+    "prd_markdown_pdf_export",
+    "prd_markdown_ai_rewrite",
+    "prd_markdown_link_checker",
+    "prd_markdown_mermaid",
+    "prd_markdown_templates"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

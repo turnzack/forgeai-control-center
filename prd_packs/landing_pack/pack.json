@@ -1,0 +1,37 @@
+{
+  "slug": "landing_pack",
+  "name": "🛬 PACK LANDING",
+  "description": "Pack PRD V2 Souverain pour 🛬 PACK LANDING. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "LANDING",
+  "archetype": "landing",
+  "designTokens": {
+    "primary": "#7C3AED",
+    "accent": "#EC4899",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Capturer des emails avant un lancement (Coming Soon).",
+    "Convertir des visiteurs B2B.",
+    "Linktree/Portfolio pour créateur de contenu."
+  ],
+  "modules": [
+    "prd_landing_coming_soon",
+    "prd_landing_b2b_corp",
+    "prd_landing_creator_linktree"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

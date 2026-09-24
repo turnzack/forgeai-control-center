@@ -1,0 +1,51 @@
+{
+  "slug": "mobile_shell_pack",
+  "name": "📱 PACK MOBILE SHELL",
+  "description": "Pack PRD V2 Souverain pour 📱 PACK MOBILE SHELL. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Shell mobile avec bottom-tabs et header dynamique.",
+    "Shell avec drawer latéral (burger menu).",
+    "Navigation en stack (push/pop) avec headers animés.",
+    "Shell pour flow multi-écrans type wizard.",
+    "Gestion des routes protégées/logged-out.",
+    "Master/detail sur tablette (split).",
+    "Stack de modales mobile-style (bottom sheet + full).",
+    "Shell avec gestion offline globale.",
+    "Gestion deeplinks / liens dynamiques.",
+    "Sequence d’intro/apprentissage avant app."
+  ],
+  "modules": [
+    "prd_shell_bottom_tabs",
+    "prd_shell_drawer",
+    "prd_shell_stack",
+    "prd_shell_wizard",
+    "prd_shell_protected",
+    "prd_shell_split_view",
+    "prd_shell_modals",
+    "prd_shell_offline",
+    "prd_shell_deeplinks",
+    "prd_shell_onboarding"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

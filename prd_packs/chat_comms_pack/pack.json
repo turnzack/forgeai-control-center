@@ -1,0 +1,51 @@
+{
+  "slug": "chat_comms_pack",
+  "name": "💬 PACK CHAT & COMMS",
+  "description": "Pack PRD V2 Souverain pour 💬 PACK CHAT & COMMS. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "CHAT",
+  "archetype": "chat",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#0EA5E9",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Message",
+  "features": [
+    "Interface de discussion classique entre deux utilisateurs.",
+    "Conversation à plusieurs avec gestion des identités.",
+    "Système de réponses spécifiques (façon Slack ou Discord threads).",
+    "Permettre l'ajout d'emojis sous les messages.",
+    "Interface pour envoyer des images, vidéos ou fichiers.",
+    "Enregistrement et lecture de messages vocaux.",
+    "Indicateurs d'activité en temps réel.",
+    "L'écran d'accueil listant toutes les conversations actives.",
+    "Interface de chat pour le service client avec assistance IA.",
+    "Canal en lecture seule façon Telegram pour des diffusions."
+  ],
+  "modules": [
+    "prd_mobile_chat_basic",
+    "prd_mobile_chat_group",
+    "prd_mobile_chat_threaded",
+    "prd_mobile_chat_reactions",
+    "prd_mobile_chat_attachments",
+    "prd_mobile_chat_voice_notes",
+    "prd_mobile_chat_presence",
+    "prd_mobile_chat_inbox_list",
+    "prd_mobile_chat_support_bot",
+    "prd_mobile_chat_announcement"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

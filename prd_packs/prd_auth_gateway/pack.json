@@ -1,0 +1,31 @@
+{
+  "slug": "prd_auth_gateway",
+  "name": "🔐 PACK AUTH GATEWAY",
+  "description": "Pack PRD V2 Souverain pour 🔐 PACK AUTH GATEWAY. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Sécuriser l'accès à l'application via des méthodes d'authentification modernes (Magic Links, Social Login, OAuth, JWT)."
+  ],
+  "modules": [],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

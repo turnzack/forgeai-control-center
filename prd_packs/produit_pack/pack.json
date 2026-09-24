@@ -1,0 +1,51 @@
+{
+  "slug": "produit_pack",
+  "name": "💡 PACK PRODUIT",
+  "description": "Pack PRD V2 Souverain pour 💡 PACK PRODUIT. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "ECOMMERCE",
+  "archetype": "ecommerce",
+  "designTokens": {
+    "primary": "#10B981",
+    "accent": "#06B6D4",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Product",
+  "features": [
+    "Page centrée sur une seule feature \"hero\".",
+    "Comparatif produit vs concurrents.",
+    "Page pour le lancement d'une grosse feature.",
+    "Page publique des changelogs.",
+    "Roadmap publique (public roadmap).",
+    "Landing pour un programme beta.",
+    "Page guidant une migration (v1 → v2, ou depuis un autre outil).",
+    "Page comparant en détail les plans.",
+    "Page hub \"Solutions par segment/persona\" (ex: \"Pour les Startups\", \"Pour les Agences\").",
+    "Mini-store pour add-ons/extensions du produit."
+  ],
+  "modules": [
+    "prd_prod_single_feature",
+    "prd_prod_compare_competitors",
+    "prd_prod_feature_launch",
+    "prd_prod_public_changelogs",
+    "prd_prod_public_roadmap",
+    "prd_prod_beta_program",
+    "prd_prod_migration_guide",
+    "prd_prod_plan_comparison",
+    "prd_prod_solutions_hub",
+    "prd_prod_addons_store"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

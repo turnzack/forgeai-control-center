@@ -1,0 +1,33 @@
+{
+  "slug": "prd_sovereign_engine",
+  "name": "Prd Sovereign Engine",
+  "description": "Pack PRD V2 Souverain pour Prd Sovereign Engine. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Architecture souveraine réactive",
+    "Gestion d'état persistante",
+    "Interface optimisée et accessible"
+  ],
+  "modules": [],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

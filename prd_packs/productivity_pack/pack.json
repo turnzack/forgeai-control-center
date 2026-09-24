@@ -1,0 +1,51 @@
+{
+  "slug": "productivity_pack",
+  "name": "📈 PACK PRODUCTIVITÉ",
+  "description": "Pack PRD V2 Souverain pour 📈 PACK PRODUCTIVITÉ. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "To-do list évoluée en mini-Kanban mobile.",
+    "Liste tâches avec actions swipe (done, delete).",
+    "Création/gestion de rappels temporels.",
+    "Vue agenda journalière, agenda liste.",
+    "Notes rapides (capture instantanée).",
+    "Pomodoro / Focus mode.",
+    "Tracker d’habitudes.",
+    "Scanner de documents (photo → crop).",
+    "Explorateur de fichiers interne.",
+    "Gestion snippets/copier-coller."
+  ],
+  "modules": [
+    "prd_prod_todo_kanban",
+    "prd_prod_swipe_tasks",
+    "prd_prod_reminders",
+    "prd_prod_agenda_view",
+    "prd_prod_quick_notes",
+    "prd_prod_pomodoro",
+    "prd_prod_habit_tracker",
+    "prd_prod_doc_scanner",
+    "prd_prod_file_explorer",
+    "prd_prod_snippets"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

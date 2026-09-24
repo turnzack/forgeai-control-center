@@ -1,0 +1,39 @@
+{
+  "slug": "layout_pack",
+  "name": "📐 PACK LAYOUT",
+  "description": "Pack PRD V2 Souverain pour 📐 PACK LAYOUT. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UI_KIT",
+  "archetype": "ui_kit",
+  "designTokens": {
+    "primary": "#EC4899",
+    "accent": "#8B5CF6",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Écran coupé en deux (ex: Login à gauche, Image à droite).",
+    "Grille \"Bento Box\" (Style Apple/iOS).",
+    "Tableau de gestion de projet type Trello/Jira.",
+    "Tableau de bord avec menu latéral rétractable."
+  ],
+  "modules": [
+    "prd_layout_split_screen",
+    "prd_layout_bento",
+    "prd_layout_kanban",
+    "prd_layout_dashboard_sidebar"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

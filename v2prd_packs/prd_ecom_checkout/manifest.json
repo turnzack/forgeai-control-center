@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "PRD: Ecom Checkout",
+  "version": "1.0.0",
+  "description": "Pack d'extensions PRD pour la catégorie Ecom Checkout.",
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.deepseek.com/*",
+        "*://chat.deepseek.com/*"
+      ],
+      "js": [
+        "inject_ecom_checkout.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "prd_game_leaderboard",
+  "name": "🏆 PACK GAME LEADERBOARD",
+  "description": "Pack PRD V2 Souverain pour 🏆 PACK GAME LEADERBOARD. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "GAME",
+  "archetype": "game",
+  "designTokens": {
+    "primary": "#EC4899",
+    "accent": "#F59E0B",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Générer un système de classement mondial ou entre amis avec gestion des rangs."
+  ],
+  "modules": [],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

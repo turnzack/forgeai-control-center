@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "PRD: Ecom Digital Products",
+  "version": "1.0.0",
+  "description": "Pack d'extensions PRD pour la catégorie Ecom Digital Products.",
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.deepseek.com/*",
+        "*://chat.deepseek.com/*"
+      ],
+      "js": [
+        "inject_ecom_digital_products.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

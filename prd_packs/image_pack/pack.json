@@ -1,0 +1,51 @@
+{
+  "slug": "image_pack",
+  "name": "📸 PACK IMAGE",
+  "description": "Pack PRD V2 Souverain pour 📸 PACK IMAGE. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Browser d’images (thumbnails, lightbox).",
+    "Upload avec crop/resize ratio (avatar, cover).",
+    "Affiche EXIF, taille, format, couleur dominante.",
+    "Optimiser poids/format (webp, jpeg) avec preview.",
+    "Générer alt-text IA pour accessibilité.",
+    "Construire sprite sheets à partir d’images.",
+    "Extraire palette de couleurs d’une image.",
+    "Annoter images (rectangles, labels).",
+    "Créer \"asset packs\" (icônes, UI kit).",
+    "Comparer deux images (A/B, slider)."
+  ],
+  "modules": [
+    "prd_img_browser",
+    "prd_img_cropper",
+    "prd_img_exif_viewer",
+    "prd_img_optimizer",
+    "prd_img_a11y",
+    "prd_img_sprite_sheet",
+    "prd_img_color_palette",
+    "prd_img_annotator",
+    "prd_img_asset_manager",
+    "prd_img_compare_slider"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

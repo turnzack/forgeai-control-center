@@ -1,0 +1,51 @@
+{
+  "slug": "specialise_pack",
+  "name": "🌟 PACK SPÉCIALISÉ",
+  "description": "Pack PRD V2 Souverain pour 🌟 PACK SPÉCIALISÉ. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "AI_AGENT",
+  "archetype": "ai_agent",
+  "designTokens": {
+    "primary": "#D946EF",
+    "accent": "#8B5CF6",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Landing pour projet open-source.",
+    "Page carrière / jobs.",
+    "Landing agence créative.",
+    "Page offre \"migration depuis X\".",
+    "Landing service d'audit sécurité.",
+    "Landing cabinet de conseil.",
+    "Landing dev freelance sénior.",
+    "Landing organisation non-profit (ONG/Association).",
+    "Page style App Store pour app.",
+    "Page \"Coming Soon\" très travaillée."
+  ],
+  "modules": [
+    "prd_spec_opensource",
+    "prd_spec_careers",
+    "prd_spec_creative_agency",
+    "prd_spec_migration_offer",
+    "prd_spec_security_audit",
+    "prd_spec_consulting",
+    "prd_spec_freelance_dev",
+    "prd_spec_non_profit",
+    "prd_spec_app_showcase",
+    "prd_spec_coming_soon"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

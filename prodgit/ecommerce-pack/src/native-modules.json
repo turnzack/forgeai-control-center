@@ -1,0 +1,67 @@
+{
+  "projectName": "ecommerce-pack",
+  "packSlug": "ecommerce_pack",
+  "packName": "🛒 PACK E-COMMERCE",
+  "archetype": "ecommerce",
+  "generationMode": "sovereign",
+  "externalSources": [],
+  "nativeModules": [
+    {
+      "name": "Storefront",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    },
+    {
+      "name": "ProductCard",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    },
+    {
+      "name": "ProductDetailPage",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    },
+    {
+      "name": "FilterSidebar",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    },
+    {
+      "name": "CartDrawer",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    },
+    {
+      "name": "CheckoutWizard",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    },
+    {
+      "name": "OrdersTrackingPage",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    },
+    {
+      "name": "CartService",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    }
+  ],
+  "generatedAt": "2026-09-24T03:22:58.450Z"
+}

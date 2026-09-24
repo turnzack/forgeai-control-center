@@ -1,0 +1,51 @@
+{
+  "slug": "createur_pack",
+  "name": "🎨 PACK CRÉATEUR",
+  "description": "Pack PRD V2 Souverain pour 🎨 PACK CRÉATEUR. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Portfolio minimaliste (projets, stack, about).",
+    "Linktree-like version dark premium.",
+    "Blog personnel avec page auteur.",
+    "Page émission/podcast.",
+    "Landing pour une formation solo.",
+    "Landing pour membership communautaire (ex: Patreon).",
+    "Galerie photo responsive.",
+    "CV/Resume interactif.",
+    "Page pour promo d'un livre/auteur.",
+    "Page \"Sponsor me\" pour créateur (Buy me a coffee)."
+  ],
+  "modules": [
+    "prd_creator_portfolio",
+    "prd_creator_linktree",
+    "prd_creator_blog",
+    "prd_creator_podcast",
+    "prd_creator_course",
+    "prd_creator_membership",
+    "prd_creator_gallery",
+    "prd_creator_interactive_resume",
+    "prd_creator_book_promo",
+    "prd_creator_sponsor"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

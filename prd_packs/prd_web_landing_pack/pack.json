@@ -1,0 +1,31 @@
+{
+  "slug": "prd_web_landing_pack",
+  "name": "WEB LANDING",
+  "description": "Pack PRD V2 Souverain pour WEB LANDING. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "LANDING",
+  "archetype": "landing",
+  "designTokens": {
+    "primary": "#7C3AED",
+    "accent": "#EC4899",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Créer une landing page à fort impact visuel, optimisée pour la conversion et le SEO."
+  ],
+  "modules": [],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

@@ -1,0 +1,51 @@
+{
+  "slug": "forms_inputs_pack",
+  "name": "✍️ PACK FORMS & INPUTS",
+  "description": "Pack PRD V2 Souverain pour ✍️ PACK FORMS & INPUTS. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Formulaire multi-écran (wizard mobile).",
+    "Container keyboard-aware (scroll + avoid).",
+    "Formulaire adresse avec auto-complétion.",
+    "Flow paiement CB mobile.",
+    "Date/heure picker mobile-friendly.",
+    "Inputs avec stepper (quantité, temps).",
+    "Rating UX (étoiles, smileys).",
+    "Sélecteur de tags multi-sélection.",
+    "Barre de recherche avec suggestions.",
+    "Capture signature tactile."
+  ],
+  "modules": [
+    "prd_form_wizard_mobile",
+    "prd_form_keyboard_aware",
+    "prd_form_address_autocomplete",
+    "prd_form_cc_payment",
+    "prd_form_datetime_picker",
+    "prd_form_quantity_stepper",
+    "prd_form_rating",
+    "prd_form_multi_tags",
+    "prd_form_search_suggest",
+    "prd_form_signature"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

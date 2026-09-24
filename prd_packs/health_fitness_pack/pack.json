@@ -1,0 +1,51 @@
+{
+  "slug": "health_fitness_pack",
+  "name": "🏥 PACK HEALTH & FITNESS",
+  "description": "Pack PRD V2 Souverain pour 🏥 PACK HEALTH & FITNESS. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Suivi pas/journée.",
+    "Rappels hydratation.",
+    "Planning entraînements.",
+    "Journal humeur quotidien.",
+    "Tracking sommeil (manuel/auto).",
+    "Log alimentation (macro).",
+    "Exercices respiration guidés.",
+    "Sessions audio méditation.",
+    "Objectifs santé multi-metrics.",
+    "Suivi symptômes/journal santé."
+  ],
+  "modules": [
+    "prd_health_step_tracker",
+    "prd_health_hydration",
+    "prd_health_workout_plan",
+    "prd_health_mood_journal",
+    "prd_health_sleep_tracker",
+    "prd_health_macro_tracker",
+    "prd_health_breathing",
+    "prd_health_meditation",
+    "prd_health_goals",
+    "prd_health_symptoms"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

@@ -1,0 +1,31 @@
+{
+  "slug": "e_commerce_pack",
+  "name": "🛒 PACK E-COMMERCE STANDARD",
+  "description": "Pack PRD V2 Souverain pour 🛒 PACK E-COMMERCE STANDARD. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "ECOMMERCE",
+  "archetype": "ecommerce",
+  "designTokens": {
+    "primary": "#10B981",
+    "accent": "#06B6D4",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Product",
+  "features": [
+    "Générer l'interface d'une boutique e-commerce."
+  ],
+  "modules": [],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

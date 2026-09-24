@@ -1,0 +1,51 @@
+{
+  "slug": "landing_saas_pack",
+  "name": "LANDING SAAS",
+  "description": "Pack PRD V2 Souverain pour LANDING SAAS. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "LANDING",
+  "archetype": "landing",
+  "designTokens": {
+    "primary": "#7C3AED",
+    "accent": "#EC4899",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Landing SaaS ultra épurée pour early B2B.",
+    "Landing SaaS orientée grands comptes/enterprise.",
+    "Landing SaaS pour un vertical (santé, éducation, finance).",
+    "Landing centrée sur un “product tour” guidé.",
+    "Page “Sécurité” dédiée (SOC2, RGPD, pratiques).",
+    "Page Pricing complète avec FAQ et modales.",
+    "Page “Customer Stories” / études de cas.",
+    "Page listant toutes les intégrations.",
+    "Landing pour l’API (dev-first).",
+    "Landing “Partenaires / Resellers”."
+  ],
+  "modules": [
+    "prd_landing_saas_early",
+    "prd_landing_saas_enterprise",
+    "prd_landing_saas_vertical",
+    "prd_landing_saas_product_tour",
+    "prd_landing_saas_security",
+    "prd_landing_saas_pricing",
+    "prd_landing_saas_customers",
+    "prd_landing_saas_integrations",
+    "prd_landing_saas_api",
+    "prd_landing_saas_partners"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

@@ -1,0 +1,9 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MoA Preset Default",
+  "description": "Preset par défaut pour HermesMoA — 3 agents, stratégie best_score, budget 0.05$",
+  "numAgents": 3,
+  "aggregationStrategy": "best_score",
+  "maxBudgetUsd": 0.05,
+  "timeoutMs": 20000
+}

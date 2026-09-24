@@ -1,0 +1,51 @@
+{
+  "slug": "local_maps_pack",
+  "name": "🌍 PACK LOCAL & MAPS",
+  "description": "Pack PRD V2 Souverain pour 🌍 PACK LOCAL & MAPS. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Écran map explorateur (scroll + map).",
+    "Sélecteur de localisation.",
+    "Preview d’itinéraire (voiture, marche).",
+    "Découverte \"à proximité\".",
+    "Gestion zones géo (geofences).",
+    "Check-in/out géolocalisé.",
+    "Localisateur de magasins mobile.",
+    "Suivi course (type VTC).",
+    "Overlay météo contextuelle.",
+    "UI permission emplacement."
+  ],
+  "modules": [
+    "prd_map_explorer",
+    "prd_map_location_picker",
+    "prd_map_route_preview",
+    "prd_map_nearby",
+    "prd_map_geofences",
+    "prd_map_checkin",
+    "prd_map_store_locator",
+    "prd_map_live_tracking",
+    "prd_map_weather_overlay",
+    "prd_map_permissions"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

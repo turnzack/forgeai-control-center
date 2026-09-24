@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>KIROV5 Orchestrator - Pont DeepSeek</title>
+  <link rel="stylesheet" href="popup.css" />
+</head>
+<body class="cyber-body">
+  <div class="app-glass">
+    <!-- ═══ HEADER (Cockpit Status) ═══ -->
+    <header class="header">
+      <div class="logo" style="flex: 1; max-width: 250px;">
+        <div id="tigerBanner" style="
+          font-family: 'Segoe UI', system-ui, sans-serif;
+          font-size: 18px;
+          font-weight: 900;
+          letter-spacing: 2px;
+          background: linear-gradient(90deg, #00e6ff 0%, #00e676 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          filter: drop-shadow(0 0 6px rgba(0, 230, 118, 0.5));
+          line-height: 1.1;
+        ">🐯 TIGER IA<div style="font-size:9px; letter-spacing:1px; opacity:0.7; -webkit-text-fill-color:#00e676;">SOVEREIGN BRIDGE v5.2.7</div></div>
+      </div>
+      
+      <!-- Leds de statut global -->
+      <div class="system-status">
+        <div class="led-indicator" title="Bridge Electron">
+          <span class="led" id="led-electron"></span> Electron
+        </div>
+        <div class="led-indicator" title="Interface Vercel">
+          <span class="led led-green" id="led-vercel"></span> Vercel
+        </div>
+        <div class="led-indicator" title="Cible LLM (DeepSeek)">
+          <span class="led led-green" id="led-llm"></span> DeepSeek
+        </div>
+      </div>
+    </header>
+
+    <!-- ═══ NAVIGATION ═══ -->
+    <nav class="nav-cyber" id="navTabs">
+      <button type="button" class="nav-tab active" data-tab="dashboard">🎯 Pipeline</button>
+      <button type="button" class="nav-tab" data-tab="override">💉 Override</button>
+      <button type="button" class="nav-tab" data-tab="mouchard">👁️ Mouchard</button>
+      <button type="button" class="nav-tab" data-tab="settings">⚙️ Connexion</button>
+      <button type="button" class="nav-tab" data-tab="github-sources">🧩 Sources</button>
+    </nav>
+
+    <main class="main-content">
+      
+      <!-- ═══ TAB 1 : DASHBOARD (Les 11 Phases) ═══ -->
+      <div id="tab-dashboard" class="tab-panel active">
+        <div class="mission-header">
+          <h2 class="mission-title">MISSION ACTIVE</h2>
+          <span class="mission-id" id="currentMissionId">— En attente de Vercel —</span>
+        </div>
+        
+        <div class="action-grid" style="margin-bottom: 10px;">
+          <button id="btnCaptureQuick" class="btn-cyber btn-violet" style="width: 100%; background: #10a37f; border-color: #10a37f; color: white;">📦 Auto-Capture ON (Forcer si blocage)</button>
+        </div>
+
+        <div class="progress-track">
+          <div class="progress-fill glow-cyan" id="missionProgress" style="width: 0%;"></div>
+        </div>
+
+        <!-- L'arbre des 11 phases (Skill Tree) -->
+        <div class="phases-grid">
+          <div class="phase-node" id="phase-0"><div class="node-circle">0</div><span class="node-label">Enrichment</span></div>
+          <div class="phase-node" id="phase-1"><div class="node-circle">1</div><span class="node-label">Intent</span></div>
+          <div class="phase-node" id="phase-2"><div class="node-circle">2</div><span class="node-label">WBS</span></div>
+          <div class="phase-node" id="phase-3"><div class="node-circle">3</div><span class="node-label">Architecture</span></div>
+          <div class="phase-node" id="phase-4"><div class="node-circle">4</div><span class="node-label">Design</span></div>
+          <div class="phase-node" id="phase-5"><div class="node-circle">5</div><span class="node-label">Génération</span></div>
+          <div class="phase-node" id="phase-6"><div class="node-circle">6</div><span class="node-label">Testing</span></div>
+          <div class="phase-node" id="phase-7"><div class="node-circle">7</div><span class="node-label">Déverrouillage</span></div>
+          <div class="phase-node" id="phase-8"><div class="node-circle">8</div><span class="node-label">Transition</span></div>
+          <div class="phase-node" id="phase-9"><div class="node-circle">9</div><span class="node-label">Mission</span></div>
+          <div class="phase-node" id="phase-10"><div class="node-circle">10</div><span class="node-label">Évolution</span></div>
+        </div>
+
+        <!-- Console de logs en temps réel -->
+        <div class="terminal-box">
+          <div class="terminal-header">Terminal de suivi</div>
+          <div class="terminal-content" id="missionTerminal">
+            <span class="log-info">> Système Kirov5 initialisé.</span>
+            <span class="log-info">> En écoute des signaux Vercel...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ TAB 2 : OVERRIDE (Mode Manuel) ═══ -->
+      <div id="tab-override" class="tab-panel hidden">
+        <h2 class="panel-title">Mode Manuel (Override)</h2>
+        <p class="panel-desc">Prenez le contrôle manuel si l'automatisation s'enraye.</p>
+        
+        <div class="form-group">
+          <label class="cyber-label">Injection de prompt de secours</label>
+          <textarea id="injectPrompt" class="cyber-textarea" rows="4" placeholder="Entrez le prompt à forcer dans DeepSeek..."></textarea>
+        </div>
+        
+        <div class="action-grid">
+          <button id="btnInject" class="btn-cyber btn-cyan">💉 Forcer Injection</button>
+          <button id="btnCapture" class="btn-cyber btn-violet">📦 Forcer Capture</button>
+        </div>
+
+        <div class="terminal-box mt-3">
+          <div class="terminal-header">Log Override</div>
+          <div class="terminal-content" id="overrideTerminal"></div>
+        </div>
+      </div>
+
+      <!-- ═══ TAB 3 : MOUCHARD (Log Stream) ═══ -->
+      <div id="tab-mouchard" class="tab-panel hidden">
+        <h2 class="panel-title">Mouchard Système</h2>
+        <p class="panel-desc">Surveillance en temps réel du flux de données.</p>
+        
+        <div class="terminal-box" style="height: 300px; display: flex; flex-direction: column;">
+          <div class="terminal-header" style="display: flex; justify-content: space-between; align-items: center;">
+            <span>LOG_STREAM</span>
+            <button id="clearLog" class="btn-cyber btn-sm" style="padding: 2px 8px; font-size: 10px; color: var(--red); border-color: var(--red);">[WIPE]</button>
+          </div>
+          <div class="terminal-content" id="logContainer" style="flex: 1; height: auto;">
+            <!-- Les logs s'afficheront ici -->
+          </div>
+        </div>
+      </div>
+
+      <!-- ═══ TAB 4 : SETTINGS (Connexion & Configuration) ═══ -->
+      <div id="tab-settings" class="tab-panel hidden">
+        <h2 class="panel-title">Configuration LLM & Bridge</h2>
+        
+        <div class="settings-card">
+          <h3 class="card-subtitle">Mode d'exécution</h3>
+          <div class="form-group">
+            <div class="mode-grid" id="execModeGrid">
+              <button type="button" class="mode-card active" data-mode="web">
+                <span class="mode-icon">💬</span>
+                <span class="mode-name">Chat Web</span>
+              </button>
+              <button type="button" class="mode-card" data-mode="api">
+                <span class="mode-icon">🔑</span>
+                <span class="mode-name">API Directe</span>
+              </button>
+              <button type="button" class="mode-card" data-mode="hybrid">
+                <span class="mode-icon">🔀</span>
+                <span class="mode-name">Hybride</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="form-group" id="webAiGroup">
+            <div style="margin-bottom: 15px;">
+              <label class="cyber-label">🧠 Cerveau Logique (Backend)</label>
+              <div class="input-row">
+                <select id="webAiSelect" class="cyber-input">
+                  <option value="deepseek">🐋 DeepSeek Web</option>
+                  <option value="gemini">✨ Gemini Web</option>
+                  <option value="chatgpt">🟢 ChatGPT Web</option>
+                  <option value="kimi">🌙 Kimi Web</option>
+                  <option value="qwen">🌐 Qwen Web</option>
+                  <option value="perplexity">🔍 Perplexity</option>
+                  <option value="claude">🟣 Claude Web</option>
+                </select>
+                <button id="openWebAiBtn" class="btn-cyber btn-sm">▶</button>
+              </div>
+            </div>
+
+            <div>
+              <label class="cyber-label">🎨 Cerveau UI/UX (Frontend)</label>
+              <div class="input-row">
+                <select id="uiAiSelect" class="cyber-input">
+                  <option value="stitch">🧵 Stitch Google</option>
+                  <option value="v0">▲ v0 by Vercel</option>
+                  <option value="custom">⚙️ Autre / Custom</option>
+                </select>
+                <button id="openUiAiBtn" class="btn-cyber btn-sm">▶</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group" id="apiProviderGroup">
+            <label class="cyber-label">Fournisseur API</label>
+            <select id="providerSelect" class="cyber-input">
+              <option value="deepseek">DeepSeek</option>
+              <option value="openai">OpenAI (GPT)</option>
+              <option value="claude">Claude (Anthropic)</option>
+              <option value="gemini">Gemini (Google)</option>
+              <option value="mistral">Mistral AI</option>
+              <option value="gemma">Gemma 2 (Local Ollama)</option>
+            </select>
+          </div>
+
+          <div class="form-group" id="apiKeyGroup">
+            <label id="apiKeyLabel" class="cyber-label">Clé API DeepSeek</label>
+            <div class="input-row">
+              <input type="password" id="apiKeyInput" placeholder="sk-..." class="cyber-input" />
+              <button id="toggleKeyBtn" class="btn-cyber btn-sm">👁</button>
+            </div>
+            <div class="input-row mt-2">
+              <button id="saveApiKey" class="btn-cyber btn-cyan">💾 SAUVEGARDER_CONFIG</button>
+            </div>
+            <p id="apiKeyHint" class="log-info" style="font-size:9px; margin-top:5px;">Clé stockée localement.</p>
+            <div id="saveFeedback" class="log-success hidden">✓ Clé enregistrée</div>
+          </div>
+
+          <div class="form-group" id="modelGroup">
+            <label class="cyber-label">Modèle détecté</label>
+            <div class="input-row">
+              <select id="modelSelect" class="cyber-input" disabled>
+                <option value="">Enregistrer la clé pour détecter</option>
+              </select>
+              <button id="refreshModels" class="btn-cyber btn-sm" disabled>🔄 AUTO_DETECT</button>
+            </div>
+            <p id="modelHint" class="log-info" style="font-size:9px; margin-top:5px;">Auto-détecté à l'enregistrement.</p>
+          </div>
+        </div>
+
+        <div class="settings-card mt-2">
+          <h3 class="card-subtitle">🔗 Bridge (:5006 / Vercel)</h3>
+          <div class="form-group">
+            <label class="cyber-label" style="display:flex; align-items:center; gap:8px;">
+              <input type="checkbox" id="bridgeEnabled" checked /> Bridge polling actif
+            </label>
+          </div>
+          <div class="form-group">
+            <label class="cyber-label">URL Bridge local</label>
+            <input type="text" id="bridgeUrl" class="cyber-input" value="http://127.0.0.1:5006" />
+          </div>
+          <div class="form-group">
+            <label class="cyber-label">URL Vercel</label>
+            <input type="text" id="bridgeVercel" class="cyber-input" value="http://localhost:3006" />
+            <!-- Map bridgeVercel input to original vercelUrl ID expected by JS if needed -->
+          </div>
+          <div class="action-grid mt-2">
+            <button id="testBridgeBtn" class="btn-cyber">🔗 Tester</button>
+            <button id="saveBridgeBtn" class="btn-cyber btn-violet">💾 SAUVEGARDER_CONFIG</button>
+          </div>
+          <div id="bridgeTestResult" class="log-info mt-2"></div>
+        </div>
+      </div>
+
+      <!-- ═══ TAB : SOURCES GITHUB ═══ -->
+      <div id="tab-github-sources" class="tab-panel hidden">
+        <div class="github-source-header">
+          <div>
+            <h2 class="panel-title">Sources GitHub</h2>
+            <p class="panel-desc">Recherchez et classez les dépôts utiles à ForgeAI Studio.</p>
+          </div>
+          <span id="githubSearchStatus" class="status-pill idle">PRÊT</span>
+        </div>
+        <div class="settings-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+            <h3 class="card-subtitle" style="margin:0;">Projet à analyser</h3>
+            <button id="syncBridgeIntentBtn" class="btn-cyber btn-sm" type="button" style="font-size:10px; padding:3px 8px; border-color:rgba(16,185,129,0.5); color:#6ee7b7; cursor:pointer;" title="Synchroniser immédiatement avec le Pack sélectionné dans ForgeAI Studio">⚡ Synchro Studio</button>
+          </div>
+          <div class="form-group">
+            <label class="cyber-label" for="githubProjectIdea">Description du projet</label>
+            <textarea id="githubProjectIdea" class="cyber-textarea" rows="4" placeholder="Décrivez votre idée de projet..."></textarea>
+          </div>
+          <div class="form-group">
+            <label class="cyber-label" for="githubSearchQuery">Requête GitHub (optionnel)</label>
+            <input id="githubSearchQuery" class="cyber-input" placeholder="Optionnel — laissez vide pour analyse automatique du projet" value="" />
+          </div>
+          <div class="filter-grid">
+            <div class="form-group">
+              <label class="cyber-label" for="githubLanguage">Langage principal</label>
+              <select id="githubLanguage" class="cyber-input"><option value="">Tous</option><option value="TypeScript">TypeScript</option><option value="JavaScript">JavaScript</option><option value="Python">Python</option><option value="Rust">Rust</option><option value="C++">C++</option></select>
+            </div>
+            <div class="form-group">
+              <label class="cyber-label" for="githubMinStars">Étoiles minimum</label>
+              <input id="githubMinStars" class="cyber-input" type="number" min="0" value="50" />
+            </div>
+          </div>
+          <div class="filter-grid">
+            <div class="form-group">
+              <label class="cyber-label" for="githubFreshness">Activité</label>
+              <select id="githubFreshness" class="cyber-input"><option value="all">Toute activité</option><option value="365">Moins d’un an</option><option value="1095" selected>Moins de trois ans</option></select>
+            </div>
+            <div class="form-group">
+              <label class="cyber-label" for="githubPolicy">Politique licence</label>
+              <select id="githubPolicy" class="cyber-input"><option value="commercial-permissive">Commercial permissive</option><option value="open-source">Open source</option><option value="internal-only">Usage interne</option><option value="analysis-only">Analyse uniquement</option></select>
+            </div>
+          </div>
+          <div class="license-filter-box">
+            <span class="cyber-label">Licences acceptées</span>
+            <label class="check-chip"><input type="checkbox" name="githubLicense" value="MIT" checked /> MIT</label>
+            <label class="check-chip"><input type="checkbox" name="githubLicense" value="Apache-2.0" checked /> Apache-2.0</label>
+            <label class="check-chip"><input type="checkbox" name="githubLicense" value="BSD-3-Clause" checked /> BSD-3</label>
+            <label class="check-chip"><input type="checkbox" name="githubLicense" value="ISC" checked /> ISC</label>
+          </div>
+          <div class="action-grid mt-2"><button id="searchGithubSourcesBtn" class="btn-cyber btn-cyan">🔎 RECHERCHER</button><button id="clearGithubSourcesBtn" class="btn-cyber">↺ RÉINITIALISER</button></div>
+        </div>
+        <div id="githubSummary" class="github-summary hidden"></div>
+        <div class="github-results-toolbar"><label class="cyber-label" for="githubSort">Trier</label><select id="githubSort" class="cyber-input"><option value="score">Pertinence</option><option value="stars">Étoiles</option><option value="updated">Activité récente</option><option value="license">Licence</option></select><button id="selectAllGithubBtn" class="btn-cyber btn-sm">Tout sélectionner</button></div>
+        <div id="githubResults" class="github-results"><div class="empty-state">Lancez une recherche pour afficher les dépôts.</div></div>
+        <div class="settings-card mt-2">
+          <h3 class="card-subtitle">Mode de création du projet final</h3>
+          <div class="form-group">
+            <label class="cyber-label" for="githubAutomationMode">Choisissez une automatisation</label>
+            <select id="githubAutomationMode" class="cyber-input">
+              <option value="approval-gate">A — Automatique jusqu’à la validation avant le code</option>
+              <option value="full-auto">B — Tout automatiser jusqu’à l’export final</option>
+            </select>
+            <p class="panel-desc">A prépare automatiquement les sources, le projet, le PRD, l’architecture et les tâches, puis attend votre validation. B lance aussi automatiquement la génération du code et l’export final.</p>
+          </div>
+        </div>
+        <div class="github-selection-footer"><span id="githubSelectedCount">0 dépôt sélectionné</span><button id="downloadGithubSourcesBtn" class="btn-cyber btn-cyan" disabled>⬇️ TÉLÉCHARGER LES SOURCES</button><button id="useGithubSourcesBtn" class="btn-cyber btn-violet" disabled>✅ UTILISER</button></div>
+        <p class="panel-desc">Le téléchargement enregistre des archives ZIP dans le <strong>dossier projet du bridge local</strong> (<code>&lt;projet&gt;/github-sources/&lt;owner&gt;__&lt;repo&gt;.zip</code>) avec leur hash SHA-256. Fallback : <code>Downloads/&lt;projet&gt;/github-sources/</code> si le bridge est hors ligne.</p>
+        <div id="githubApprovalPanel" class="settings-card mt-2 hidden">
+          <h3 class="card-subtitle">Validation avant génération du code</h3>
+          <p id="githubApprovalText" class="panel-desc">Les spécifications, l'architecture et les tâches sont en cours de préparation.</p>
+          <button id="approveSourceCodegenBtn" class="btn-cyber btn-cyan hidden">VALIDER &amp; GÉNÉRER L'APPLICATION</button>
+        </div>
+
+        <!-- ═══ PANNEAU PÉPITES DÉTECTÉES ═══ -->
+        <div id="gemsPanel" class="settings-card mt-2 hidden">
+          <div class="gems-header">
+            <div>
+              <h3 class="card-subtitle">🔬 Pépites détectées</h3>
+              <p class="panel-desc">Sélectionnez les composants à réutiliser dans votre projet.</p>
+            </div>
+            <span id="gemsStatus" class="status-pill idle">EN ATTENTE</span>
+          </div>
+
+          <!-- Compteurs rapides -->
+          <div id="gemsSummary" class="gems-summary hidden">
+            <div class="gems-stat gems-stat-ok"><span id="gemsCountExtractable">0</span><small>extractables</small></div>
+            <div class="gems-stat gems-stat-warn"><span id="gemsCountInspiration">0</span><small>inspiration</small></div>
+            <div class="gems-stat gems-stat-err"><span id="gemsCountBlocked">0</span><small>bloqués</small></div>
+            <div class="gems-stat gems-stat-info"><span id="gemsCountTotal">0</span><small>total</small></div>
+          </div>
+
+          <!-- Seuil score Mode B -->
+          <div class="form-group" id="modeBThresholdGroup" style="display:none">
+            <label class="cyber-label" for="modeBScoreThreshold">Seuil d’extraction automatique (Mode B)</label>
+            <div class="input-row">
+              <input id="modeBScoreThreshold" class="cyber-input" type="number" min="50" max="100" value="80" style="max-width:80px" />
+              <span class="panel-desc" style="margin:0">/100 — composants au-dessus du seuil seront intégrés automatiquement</span>
+            </div>
+          </div>
+
+          <!-- Liste des pépites -->
+          <div id="gemsList" class="gems-list"></div>
+        </div>
+
+        <!-- ═══ PANNEAU MONTAGE ═══ -->
+        <div id="mountPanel" class="settings-card mt-2 hidden">
+          <h3 class="card-subtitle">📦 Montage du projet final</h3>
+          <p class="panel-desc">Les composants sélectionnés seront copiés dans <code>src/integrations/github-adapted/</code> avec leur fiche de provenance.</p>
+          <div class="action-grid mt-2">
+            <button id="mountProjectBtn" class="btn-cyber btn-violet" disabled>🚀 MONTER LE PROJET</button>
+          </div>
+          <div id="reuseLog" class="log-container mt-2" style="max-height:120px"></div>
+        </div>
+
+        <!-- ═══ RAPPORT DE PROVENANCE ═══ -->
+        <div id="provenancePanel" class="settings-card mt-2 hidden">
+          <h3 class="card-subtitle">📊 Rapport de provenance</h3>
+          <div class="provenance-stats">
+            <div class="provenance-stat"><span id="provComponentsCount">0</span><small>composants intégrés</small></div>
+            <div class="provenance-stat"><span id="provFilesCount">0</span><small>fichiers écrits</small></div>
+          </div>
+          <div class="action-grid mt-2">
+            <button id="viewProvenanceBtn" class="btn-cyber btn-sm">📄 Voir PROVENANCE_REPORT.md</button>
+            <button id="viewThirdPartyBtn" class="btn-cyber btn-sm">📄 Voir THIRD_PARTY_NOTICES.md</button>
+          </div>
+          <div id="provenanceContent" class="artifact-preview hidden mt-2">
+            <pre id="provenanceText" class="artifact-content"></pre>
+          </div>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
+
+  <script src="tabs.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

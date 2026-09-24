@@ -1,0 +1,37 @@
+{
+  "slug": "composant_pack",
+  "name": "🧱 PACK COMPOSANT",
+  "description": "Pack PRD V2 Souverain pour 🧱 PACK COMPOSANT. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UI_KIT",
+  "archetype": "ui_kit",
+  "designTokens": {
+    "primary": "#EC4899",
+    "accent": "#8B5CF6",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Tous les styles de boutons interactifs.",
+    "Fenêtres pop-up (Alertes, Confirmations, Formulaires).",
+    "Notifications non-bloquantes (Succès, Erreur)."
+  ],
+  "modules": [
+    "prd_comp_buttons",
+    "prd_comp_modals",
+    "prd_comp_toasts"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

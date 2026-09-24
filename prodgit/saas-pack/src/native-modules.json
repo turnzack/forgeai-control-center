@@ -1,0 +1,53 @@
+{
+  "projectName": "saas-pack",
+  "packSlug": "ecommerce_pack",
+  "packName": "🛒 PACK E-COMMERCE",
+  "archetype": "saas",
+  "generationMode": "sovereign",
+  "externalSources": [],
+  "nativeModules": [
+    {
+      "name": "SaasDashboard",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    },
+    {
+      "name": "BillingPanel",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    },
+    {
+      "name": "TeamMembersPanel",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    },
+    {
+      "name": "InvoiceTable",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    },
+    {
+      "name": "UsageMetrics",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    },
+    {
+      "name": "SubscriptionService",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    }
+  ],
+  "generatedAt": "2026-09-24T01:35:31.327Z"
+}

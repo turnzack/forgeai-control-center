@@ -1,0 +1,9 @@
+# Provenance : api-key.middleware.ts
+
+- **Dépôt d'origine :** https://github.com/thequantcoder/VOCAL-IQ
+- **Chemin source :** `VOCAL-IQ-main/apps/api/src/api-keys/api-key.middleware.ts`
+- **Licence :** MIT
+- **Rôle métier :** Module utilitaire
+- **Date de montage :** 23/09/2026 15:12:24
+
+Ce fichier a été audité et adapté automatiquement pour s'intégrer au projet **ai-voice-agent**.

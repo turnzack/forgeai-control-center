@@ -1,0 +1,51 @@
+{
+  "slug": "ecommerce_pack",
+  "name": "🛒 PACK E-COMMERCE",
+  "description": "Pack PRD V2 Souverain pour 🛒 PACK E-COMMERCE. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "ECOMMERCE",
+  "archetype": "ecommerce",
+  "designTokens": {
+    "primary": "#10B981",
+    "accent": "#06B6D4",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Product",
+  "features": [
+    "Page d'accueil généraliste pour une boutique en ligne.",
+    "Page \"Qui sommes-nous\" ou \"Notre Histoire\" pour créer du lien.",
+    "Landing page saisonnière (Noël, St Valentin) pour guider les achats.",
+    "Page dédiée au lancement d'une ligne de produits ou d'une collection estivale.",
+    "Landing agressive pour des promotions massives.",
+    "Page spéciale pour une collaboration (ex: Nike x Off-White).",
+    "Page \"Engagements\" ou \"Développement Durable\".",
+    "Landing pour encourager l'inscription au club VIP.",
+    "Lancement d'un produit pas encore disponible.",
+    "Affichage des lancements limités façon Sneaker Release."
+  ],
+  "modules": [
+    "tmpl_shop_home_modern",
+    "tmpl_shop_brand_story",
+    "tmpl_shop_gift_guide",
+    "tmpl_shop_collection_landing",
+    "tmpl_shop_sale_event",
+    "tmpl_shop_brand_collab",
+    "tmpl_shop_sustainability",
+    "tmpl_shop_loyalty_program",
+    "tmpl_shop_preorder_page",
+    "tmpl_shop_drops_page"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

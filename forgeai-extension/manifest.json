@@ -1,0 +1,104 @@
+{
+  "manifest_version": 3,
+  "name": "ForgeAI Studio Builder",
+  "version": "5.4.2",
+  "description": "Pipeline multi-LLM avec provenance GitHub, filtrage de licences, validation avant code et audit des dépendances.",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting",
+    "tabs",
+    "alarms",
+    "downloads"
+  ],
+  "host_permissions": [
+    "*://*.deepseek.com/*",
+    "*://chat.deepseek.com/*",
+    "*://chatgpt.com/*",
+    "*://*.openai.com/*",
+    "*://gemini.google.com/*",
+    "*://*.kimi.com/*",
+    "*://kimi.ai/*",
+    "*://*.kimi.ai/*",
+    "*://*.moonshot.cn/*",
+    "*://kimi.moonshot.cn/*",
+    "*://*.perplexity.ai/*",
+    "*://perplexity.ai/*",
+    "*://claude.ai/*",
+    "*://*.claude.ai/*",
+    "*://*.qwen.ai/*",
+    "*://chat.qwen.ai/*",
+    "*://mistral.ai/*",
+    "*://*.mistral.ai/*",
+    "https://api.deepseek.com/*",
+    "https://api.openai.com/*",
+    "https://api.anthropic.com/*",
+    "https://generativelanguage.googleapis.com/*",
+    "https://api.mistral.ai/*",
+    "http://localhost:11434/*",
+    "http://127.0.0.1:11434/*",
+    "http://127.0.0.1:5006/*",
+    "http://localhost:5006/*",
+    "https://api.github.com/*",
+    "https://github.com/*",
+    "https://codeload.github.com/*",
+    "http://localhost:3006/*",
+    "*://stitch.withgoogle.com/*",
+    "*://*.appspot.com/*",
+    "*://www.youtube.com/*",
+    "*://youtube.com/*",
+    "*://youtu.be/*",
+    "*://notebooklm.google.com/*",
+    "*://notebook.google.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "v0-tiger",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.deepseek.com/*",
+        "*://chat.deepseek.com/*",
+        "*://chatgpt.com/*",
+        "*://gemini.google.com/*",
+        "*://*.kimi.com/*",
+        "*://kimi.ai/*",
+        "*://*.kimi.ai/*",
+        "*://*.moonshot.cn/*",
+        "*://kimi.moonshot.cn/*",
+        "*://*.perplexity.ai/*",
+        "*://perplexity.ai/*",
+        "*://claude.ai/*",
+        "*://*.claude.ai/*",
+        "*://*.qwen.ai/*",
+        "*://chat.qwen.ai/*",
+        "*://stitch.withgoogle.com/*",
+        "*://*.appspot.com/*",
+        "*://notebooklm.google.com/*",
+        "*://notebook.google.com/*",
+        "http://localhost/*",
+        "http://127.0.0.1/*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_end",
+      "all_frames": true
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}

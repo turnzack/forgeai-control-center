@@ -1,0 +1,51 @@
+{
+  "slug": "mobile_web_pack",
+  "name": "📱 PACK MOBILE WEB",
+  "description": "Pack PRD V2 Souverain pour 📱 PACK MOBILE WEB. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Landing mobile-first pour une app.",
+    "Onboarding mobile avec écrans swipables.",
+    "Shell mobile avec bottom nav.",
+    "Ecran login fullscreen mobile.",
+    "Vue stories type Instagram.",
+    "Ecran chat style messagerie.",
+    "Feed infini mobile (scroll).",
+    "Page profil mobile compacte.",
+    "Stack de pages settings mobile.",
+    "Écran paywall abonnement."
+  ],
+  "modules": [
+    "prd_mweb_landing",
+    "prd_mweb_onboarding",
+    "prd_mweb_shell",
+    "prd_mweb_login",
+    "prd_mweb_stories",
+    "prd_mweb_chat",
+    "prd_mweb_feed",
+    "prd_mweb_profile",
+    "prd_mweb_settings",
+    "prd_mweb_paywall"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

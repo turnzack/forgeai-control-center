@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AIOS Stealth Bridge</title>
+    <style>
+      :root {
+        --bg: #f7f8fa;
+        --panel: #ffffff;
+        --border: #e3e6ea;
+        --text: #1b1f23;
+        --muted: #6a737d;
+        --accent: #2563eb;
+        --accent-hover: #1d4ed8;
+        --ok: #15803d;
+        --warn: #b45309;
+        --err: #b91c1c;
+        --code-bg: #0f172a;
+        --code-text: #e2e8f0;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        width: 400px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        font-size: 13px;
+      }
+
+      header {
+        background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+        color: #fff;
+        padding: 12px 14px;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      header .logo {
+        width: 22px;
+        height: 22px;
+        border-radius: 5px;
+        background: rgba(255, 255, 255, 0.18);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 12px;
+      }
+
+      header h1 {
+        margin: 0;
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.2px;
+      }
+
+      header .ver {
+        margin-left: auto;
+        font-size: 11px;
+        opacity: 0.85;
+      }
+
+      main {
+        padding: 12px 14px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      label {
+        display: block;
+        font-size: 11px;
+        font-weight: 600;
+        color: var(--muted);
+        text-transform: uppercase;
+        letter-spacing: 0.4px;
+        margin-bottom: 4px;
+      }
+
+      select,
+      textarea {
+        width: 100%;
+        font-family: inherit;
+        font-size: 13px;
+        color: var(--text);
+        background: var(--panel);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 8px 10px;
+        outline: none;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      select:focus,
+      textarea:focus {
+        border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+      }
+
+      textarea {
+        min-height: 110px;
+        resize: vertical;
+        line-height: 1.4;
+      }
+
+      .row {
+        display: flex;
+        gap: 8px;
+        align-items: stretch;
+      }
+
+      .row > :first-child {
+        flex: 1;
+      }
+
+      button#inject {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 6px;
+        padding: 0 18px;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.15s ease, transform 0.05s ease;
+        white-space: nowrap;
+      }
+
+      button#inject:hover {
+        background: var(--accent-hover);
+      }
+
+      button#inject:active {
+        transform: translateY(1px);
+      }
+
+      button#inject:disabled {
+        background: #94a3b8;
+        cursor: not-allowed;
+      }
+
+      button#clear {
+        background: transparent;
+        color: var(--muted);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 6px 10px;
+        font-size: 11px;
+        cursor: pointer;
+      }
+
+      button#clear:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .log-head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      pre#status {
+        margin: 0;
+        background: var(--code-bg);
+        color: var(--code-text);
+        font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo,
+          monospace;
+        font-size: 11px;
+        line-height: 1.45;
+        padding: 10px 12px;
+        border-radius: 6px;
+        max-height: 140px;
+        min-height: 70px;
+        overflow: auto;
+        white-space: pre-wrap;
+        word-break: break-word;
+      }
+
+      pre#status .ok {
+        color: #4ade80;
+      }
+      pre#status .warn {
+        color: #fbbf24;
+      }
+      pre#status .err {
+        color: #f87171;
+      }
+      pre#status .ts {
+        color: #64748b;
+      }
+
+      footer {
+        padding: 8px 14px 10px;
+        font-size: 10px;
+        color: var(--muted);
+        border-top: 1px solid var(--border);
+        background: var(--panel);
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span class="logo">A</span>
+      <h1>AIOS Stealth Bridge</h1>
+      <span class="ver">v1.1.2</span>
+    </header>
+
+    <main>
+      <div>
+        <label for="target">IA cible</label>
+        <select id="target">
+          <option value="stitch">Stitch (stitch.withgoogle.com)</option>
+          <option value="deepseek">DeepSeek Chat (chat.deepseek.com)</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="prompt">Prompt à injecter</label>
+        <textarea
+          id="prompt"
+          placeholder="Colle ici le prompt généré par Hermes..."
+        ></textarea>
+      </div>
+
+      <div class="row">
+        <button id="inject" type="button">Injecter</button>
+        <button id="clear" type="button" title="Vider le journal">Vider log</button>
+      </div>
+
+      <div>
+        <div class="log-head">
+          <label>Journal d'exécution</label>
+        </div>
+        <pre id="status"><span class="ts">[prêt]</span> En attente d'une injection...</pre>
+      </div>
+    </main>
+
+    <footer>
+      Pont furtif AIOS → IA. Ne communique qu'avec localhost:3000/81 et les
+      deux hôtes IA autorisés.
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

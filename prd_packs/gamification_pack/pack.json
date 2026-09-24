@@ -1,0 +1,51 @@
+{
+  "slug": "gamification_pack",
+  "name": "🎮 PACK GAMIFICATION",
+  "description": "Pack PRD V2 Souverain pour 🎮 PACK GAMIFICATION. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "XP, niveaux et progression.",
+    "Badges, succès, collections.",
+    "Streak journaliers/hebdo.",
+    "Classement (amis, global).",
+    "Système de missions/quests.",
+    "Roue des récompenses (spin).",
+    "Checklists gamifiées avec points.",
+    "Minijeu simple (tap, swipe, avoid).",
+    "Événements limités dans le temps.",
+    "Avatar customisable (skin, accessoires)."
+  ],
+  "modules": [
+    "prd_gami_xp_levels",
+    "prd_gami_badges_achievements",
+    "prd_gami_streaks",
+    "prd_gami_leaderboard",
+    "prd_gami_quests",
+    "prd_gami_spin_wheel",
+    "prd_gami_checklist",
+    "prd_gami_minigame",
+    "prd_gami_limited_events",
+    "prd_gami_avatars"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

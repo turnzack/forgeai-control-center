@@ -1,0 +1,51 @@
+{
+  "slug": "video_pack",
+  "name": "🎬 PACK VIDÉO",
+  "description": "Pack PRD V2 Souverain pour 🎬 PACK VIDÉO. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Liste de vidéos avec miniatures.",
+    "Lecteur vidéo (chapters, vitesse, subtitles).",
+    "Upload + choix de profil transcodage.",
+    "Choisir miniature vidéo (auto + frames).",
+    "Gérer sous-titres (import/export .srt, edit).",
+    "Découper clips vidéo depuis un fichier.",
+    "Storyboard (séquence d’images clés).",
+    "Résumé IA du contenu d’une vidéo.",
+    "Commentaires liés à des timestamps.",
+    "Créer playlists et ordonner vidéos."
+  ],
+  "modules": [
+    "prd_video_gallery",
+    "prd_video_player",
+    "prd_video_upload",
+    "prd_video_thumbnails",
+    "prd_video_subtitles",
+    "prd_video_trimmer",
+    "prd_video_storyboard",
+    "prd_video_ai_summary",
+    "prd_video_timestamp_comments",
+    "prd_video_playlists"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

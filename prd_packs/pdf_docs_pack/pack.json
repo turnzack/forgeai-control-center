@@ -1,0 +1,51 @@
+{
+  "slug": "pdf_docs_pack",
+  "name": "📄 PACK PDF & DOCS",
+  "description": "Pack PRD V2 Souverain pour 📄 PACK PDF & DOCS. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Viewer PDF multipage (zoom, search).",
+    "Annoter PDF (highlights, notes).",
+    "Remplir formulaires PDF (AcroForm).",
+    "Scinder ou fusionner PDFs.",
+    "Exporter pages → images.",
+    "Résumé IA d’un PDF long.",
+    "Signer PDF (signature dessinée ou image).",
+    "Rendre des zones illisibles (redaction).",
+    "Comparer versions de docs (PDF→texte diff).",
+    "Gérer bookmarks PDF (chapitres)."
+  ],
+  "modules": [
+    "prd_pdf_viewer",
+    "prd_pdf_annotator",
+    "prd_pdf_forms",
+    "prd_pdf_split_merge",
+    "prd_pdf_export_img",
+    "prd_pdf_ai_summary",
+    "prd_pdf_signature",
+    "prd_pdf_redaction",
+    "prd_pdf_compare",
+    "prd_pdf_bookmarks"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

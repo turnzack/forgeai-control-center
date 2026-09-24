@@ -1,0 +1,91 @@
+ANALYSE DE L'AUDIT & FEUILLE DE ROUTE D'INDUSTRIALISATION FULLSTACK
+Cet audit pose un diagnostic clair et lucide : il établit la distinction exacte entre une maquette interactive frontend autonome et un socle SaaS Fullstack industrialisable pour la production.
+
+Voici comment nous intégrons l'intégralité de ces recommandations dans le moteur de génération de ForgeAI pour que les projets futurs puissent être générés selon les deux niveaux d'exigence : Mode Démo Immédiate et Mode Socle Production Fullstack.
+
+📊 Matrice d'Évolution : Du Prototype au Socle Industriel
+Domaine	État Actuel (Démo / Prototype)	Cible Industrialisée (Production Boilerplate)
+Architecture	Monolithique frontend (src/App.tsx)	Monorepo Modulaire (apps/web, apps/api, packages/contracts)
+Données & Persistance	localStorage direct dans SaasService	Pattern Repository & Adaptateurs (StorageAdapter ➔ ApiClient ➔ Postgres / SQLite)
+Modèle Métier	Types d'affichage basiques	Entités Stricte : User, Organization, Membership, Subscription, Invoice, AuditLog
+Sécurité & Multi-Tenancy	Données uniques partagées	Multi-Tenancy avec contexte organizationId et permissions RBAC serveur
+Facturation	Simulation locale instantanée	Synchronisation Webhooks Stripe vérifiés & idempotents
+TypeScript	strict: false	strict: true obligatoire, Zod runtime schemas
+Sources Externes	github-sources dans le repo	Archives exclues de la livraison, briques pures dans packages/ui
+Tests & CI/CD	tsc --noEmit uniquement	Tests Vitest/Playwright, GitHub Actions CI, ESLint, Prettier
+🏗️ Architecture Cible Recommandée pour les Projets Futurs
+saas-platform/
+├── apps/
+│   ├── web/                         # React 18 / Vite : UI, navigation & animations
+│   │   └── src/
+│   │       ├── app/                 # Providers, Theme, Shell applicatif
+│   │       ├── features/            # Feature-driven (billing, team, dashboard, usage)
+│   │       │   ├── billing/         # api.ts, contracts.ts, hooks.ts, components/
+│   │       │   ├── team/            # api.ts, contracts.ts, hooks.ts, components/
+│   │       │   └── dashboard/       # api.ts, contracts.ts, hooks.ts, components/
+│   │       ├── components/ui/       # Kit UI Shadcn-like (Button, Card, Input, Tabs)
+│   │       ├── animation/           # Shaders SVG, Particules, Cube 3D
+│   │       └── lib/                 # StorageAdapter (LocalStorage / ApiClient)
+│   │
+│   ├── api/                         # Serveur Fastify / Express TypeScript
+│   │   └── src/
+│   │       ├── modules/             # auth, organizations, subscriptions, webhooks
+│   │       ├── middleware/          # authContext, tenantContext, rateLimit
+│   │       └── db/                  # Prisma / Drizzle client
+│   │
+│   └── worker/                      # Tâches asynchrones (emails, webhooks, agrégations)
+│
+├── packages/
+│   ├── contracts/                   # Schémas Zod & Contrats d'API partagés (0 dépendance UI)
+│   ├── db/                          # Schémas de base de données & migrations
+│   └── auth/                        # Définition des rôles (Owner, Admin, Dev, Viewer) & RBAC
+│
+├── .github/workflows/ci.yml         # CI : Lint, TypeCheck, Smoke Tests, Build
+├── .env.example
+├── .gitignore
+├── package.json
+└── pnpm-workspace.yaml
+🚀 Plan d'Implémentation dans le Générateur ForgeAI
+Phase 0 — Garde-fous & Hygiène des Dépôts
+Exclusion de github-sources des livrables : Le dossier d'archives GitHub ne sera plus inclus dans le build final ni copié dans les projets autonomes.
+Fichiers de base automatiques : Injection systématique de .gitignore, .env.example, README.md opérationnel et workflow .github/workflows/ci.yml.
+Scripts de vérification : pnpm typecheck, pnpm lint, pnpm test:smoke.
+Phase 1 — Pattern Adaptateur & Découpage Frontend
+Isolation de la persistance : SaasService implémente une interface abstraite ISaasStorageAdapter.
+typescript
+export interface ISaasStorageAdapter {
+  getState(): Promise<SaasState>;
+  changePlan(planId: string, cycle: "monthly" | "yearly"): Promise<SaasState>;
+  inviteMember(name: string, email: string, role: string): Promise<SaasState>;
+}
+Le frontend bascule de LocalStorageAdapter vers HttpApiAdapter par une simple variable d'environnement (VITE_STORAGE_MODE=api|local).
+Découpage Feature-Driven : Réorganisation des dossiers en src/features/billing/, src/features/team/, src/features/dashboard/.
+Phase 2 — Modèle Métier & Contrats Partagés (packages/contracts)
+Définition des schémas d'entités avec validation d'entrée :
+
+typescript
+// packages/contracts/src/organization.ts
+export interface Organization {
+  id: string;
+  name: string;
+  slug: string;
+  planId: "starter" | "pro" | "enterprise";
+  mrr: number;
+  createdAt: string;
+}
+export interface UserMembership {
+  userId: string;
+  organizationId: string;
+  role: "owner" | "admin" | "developer" | "viewer";
+  permissions: string[];
+}
+Phase 3 — Backend API Léger Embarqué (Optionnel ou Standalone)
+Ajout d'un serveur API Node.js/TypeScript prêt à l'emploi (apps/api ou sous-dossier server/) avec base SQLite locale embarquée (Prisma/Drizzle) ne nécessitant aucune installation externe.
+Validation des requêtes et permissions serveur par rapport à l'organizationId.
+Phase 4 — Webhooks Stripe & Idempotence
+Récepteur de webhooks de facturation avec vérification de signature et traitement idempotent (invoice.payment_succeeded, customer.subscription.updated).
+🎛️ Les 2 Modes de Génération Proposés dans ForgeAI
+Désormais, lors de la création d'un projet dans le Control Center, vous disposerez de deux profils :
+
+mode: "sovereign-demo" (Actuel) : Application frontend React/Vite ultra-rapide, 100 % in-browser, persistance localStorage, kit UI et animations complètes (idéal pour tester immédiatement une idée sans configurer de base de données).
+mode: "fullstack-production" (Industrialisé) : Monorepo complet avec apps/web + apps/api + packages/contracts, serveur local SQLite/Prisma, authentification RBAC, adaptateurs interchangeables et pipeline CI/CD.

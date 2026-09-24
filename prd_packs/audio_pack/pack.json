@@ -1,0 +1,51 @@
+{
+  "slug": "audio_pack",
+  "name": "🎵 PACK AUDIO",
+  "description": "Pack PRD V2 Souverain pour 🎵 PACK AUDIO. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "AI_AGENT",
+  "archetype": "ai_agent",
+  "designTokens": {
+    "primary": "#D946EF",
+    "accent": "#8B5CF6",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Créer un gestionnaire de bibliothèque audio (pistes musicales, podcasts).",
+    "Lecteur audio avancé de type Apple Podcasts ou Spotify.",
+    "Outil de découpe et d'annotation de fichiers audio.",
+    "Enregistrement vocal via le microphone depuis le navigateur (MediaRecorder API).",
+    "Afficher et éditer du texte synchronisé avec l'audio (façon YouTube Transcript ou Descript).",
+    "Interface de traitement pour convertir un fichier audio en texte via l'intelligence artificielle (ex: Whisper).",
+    "Pack de sons interactif (Boîte à sons).",
+    "Modifier les tags des fichiers audio (Titre, Artiste, Album, Pochette).",
+    "Construire des listes de lecture multi-fichiers.",
+    "Partager un extrait précis d'un fichier audio (ex: de 1:20 à 1:45) et permettre aux utilisateurs de laisser des commentaires."
+  ],
+  "modules": [
+    "prd_audio_file_library",
+    "prd_audio_player_podcast",
+    "prd_audio_waveform_editor",
+    "prd_audio_recording_widget",
+    "prd_audio_transcript_viewer",
+    "prd_audio_ai_transcribe",
+    "prd_audio_soundboard_pack",
+    "prd_audio_metadata_editor",
+    "prd_audio_mix_playlist",
+    "prd_audio_commentable_snippets"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

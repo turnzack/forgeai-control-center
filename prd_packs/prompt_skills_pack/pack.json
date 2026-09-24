@@ -1,0 +1,51 @@
+{
+  "slug": "prompt_skills_pack",
+  "name": "🧠 PACK PROMPT & SKILLS",
+  "description": "Pack PRD V2 Souverain pour 🧠 PACK PROMPT & SKILLS. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "AI_AGENT",
+  "archetype": "ai_agent",
+  "designTokens": {
+    "primary": "#D946EF",
+    "accent": "#8B5CF6",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Bibliothèque de prompts (tags, versions).",
+    "Éditeur de prompts paramétrables.",
+    "Tester un prompt sur plusieurs inputs.",
+    "A/B test prompts sur mêmes cas.",
+    "Pack de templates prompts (code, UX, PRD).",
+    "Éditeur de manifest de skill (tools, schemas JSON).",
+    "Registre de skills/agents disponibles.",
+    "Tester un skill (input/output JSON) rapidement.",
+    "Visualiser dépendances entre skills/outils.",
+    "Stats usage prompts (succès, temps, coûts en Tokens)."
+  ],
+  "modules": [
+    "prd_prompt_library",
+    "prd_prompt_editor",
+    "prd_prompt_tester_multi",
+    "prd_prompt_ab_test",
+    "prd_prompt_templates",
+    "prd_prompt_skill_manifest",
+    "prd_prompt_agent_registry",
+    "prd_prompt_skill_tester",
+    "prd_prompt_dependency_graph",
+    "prd_prompt_analytics"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

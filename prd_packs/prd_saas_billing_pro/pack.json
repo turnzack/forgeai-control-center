@@ -1,0 +1,31 @@
+{
+  "slug": "prd_saas_billing_pro",
+  "name": "🧾 PACK SAAS BILLING PRO",
+  "description": "Pack PRD V2 Souverain pour 🧾 PACK SAAS BILLING PRO. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "SAAS",
+  "archetype": "saas",
+  "designTokens": {
+    "primary": "#0EA5E9",
+    "accent": "#6366F1",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Générer un portail client sécurisé pour la gestion des abonnements, des factures et des moyens de paiement."
+  ],
+  "modules": [],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

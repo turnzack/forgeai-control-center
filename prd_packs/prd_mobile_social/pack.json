@@ -1,0 +1,31 @@
+{
+  "slug": "prd_mobile_social",
+  "name": "📱 PACK MOBILE SOCIAL",
+  "description": "Pack PRD V2 Souverain pour 📱 PACK MOBILE SOCIAL. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "CHAT",
+  "archetype": "chat",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#0EA5E9",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Message",
+  "features": [
+    "Générer une application mobile avec un flux d'actualité continu et des interactions sociales instantanées."
+  ],
+  "modules": [],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

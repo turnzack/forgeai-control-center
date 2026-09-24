@@ -1,0 +1,51 @@
+{
+  "slug": "marketing_pack",
+  "name": "🎯 PACK MARKETING",
+  "description": "Pack PRD V2 Souverain pour 🎯 PACK MARKETING. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "LANDING",
+  "archetype": "landing",
+  "designTokens": {
+    "primary": "#7C3AED",
+    "accent": "#EC4899",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Page pour une campagne spécifique (promo, bundle).",
+    "Landing webinar (talk, date, speakers).",
+    "Page conférence/summit multi-tracks.",
+    "Landing pour lead magnet (ebook, template).",
+    "Landing avec quiz pour qualifier leads.",
+    "Waitlist VIP / accès limité.",
+    "Page programme de parrainage.",
+    "Landing pour lancement ebook / guide.",
+    "Page sponsoring pour un produit ou event.",
+    "Page d'upsell après achat (One-Click Upsell)."
+  ],
+  "modules": [
+    "prd_mkt_promo_campaign",
+    "prd_mkt_webinar",
+    "prd_mkt_conference",
+    "prd_mkt_lead_magnet",
+    "prd_mkt_quiz_funnel",
+    "prd_mkt_vip_waitlist",
+    "prd_mkt_referral",
+    "prd_mkt_ebook_launch",
+    "prd_mkt_sponsorship",
+    "prd_mkt_post_purchase_upsell"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

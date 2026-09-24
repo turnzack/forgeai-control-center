@@ -1,0 +1,49 @@
+{
+  "slug": "design_figma_xd_pack",
+  "name": "📐 PACK DESIGN & FIGMA",
+  "description": "Pack PRD V2 Souverain pour 📐 PACK DESIGN & FIGMA. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UI_KIT",
+  "archetype": "ui_kit",
+  "designTokens": {
+    "primary": "#EC4899",
+    "accent": "#8B5CF6",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Connecter un fichier Figma et lister frames.",
+    "Synchroniser design tokens Figma ↔ DS.",
+    "Exporter assets (icons, images) depuis Figma.",
+    "Viewer specs design → dev (spacing, sizes).",
+    "Représenter le flow (frames reliées).",
+    "Matcher composants DS ↔ composants design.",
+    "Annoter maquettes (redlines).",
+    "Pack \"hand-off\" dev (zips, docs, liens).",
+    "Historique changements design."
+  ],
+  "modules": [
+    "prd_design_figma_explorer",
+    "prd_design_tokens_sync",
+    "prd_design_asset_export",
+    "prd_design_specs_viewer",
+    "prd_design_flow_viewer",
+    "prd_design_component_match",
+    "prd_design_annotations",
+    "prd_design_handoff",
+    "prd_design_history"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

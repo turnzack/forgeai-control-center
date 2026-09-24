@@ -1,0 +1,51 @@
+{
+  "slug": "blog_contenu_pack",
+  "name": "📰 PACK BLOG & CONTENU",
+  "description": "Pack PRD V2 Souverain pour 📰 PACK BLOG & CONTENU. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Créer une page d'accueil d'actualités dense et structurée.",
+    "Template de lecture immersive pour des essais ou des articles techniques.",
+    "Regrouper une suite d'articles liés (ex: \"Apprendre React en 10 jours\").",
+    "Page dédiée aux relations publiques et communiqués.",
+    "Page d'accueil pour la documentation technique d'un produit (façon Stripe Docs).",
+    "Annuaire filtrable de contenus téléchargeables (e-books, templates, webinars).",
+    "Afficher les mises à jour et nouveautés d'un produit (Release notes).",
+    "Mettre en valeur le créateur de contenu.",
+    "Flux mixant articles écrits et épisodes de podcast.",
+    "Gérer les archives de conférences, meetups ou webinars passés."
+  ],
+  "modules": [
+    "tmpl_blog_magazine_modern",
+    "tmpl_blog_single_post_longform",
+    "tmpl_blog_series_hub",
+    "tmpl_blog_newsroom",
+    "tmpl_blog_docs_landing",
+    "tmpl_blog_resource_library",
+    "tmpl_blog_changelog_mini",
+    "tmpl_blog_author_profile",
+    "tmpl_blog_podcast_blog",
+    "tmpl_blog_event_recaps"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

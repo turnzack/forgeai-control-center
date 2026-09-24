@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "PRD: Blog Magazine",
+  "version": "1.0.0",
+  "description": "Pack d'extensions PRD pour la catégorie Blog Magazine.",
+  "permissions": [
+    "activeTab"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.deepseek.com/*",
+        "*://chat.deepseek.com/*"
+      ],
+      "js": [
+        "inject_blog_magazine.js"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}

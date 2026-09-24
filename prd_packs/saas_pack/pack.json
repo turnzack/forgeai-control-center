@@ -1,0 +1,31 @@
+{
+  "slug": "saas_pack",
+  "name": "SaaS Control & Billing Pro",
+  "description": "Pack PRD V2 Souverain pour SaaS Control & Billing Pro. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "SAAS",
+  "archetype": "saas",
+  "designTokens": {
+    "primary": "#0EA5E9",
+    "accent": "#6366F1",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Générer les fondations d'un logiciel vendu sous forme d'abonnement."
+  ],
+  "modules": [],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

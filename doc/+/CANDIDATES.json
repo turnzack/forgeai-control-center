@@ -1,0 +1,1406 @@
+{
+  "maxModules": 100,
+  "selected": [
+    {
+      "id": "saas-pack/src/components/3d/AnimatedCube.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/components/3d/AnimatedCube.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/components/3d/AnimatedCube.tsx",
+      "sha256": "e61965e931ba57f0f94ccbb8f21f57aca8256954654a60ff2c8a5c1ba8f01c75",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/components/ui/button.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/components/ui/button.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/components/ui/button.tsx",
+      "sha256": "952807b8af7b5fe34f633d96cbf744d7427e002abd239e59c3ece57f2a1f664f",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/components/ui/card.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/components/ui/card.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/components/ui/card.tsx",
+      "sha256": "88c2fa3157371c0c961ca61a8362e535fd9efd7f499e44f63467c7feac9a4270",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/components/ui/tabs.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/components/ui/tabs.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/components/ui/tabs.tsx",
+      "sha256": "54fcf7424d63957b3bd7669cd68f56dadee17724b7b4ecd38764b35eaadf2eed",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/hooks/useAnimation.ts",
+      "role": "hook",
+      "score": 45,
+      "sourcePath": "saas-pack/src/hooks/useAnimation.ts",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/hooks/useAnimation.ts",
+      "sha256": "d89f9c87b6a2e8dcff7dc2f311c0f3f19cc14b1067ab62c92a3b445202679551",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-core/src/components/buttons/button/button.stories.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-core/src/components/buttons/button/button.stories.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-core/src/components/buttons/button/button.stories.tsx",
+      "sha256": "a3a3aa9faa53180a89c551254d99e1a3a2e79dcd966591cf7c2f44ec51a7d12d",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-core/src/components/forms/input/input.stories.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-core/src/components/forms/input/input.stories.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-core/src/components/forms/input/input.stories.tsx",
+      "sha256": "953200cbd91ade36bc40af01766e98c9c35b4cdb940fbb1aad0f49efced49103",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-core/src/components/forms/radioButton/radioButton.stories.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-core/src/components/forms/radioButton/radioButton.stories.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-core/src/components/forms/radioButton/radioButton.stories.tsx",
+      "sha256": "6c4806cd8dbaae5d257dedc6b87d21a2c0392d9ad1735bb2aa5ff1826476b32d",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-core/src/components/ui/button.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-core/src/components/ui/button.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-core/src/components/ui/button.tsx",
+      "sha256": "9d8256cf081817b7841912946a624ab79ff7e0010167560432b38bbcd50a0ec5",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-emails/src/base/button/button.component.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-emails/src/base/button/button.component.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-emails/src/base/button/button.component.tsx",
+      "sha256": "fa0df8ad54f1d2c6366bae28f9cf5e427e3dbb68f0218fd4b571040a3d5a5e6f",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-emails/src/base/button/button.styles.ts",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-emails/src/base/button/button.styles.ts",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-emails/src/base/button/button.styles.ts",
+      "sha256": "287216fc64372e82ecf7d27f5d5597e0fd0df0e44ae37670a7ae4b442913af5a",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-finances/src/components/stripe/stripePaymentMethodSelector/methods/newCardInput/newCardInput.component.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-finances/src/components/stripe/stripePaymentMethodSelector/methods/newCardInput/newCardInput.component.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-finances/src/components/stripe/stripePaymentMethodSelector/methods/newCardInput/newCardInput.component.tsx",
+      "sha256": "9cb0fb5efd49909169e27877978f1e36c4e9e1d45f289b14d58bd5040d82c357",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-notifications/src/notificationsButton/notificationsButton.component.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-notifications/src/notificationsButton/notificationsButton.component.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-notifications/src/notificationsButton/notificationsButton.component.tsx",
+      "sha256": "4eb56eb44a11f01744974cb4789056d32c78603d595e9599faef04eeb50a2f7e",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-notifications/src/notificationsButton/notificationsButton.stories.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-notifications/src/notificationsButton/notificationsButton.stories.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-notifications/src/notificationsButton/notificationsButton.stories.tsx",
+      "sha256": "0e639a6fe82333c7d8e195b0824f2975f7514d7096462cf11957c5908c6202a6",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-tenants/src/routes/tenantSettings/tenantActivityLogs/components/loggingSettingsCard.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-tenants/src/routes/tenantSettings/tenantActivityLogs/components/loggingSettingsCard.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-tenants/src/routes/tenantSettings/tenantActivityLogs/components/loggingSettingsCard.tsx",
+      "sha256": "8adb1f9127daedffee563e5a41d5e6a6f00b1eb58aec5f55ba1110cd54dafcf9",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-tenants/src/routes/tenantSettings/tenantSecuritySettings/components/passkeysCard.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-tenants/src/routes/tenantSettings/tenantSecuritySettings/components/passkeysCard.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp-libs/webapp-tenants/src/routes/tenantSettings/tenantSecuritySettings/components/passkeysCard.tsx",
+      "sha256": "67809c405240465276ac742f0b216706da092f0b25c9f4284c6b67e06e13f839",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp/src/shared/components/auth/passkeyLoginButton/passkeyLoginButton.component.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp/src/shared/components/auth/passkeyLoginButton/passkeyLoginButton.component.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp/src/shared/components/auth/passkeyLoginButton/passkeyLoginButton.component.tsx",
+      "sha256": "681683915029dc613bc8c85cb1826c374f2135997e3bd43286afe789aed356e9",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp/src/shared/components/auth/socialLoginButtons/socialLoginButtons.component.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp/src/shared/components/auth/socialLoginButtons/socialLoginButtons.component.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/apptension-saas-boilerplate/packages/webapp/src/shared/components/auth/socialLoginButtons/socialLoginButtons.component.tsx",
+      "sha256": "bcfce7eae0562ebe377ad40d039ed626c0ee561622074a4e2f6741e0759fbeda",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/Blazity-next-saas-starter/components/ArticleCard.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/Blazity-next-saas-starter/components/ArticleCard.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/Blazity-next-saas-starter/components/ArticleCard.tsx",
+      "sha256": "373aa53f640550eb355140c93d0d81f93ce797cdf916eac9516b0d6ec5407908",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/box-property-card.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/box-property-card.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/box-property-card.tsx",
+      "sha256": "885781d02c988536803e93c9b15d364945e27e789b86b9d5861b60398677f81d",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/button-size-table.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/button-size-table.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/button-size-table.tsx",
+      "sha256": "b93da8a947d5e5ea7bb24cb08fa4aea52dd4d640237e168f63df81d33591da6a",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/button-variant-table.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/button-variant-table.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/button-variant-table.tsx",
+      "sha256": "45526d6a24921f6572ab5b31f24ec0dff9afb7e6471ad2cd2c7fa02181ab171c",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/card-size-table.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/card-size-table.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/card-size-table.tsx",
+      "sha256": "375a2b9ad5118ec0abb14fe9286db87f539fe17f7543b11c1e2facabc1c51523",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/card-variant-table.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/card-variant-table.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/card-variant-table.tsx",
+      "sha256": "9187a36d8010a1257ef79c132806ba26e05394f31a3328e4c059b647ceea31de",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/card-with-avatar.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/card-with-avatar.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/card-with-avatar.tsx",
+      "sha256": "2cb8128ada036118ec42f91e3fc7a28066f9f4eb3b9a8ab7575cbb2df1352103",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-closed-component.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-closed-component.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-closed-component.tsx",
+      "sha256": "d642d1c19d44268af3251b9f7db47ebf209897fb4509c5934e63e17bc8ed447b",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-explorer-demo.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-explorer-demo.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-explorer-demo.tsx",
+      "sha256": "8a7ed3480b2c54cf48db9e456f4b5bbf267f6f5b97e6f366e129666d0fe29c1e",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-size-table.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-size-table.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-size-table.tsx",
+      "sha256": "7b83f24df66c0fa955f74b0e001e8fa3cde5c24cef0d9e50c259438a3f5d4861",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-variant-table.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-variant-table.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-variant-table.tsx",
+      "sha256": "0bb1e8a9274020cecff7b8addc661527b2f87dd7f41f150e4b8f37c14f151599",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-with-icon.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-with-icon.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/checkbox-card-with-icon.tsx",
+      "sha256": "2441b841acc3292bbde49973b81c2ac680c79667680b99bcc159233bd61652e6",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/code-block-with-copy-button.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/code-block-with-copy-button.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/code-block-with-copy-button.tsx",
+      "sha256": "c8d6e1c119b378fe504404db59c2b925a14667247b46dc7fd9ca417f570378dd",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/code-block-with-floating-copy-button.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/code-block-with-floating-copy-button.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/code-block-with-floating-copy-button.tsx",
+      "sha256": "ad386bb81397e311699dc0f98c6c29bd0223711b4da7c6f5a23662e95f731acf",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/code-block-with-tabs-sync.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/code-block-with-tabs-sync.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/code-block-with-tabs-sync.tsx",
+      "sha256": "6629476b3a9930372b731fb783c244e007f4c4a16348e35ab93752b204bfb2b3",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/code-block-with-tabs.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/code-block-with-tabs.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/code-block-with-tabs.tsx",
+      "sha256": "604258e60d4f52d0bb94616c1cde54e326865e19ecb1928beaed702faf96bea2",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/color-picker-with-channel-input.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/color-picker-with-channel-input.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/color-picker-with-channel-input.tsx",
+      "sha256": "979f230454113a4b12c266cc6ff419c6b281ca283ad1617978416829179404a6",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/color-picker-with-swatch-and-input.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/color-picker-with-swatch-and-input.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/color-picker-with-swatch-and-input.tsx",
+      "sha256": "d9661ec7c679fa6dc99d5d2c6de4b78155567fda381388f5f6ef1555793fd1dc",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/combobox-with-input-group.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/combobox-with-input-group.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/combobox-with-input-group.tsx",
+      "sha256": "00e2f668f0c12f432b41f8759fe67eb70fdea09f901af858052c4c6e7dd6478e",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/combobox-with-input-in-content.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/combobox-with-input-in-content.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/combobox-with-input-in-content.tsx",
+      "sha256": "9e45f78939dedd591cdf2cc6f67246dc936abf51a3e72c57948b4d9c776057d8",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-input-time-zone.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-input-time-zone.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-input-time-zone.tsx",
+      "sha256": "9b7eadabe9794f43a1f8aaa18af227a48aa401e6c3640eff0cab881d50c498fd",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-input-with-date-picker.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-input-with-date-picker.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-input-with-date-picker.tsx",
+      "sha256": "834e50668bfd81c1fe212225f9a00f3ae4ad9fca3560123136c4563b0493bbb9",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-input-with-hook-form.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-input-with-hook-form.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-input-with-hook-form.tsx",
+      "sha256": "572ef18393dfd207c9ea6cff10e6092bc957a8db9083bea838602c4a6fcab274",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-picker-with-button.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-picker-with-button.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-picker-with-button.tsx",
+      "sha256": "2ada06e2d10435246b806fcf0f1f2f96f027256dc6408741085e3f6630e31256",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-picker-with-input-group.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-picker-with-input-group.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-picker-with-input-group.tsx",
+      "sha256": "6a09df7e6c79f4019e6cf9cfb300f1663c7bcfa93529e4ccd8825da6d905df6c",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-picker-with-today-button.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-picker-with-today-button.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/date-picker-with-today-button.tsx",
+      "sha256": "798ffb48339d4b7537a0ec5912c2efb9b9ea982e78251a83374485491b408906",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/hover-card-basic.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/hover-card-basic.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/hover-card-basic.tsx",
+      "sha256": "986a607df1ba2decd031d7ff1f7b230f7cb88bae1c817226c94e53ff0c5b7533",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/hover-card-explorer-demo.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/hover-card-explorer-demo.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/hover-card-explorer-demo.tsx",
+      "sha256": "7fdbefd7120d228352dd65bb5b748f5a2ecf52d59689d6b54cac9a365ecf89a2",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/hover-card-open-from-dialog.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/hover-card-open-from-dialog.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/hover-card-open-from-dialog.tsx",
+      "sha256": "3e072f0e9238bc457406f3087fcb34f0981cb5b50898e948c90e90127515be79",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/hover-card-with-multiple-triggers.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/hover-card-with-multiple-triggers.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/hover-card-with-multiple-triggers.tsx",
+      "sha256": "ebde5d7d2e7767d69de99ec2620b125ce7cfeaa491ff7e469b535b3da1889b04",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/input-with-floating-label.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/input-with-floating-label.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/input-with-floating-label.tsx",
+      "sha256": "ca4e48e1f6f57cb4d23bacc24902ebedfe89eeeb7da35fd96eebf53bccd6b482",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/input-with-hook-form.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/input-with-hook-form.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/input-with-hook-form.tsx",
+      "sha256": "3eb68d64c151d15a0aca6fb4f443123578d9f51e03030ac21870e73f32631d93",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/listbox-with-input.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/listbox-with-input.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/listbox-with-input.tsx",
+      "sha256": "e3b62f7f713ecd94fdced28878e4e6c05e4a9869a3c4efda9c382334d9b7b325",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/number-input-explorer-demo.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/number-input-explorer-demo.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/number-input-explorer-demo.tsx",
+      "sha256": "00dcb2421f0b352093490e2207274d88566f6da847b6250854a196ebdf0f254b",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/number-input-with-format-options.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/number-input-with-format-options.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/number-input-with-format-options.tsx",
+      "sha256": "7830fd36038d9e0c27a68d49e611a9e45df2ac3544d213ee89804b66ab5506f6",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/number-input-with-hook-form.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/number-input-with-hook-form.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/number-input-with-hook-form.tsx",
+      "sha256": "08b7d369ebf2926475c75e10869d66876cfafb8da849bc14598c004898379e2e",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/pin-input-with-hook-form.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/pin-input-with-hook-form.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/pin-input-with-hook-form.tsx",
+      "sha256": "1ed724207ca1c95a3b3558954dd8b48cc5b71e56cb0ceba3f8251e7024cfa04d",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-closed-component.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-closed-component.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-closed-component.tsx",
+      "sha256": "7e146fe7902cf513cf686a8264012a6731ab6275b90379990c852e98cfd6e9d6",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-composition.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-composition.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-composition.tsx",
+      "sha256": "1e291be0149e032c0148ce69dcf62eb4d49c9d9b2d07e3615115ef33ac335426",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-explorer-demo.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-explorer-demo.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-explorer-demo.tsx",
+      "sha256": "55d1a1a6682f25b2b9130e605e851d53dd4b35f3f4ebfd8be6484bd0bd70f7a0",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-with-icon.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-with-icon.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-with-icon.tsx",
+      "sha256": "c2e6355177e98e00a987854ed50c90ee7712a97518e4714d105451453a5ceae5",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-with-responsive-orientation.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-with-responsive-orientation.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/radio-card-with-responsive-orientation.tsx",
+      "sha256": "d2348a7f713453fcae97f5cb760cc062c0c61a9a1b337700cbcd8af8d892df47",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/segmented-control-in-card.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/segmented-control-in-card.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/segmented-control-in-card.tsx",
+      "sha256": "a94f44cdd7f38fa67014321583898d6e63a2d346dddeb4cd8fdfb1722666c34d",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/select-with-icon-button.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/select-with-icon-button.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/select-with-icon-button.tsx",
+      "sha256": "f7936824d033c8e1d65557b78688ce4bbf097c58cba5798e91a34c4548d26f91",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-lazy-mounted.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-lazy-mounted.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-lazy-mounted.tsx",
+      "sha256": "da90e03eb3ae31ee5f4537f4d65a366943a977eedb51dfdcf793c6aed603d633",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-nested.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-nested.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-nested.tsx",
+      "sha256": "0228d3c3d6c98af289f94ffc88333aebe4c5261cb7e636f2392ba7108006ce18",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-size-table.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-size-table.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-size-table.tsx",
+      "sha256": "301196485dc8869da1328ceeee4b33b0e9470d2c6304844044d32d81224106d5",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-variant-table.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-variant-table.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-variant-table.tsx",
+      "sha256": "3d8d889f3beb547bae35e9c7afff751add7f3ecc5f6f342a6dd0e26b4f013400",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-with-animation.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-with-animation.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-with-animation.tsx",
+      "sha256": "7468a2467d6eac46bf9c7c0eaccc87e8a12ffc8275fceaeea0ef80671837a76c",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-with-dynamic-add.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-with-dynamic-add.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-with-dynamic-add.tsx",
+      "sha256": "f6aef3be50cd892976c653f60b8c0d3c9e1a54c9024deb310646ebbf66202fcb",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-with-vertical.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-with-vertical.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tabs-with-vertical.tsx",
+      "sha256": "dc5e2dc14f869222bfc895c192c53f7b99850067ac24fce5f3daf6bdcd230aab",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tags-input-with-colors.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tags-input-with-colors.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tags-input-with-colors.tsx",
+      "sha256": "e54011fec6623707f0a24fa2ad7c1b99394bb07b3603b25cd8d97208ef84acb4",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tags-input-with-combobox.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tags-input-with-combobox.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tags-input-with-combobox.tsx",
+      "sha256": "6e1d107e2d90dbf54c32082f2f845a76e2e8251b00dadfc3217c1fed98d60403",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tags-input-with-form.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tags-input-with-form.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/examples/tags-input-with-form.tsx",
+      "sha256": "d42234eb6f437dc1084e78dfb5c600d6830006834d5b945a70d43bb99a0f95e3",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/checkbox-card.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/checkbox-card.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/checkbox-card.tsx",
+      "sha256": "08cdb62de63000012dd9a1190b2408d6ff4c8329c95826bd2455a6e59703380d",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/input-group.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/input-group.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/input-group.tsx",
+      "sha256": "69e1dfbb5b1705b64baab280cbdc014eda2fbc448a0d97bcc731fa24b65c256d",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/password-input.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/password-input.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/password-input.tsx",
+      "sha256": "e06aa2964c8330af25fadcba01790dfdf8cea9e842581b55d573e9bc47a8fa05",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/radio-card.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/radio-card.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/radio-card.tsx",
+      "sha256": "1630236cf92c0dc5b33af2b8eecf55ca396f7a248a871da2b41c073f61d1458b",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/stepper-input.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/stepper-input.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/stepper-input.tsx",
+      "sha256": "2407dda0c9b8498d789f3f83ca60c45b04f7a1bf456e92cebc2b9b2048b79ba2",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/tags-input.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/tags-input.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/compositions/src/ui/tags-input.tsx",
+      "sha256": "317c56e6d42e345675612a58c80c99e8ae0f6606e8ab4976118284a6d924565f",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/app/guides/search-input.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/app/guides/search-input.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/app/guides/search-input.tsx",
+      "sha256": "9c390950903f77d43f3d61952c7529e3958b4f4127195cdba15204e933cc88c8",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/app/shipped/quote-card.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/app/shipped/quote-card.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/app/shipped/quote-card.tsx",
+      "sha256": "5e92733d254e0db01aa5713b4d3718bf979438095479f7b8345765e977b3cba8",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/blog-card.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/blog-card.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/blog-card.tsx",
+      "sha256": "82889ee1590747b89c4b98bd84ef7ba130ab526cd8cd0d884625e1903ea9c615",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/illustrations/number-input.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/illustrations/number-input.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/illustrations/number-input.tsx",
+      "sha256": "a1f5154aa0bb10d07dc0f4cc6b7328431e736911b1cd99e4358c5e4bd2416b57",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/illustrations/pin-input.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/illustrations/pin-input.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/illustrations/pin-input.tsx",
+      "sha256": "399afbff03a6f8ed22276d6ec37f553d58a1c9ca588999af5cb736de38be2ca6",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/illustrations/tabs.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/illustrations/tabs.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/illustrations/tabs.tsx",
+      "sha256": "b2f05d9adf9730dbf4c58b902478d16da65a66b47d3bcf35a442b48e0b8f29ed",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/mdx/card.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/mdx/card.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/mdx/card.tsx",
+      "sha256": "1dbbc6b77e9624b86be2e82fb9049729550ed724bd6f7dac628fdf35441462a1",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/mdx/resource-card.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/mdx/resource-card.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/mdx/resource-card.tsx",
+      "sha256": "deb64d4666f76e5f119bd228c9a3c1a774c7472eb0d748d8bc2e5264792b624d",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/mdx/video-card.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/mdx/video-card.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/mdx/video-card.tsx",
+      "sha256": "f7ce2f959aebc3a9e6e29d386e0edcb590d960141269b2cf17cffcf5d778455d",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/search-button.tsx",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/search-button.tsx",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/components/search-button.tsx",
+      "sha256": "4a5e8e55d808537ae931e086264bd9133e24e6a0b261a5cd22e3c9602280b15e",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/lib/remark-card.ts",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/lib/remark-card.ts",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/apps/www/lib/remark-card.ts",
+      "sha256": "9199b0c3d52751e07bd8e05f679d66d25ba39bb2a4c98f2c440b0789aac6cb8e",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/recipes/button.ts",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/recipes/button.ts",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/recipes/button.ts",
+      "sha256": "4491bfa834190d290b2cf6bc9d8a4d2605ce750a0e629633b1327af048d6b44b",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/recipes/input-addon.ts",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/recipes/input-addon.ts",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/recipes/input-addon.ts",
+      "sha256": "c67a35c4243036e504eb7838e21b3fe1a6d3bb3947ccbf9e17e776624443576e",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/recipes/input.ts",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/recipes/input.ts",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/recipes/input.ts",
+      "sha256": "a3057dcfeee15e2eeb926c2b3669361c9d5c65202938b43c2123519698c08f77",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/card.ts",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/card.ts",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/card.ts",
+      "sha256": "e2bff31ec00e8473bddc39c3f91af4282aa46ad235300d83be6b2c87710b88f4",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/checkbox-card.ts",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/checkbox-card.ts",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/checkbox-card.ts",
+      "sha256": "bb53ab39e5fa556ba07c0c03411e9622c6a776258a8afa35c2f8192b910e3315",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/date-input.ts",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/date-input.ts",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/date-input.ts",
+      "sha256": "ef86aef0f9929ed992f94dfae427904f7f471853c84cb51590321611b15798e9",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/hover-card.ts",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/hover-card.ts",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/hover-card.ts",
+      "sha256": "00baea568d924cc337037d52930e0d336676b7b49115677abb8d552f49072a6a",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/number-input.ts",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/number-input.ts",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/number-input.ts",
+      "sha256": "4bb3c600f0c70cfdfa7ac7ba8ded459498681d54a08f3ec9998ce54cd97cd230",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/pin-input.ts",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/pin-input.ts",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/pin-input.ts",
+      "sha256": "18313300b182c51ca014f775e7ec8e0801eec8eec3c7291483f6b32cc9c8a24f",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/radio-card.ts",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/radio-card.ts",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/radio-card.ts",
+      "sha256": "23c6e1188906eb2728080cf3fab33cf49cef679e258a866e669dbe55655dbe7b",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    },
+    {
+      "id": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/tabs.ts",
+      "role": "ui",
+      "score": 45,
+      "sourcePath": "saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/tabs.ts",
+      "targetPath": "apps/web/src/integrations/github-adapted/saas-pack/src/integrations/github-adapted/chakra-ui-chakra-ui/packages/panda-preset/src/slot-recipes/tabs.ts",
+      "sha256": "5bada49a67adcdf85944bb86d3f66d6d3bc7eeef6b79e7c65181c4c555ef3ea7",
+      "reasons": [
+        "typescript",
+        "atomic-size",
+        "prd-match",
+        "recognised-role"
+      ]
+    }
+  ],
+  "excludedCount": 19
+}

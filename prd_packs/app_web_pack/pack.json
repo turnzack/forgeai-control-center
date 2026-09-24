@@ -1,0 +1,51 @@
+{
+  "slug": "app_web_pack",
+  "name": "APP WEB",
+  "description": "Pack PRD V2 Souverain pour APP WEB. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "SAAS",
+  "archetype": "saas",
+  "designTokens": {
+    "primary": "#0EA5E9",
+    "accent": "#6366F1",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Tableau de bord générique pour application métier.",
+    "Template de page de connexion / inscription haut de gamme.",
+    "Page de configuration utilisateur et préférences.",
+    "Boîte de réception globale des alertes (Notifications).",
+    "Page de profil visible publiquement pour un utilisateur (réseaux sociaux, biographie, statistiques).",
+    "Interface d'application style boîte mail ou CRM.",
+    "Application de productivité et de gestion de projet.",
+    "Application de liste de tâches centrée sur la concentration.",
+    "Application de prise de notes structurées (Style Notion ou Obsidian \"Light\").",
+    "Interface d'agenda et de planification de temps."
+  ],
+  "modules": [
+    "tmpl_app_dashboard_starter",
+    "tmpl_app_auth_split",
+    "tmpl_app_settings_center",
+    "tmpl_app_notifications_center",
+    "tmpl_app_profile_public",
+    "tmpl_app_inbox_layout",
+    "tmpl_app_kanban_board",
+    "tmpl_app_todo_minimal",
+    "tmpl_app_notes_editor",
+    "tmpl_app_calendar_view"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}

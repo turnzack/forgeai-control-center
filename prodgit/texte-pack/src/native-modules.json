@@ -1,0 +1,32 @@
+{
+  "projectName": "texte-pack",
+  "packSlug": "texte_pack",
+  "packName": "✍️ PACK TEXTE",
+  "archetype": "universal_app",
+  "generationMode": "sovereign",
+  "externalSources": [],
+  "nativeModules": [
+    {
+      "name": "UniversalApp",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    },
+    {
+      "name": "DataWorkspace",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    },
+    {
+      "name": "SettingsManager",
+      "source": "ForgeAI Studio Native Generator",
+      "status": "generated",
+      "editable": true,
+      "synchronized": false
+    }
+  ],
+  "generatedAt": "2026-09-24T03:00:32.641Z"
+}

@@ -1,0 +1,35 @@
+{
+  "slug": "interface_pack",
+  "name": "💻 PACK INTERFACE",
+  "description": "Pack PRD V2 Souverain pour 💻 PACK INTERFACE. Architecture à 4 étages, services réactifs locaux (Pilier 3) et UI Kit avec animations immersives (Pilier 4).",
+  "domain": "UNIVERSAL_APP",
+  "archetype": "universal_app",
+  "designTokens": {
+    "primary": "#3B82F6",
+    "accent": "#10B981",
+    "background": "#0B0F19",
+    "font": "Inter"
+  },
+  "primaryEntity": "Item",
+  "features": [
+    "Tableau de données complexe.",
+    "Zone de Glisser-Déposer pour fichiers (Drag & Drop)."
+  ],
+  "modules": [
+    "prd_interface_datatable",
+    "prd_interface_dnd"
+  ],
+  "uiComponents": [
+    "Button",
+    "Card",
+    "Input",
+    "Tabs",
+    "AnimatedContainer",
+    "AnimatedGradient",
+    "AnimatedLogo",
+    "AnimatedCube",
+    "ParticleField"
+  ],
+  "version": "2.0.0",
+  "sovereign": true
+}
