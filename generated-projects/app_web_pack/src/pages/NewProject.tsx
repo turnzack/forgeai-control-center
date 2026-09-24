@@ -1,19 +1,18 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Settings, ChevronDown, Plus, Shield, ChevronRight, LayoutTemplate, Box, MessageSquare, Briefcase, Rocket, Sparkles } from 'lucide-react';
+import { Github, Settings, ChevronDown, Plus, Shield, ChevronRight, LayoutTemplate, Box, MessageSquare, Briefcase, Rocket, Sparkles, Search } from 'lucide-react';
+import { availablePacks } from '../data/packs';
 
 export function NewProject() {
   const [envVars, setEnvVars] = useState([{ key: '', value: '' }]);
-  const [selectedPack, setSelectedPack] = useState('saas');
+  const [selectedPack, setSelectedPack] = useState('saas_pack');
+  const [searchQuery, setSearchQuery] = useState('');
 
-  const packs = [
-    { id: 'saas', name: 'SaaS & Subscriptions', icon: Rocket, color: 'text-indigo-400', bg: 'bg-indigo-400/10' },
-    { id: 'ecommerce', name: 'E-Commerce', icon: Box, color: 'text-emerald-400', bg: 'bg-emerald-400/10' },
-    { id: 'crm', name: 'CRM & ERP', icon: Briefcase, color: 'text-amber-400', bg: 'bg-amber-400/10' },
-    { id: 'chat', name: 'Chat & Messaging', icon: MessageSquare, color: 'text-sky-400', bg: 'bg-sky-400/10' },
-    { id: 'landing', name: 'Landing Page', icon: Sparkles, color: 'text-purple-400', bg: 'bg-purple-400/10' },
-    { id: 'ui_kit', name: 'UI Kit', icon: LayoutTemplate, color: 'text-pink-400', bg: 'bg-pink-400/10' },
-  ];
+  const filteredPacks = availablePacks.filter(pack => 
+    pack.name.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+
 
   const addEnvVar = () => setEnvVars([...envVars, { key: '', value: '' }]);
 
@@ -72,23 +71,40 @@ export function NewProject() {
               {/* Pack Selection */}
               <div className="space-y-3">
                 <label className="text-sm font-medium text-gray-300">ForgeAI Pack (Template)</label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
-                  {packs.map(pack => (
+                
+                <div className="relative">
+                  <Search className="absolute left-3 top-2.5 w-4 h-4 text-gray-500" />
+                  <input 
+                    type="text" 
+                    placeholder="Search from 100+ packs..."
+                    value={searchQuery}
+                    onChange={e => setSearchQuery(e.target.value)}
+                    className="w-full bg-black/50 border border-white/10 rounded-md pl-10 pr-4 py-2 text-sm text-white focus:outline-none focus:border-cyan transition-colors"
+                  />
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-[300px] overflow-y-auto pr-2 custom-scrollbar">
+                  {filteredPacks.map(pack => (
                     <div 
                       key={pack.id}
                       onClick={() => setSelectedPack(pack.id)}
                       className={`relative flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
                         selectedPack === pack.id 
                         ? 'border-cyan bg-cyan/10' 
-                        : 'border-white/10 bg-black/50 hover:bg-white/5 hover:border-white/20'
+                        : 'border-white/5 bg-black/30 hover:bg-white/5 hover:border-white/20'
                       }`}
                     >
-                      <div className={`p-2 rounded-md ${pack.bg}`}>
-                        <pack.icon className={`w-4 h-4 ${pack.color}`} />
+                      <div className="p-2 rounded-md bg-white/5 border border-white/5">
+                        <Box className="w-4 h-4 text-cyan" />
                       </div>
-                      <span className="text-sm font-medium text-white">{pack.name}</span>
+                      <span className="text-sm font-medium text-white truncate" title={pack.name}>{pack.name}</span>
                     </div>
                   ))}
+                  {filteredPacks.length === 0 && (
+                    <div className="col-span-2 text-center py-8 text-gray-500 text-sm">
+                      No packs found matching "{searchQuery}"
+                    </div>
+                  )}
                 </div>
               </div>
 
