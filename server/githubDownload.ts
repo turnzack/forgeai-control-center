@@ -2,9 +2,9 @@ import fs from "fs";
 import path from "path";
 import fetch from "node-fetch"; // or built-in fetch if Node 18+
 
-export async function downloadRepoArchive(owner: string, repo: string, ref: string = "HEAD"): Promise<string> {
+export async function downloadRepoArchive(owner: string, repo: string, ref: string = "HEAD", packId: string = "app_web_pack"): Promise<string> {
   const zipUrl = `https://github.com/${owner}/${repo}/archive/${ref}.zip`;
-  const workspaceRoot = process.env.WORKSPACE_ROOT || path.join(process.cwd(), "generated-projects", "app_web_pack");
+  const workspaceRoot = process.env.WORKSPACE_ROOT || path.join(process.cwd(), "prodgit", packId.replace(/_/g, '-'));
   const sourcesDir = path.join(workspaceRoot, "github-sources");
 
   if (!fs.existsSync(sourcesDir)) {
@@ -24,8 +24,8 @@ export async function downloadRepoArchive(owner: string, repo: string, ref: stri
   return zipPath;
 }
 
-export async function mountComponent(owner: string, repo: string, commit: string, spdxId: string): Promise<string> {
-  const workspaceRoot = process.env.WORKSPACE_ROOT || path.join(process.cwd(), "generated-projects", "app_web_pack");
+export async function mountComponent(owner: string, repo: string, commit: string, spdxId: string, packId: string = "app_web_pack"): Promise<string> {
+  const workspaceRoot = process.env.WORKSPACE_ROOT || path.join(process.cwd(), "prodgit", packId.replace(/_/g, '-'));
   const mountDir = path.join(workspaceRoot, "src", "integrations", "github-adapted", `${owner}-${repo}`);
 
   if (!fs.existsSync(mountDir)) {

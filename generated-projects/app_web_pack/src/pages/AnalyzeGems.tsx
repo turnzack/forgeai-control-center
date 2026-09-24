@@ -20,7 +20,8 @@ export function AnalyzeGems() {
       owner: gem.fullName.split('/')[0],
       repo: gem.name,
       commit: "HEAD",
-      spdxId: gem.license?.spdxId || "unknown"
+      spdxId: gem.license?.spdxId || "unknown",
+      packId: selectedPack || "app_web_pack"
     });
   };
 

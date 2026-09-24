@@ -97,9 +97,10 @@ export const appRouter = router({
         owner: z.string(),
         repo: z.string(),
         ref: z.string().default("HEAD"),
+        packId: z.string().default("app_web_pack"),
       }))
       .mutation(async ({ input }) => {
-        const zipPath = await downloadRepoArchive(input.owner, input.repo, input.ref);
+        const zipPath = await downloadRepoArchive(input.owner, input.repo, input.ref, input.packId);
         return { success: true, zipPath };
       }),
 
@@ -109,9 +110,10 @@ export const appRouter = router({
         repo: z.string(),
         commit: z.string(),
         spdxId: z.string(),
+        packId: z.string().default("app_web_pack"),
       }))
       .mutation(async ({ input }) => {
-        const mountPath = await mountComponent(input.owner, input.repo, input.commit, input.spdxId);
+        const mountPath = await mountComponent(input.owner, input.repo, input.commit, input.spdxId, input.packId);
         return { success: true, mountPath };
       }),
   }),
