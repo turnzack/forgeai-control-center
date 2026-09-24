@@ -48,6 +48,8 @@ export type ExportResult = {
   message?: string;
 };
 
+import { availablePacks } from './packs';
+
 export type PrdPack = {
   slug: string;
   name: string;
@@ -265,7 +267,19 @@ export class BridgeClient {
   }
 
   async getPrdPacks(): Promise<{ packs: PrdPack[]; count: number }> {
-    return this.request<{ packs: PrdPack[]; count: number }>("/v1/prd-packs");
+    try {
+      return await this.request<{ packs: PrdPack[]; count: number }>("/v1/prd-packs");
+    } catch (e) {
+      console.warn("VPS unreachable, falling back to 114 hardcoded packs", e);
+      const packs: PrdPack[] = availablePacks.map(p => ({
+        slug: p.name,
+        name: p.name,
+        description: `Pack ${p.name}`,
+        filesCount: 1,
+        path: `prd_packs/${p.name}`
+      }));
+      return { packs, count: packs.length };
+    }
   }
 
   async getPrdPack(slug: string): Promise<{ ok: boolean; pack: PrdPack }> {
@@ -352,4 +366,9 @@ export class BridgeClient {
   }
 }
 
-export const bridgeClient = new BridgeClient(import.meta.env.VITE_API_URL || "http://127.0.0.1:5006");
+export const bridgeClient = new BridgeClient(
+  import.meta.env.VITE_API_URL || 
+  (typeof window !== "undefined" && window.location.origin.includes("localhost") 
+    ? "http://127.0.0.1:5006" 
+    : (typeof window !== "undefined" ? window.location.origin : "http://127.0.0.1:5006"))
+);
