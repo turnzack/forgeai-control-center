@@ -1,9 +1,19 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Settings, ChevronDown, Plus, Shield, ChevronRight } from 'lucide-react';
+import { Github, Settings, ChevronDown, Plus, Shield, ChevronRight, LayoutTemplate, Box, MessageSquare, Briefcase, Rocket, Sparkles } from 'lucide-react';
 
 export function NewProject() {
   const [envVars, setEnvVars] = useState([{ key: '', value: '' }]);
+  const [selectedPack, setSelectedPack] = useState('saas');
+
+  const packs = [
+    { id: 'saas', name: 'SaaS & Subscriptions', icon: Rocket, color: 'text-indigo-400', bg: 'bg-indigo-400/10' },
+    { id: 'ecommerce', name: 'E-Commerce', icon: Box, color: 'text-emerald-400', bg: 'bg-emerald-400/10' },
+    { id: 'crm', name: 'CRM & ERP', icon: Briefcase, color: 'text-amber-400', bg: 'bg-amber-400/10' },
+    { id: 'chat', name: 'Chat & Messaging', icon: MessageSquare, color: 'text-sky-400', bg: 'bg-sky-400/10' },
+    { id: 'landing', name: 'Landing Page', icon: Sparkles, color: 'text-purple-400', bg: 'bg-purple-400/10' },
+    { id: 'ui_kit', name: 'UI Kit', icon: LayoutTemplate, color: 'text-pink-400', bg: 'bg-pink-400/10' },
+  ];
 
   const addEnvVar = () => setEnvVars([...envVars, { key: '', value: '' }]);
 
@@ -57,6 +67,29 @@ export function NewProject() {
                   defaultValue="forgeai-control-center"
                   className="w-full bg-transparent border border-white/20 rounded-md px-4 py-2.5 text-sm text-white focus:outline-none focus:border-cyan transition-colors"
                 />
+              </div>
+
+              {/* Pack Selection */}
+              <div className="space-y-3">
+                <label className="text-sm font-medium text-gray-300">ForgeAI Pack (Template)</label>
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                  {packs.map(pack => (
+                    <div 
+                      key={pack.id}
+                      onClick={() => setSelectedPack(pack.id)}
+                      className={`relative flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
+                        selectedPack === pack.id 
+                        ? 'border-cyan bg-cyan/10' 
+                        : 'border-white/10 bg-black/50 hover:bg-white/5 hover:border-white/20'
+                      }`}
+                    >
+                      <div className={`p-2 rounded-md ${pack.bg}`}>
+                        <pack.icon className={`w-4 h-4 ${pack.color}`} />
+                      </div>
+                      <span className="text-sm font-medium text-white">{pack.name}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Framework Preset */}
