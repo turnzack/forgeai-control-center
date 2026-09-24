@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
+import { sqliteTable, text } from 'drizzle-orm/sqlite-core';
 
 // --- DRIZZLE ORM SCHEMAS (SQLite / D1) ---
 export const users = sqliteTable('users', {

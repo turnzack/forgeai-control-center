@@ -1,4 +1,3 @@
-import { ReactNode } from 'react';
 import { LayoutDashboard, Users, Settings, LogOut, Search, Bell } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
 import { motion } from 'framer-motion';
