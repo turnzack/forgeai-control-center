@@ -1,6 +1,6 @@
 
 import { Activity, CreditCard, Users, ArrowUpRight, ShieldCheck, Database, Zap, Sparkles } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 
 const stats = [
   { name: 'Utilisateurs Actifs', value: '8,234', change: '+12.5%', icon: Users, color: 'from-blue-500 to-indigo-500' },
@@ -8,7 +8,7 @@ const stats = [
   { name: 'Requêtes API', value: '1.2M', change: '+24.1%', icon: Activity, color: 'from-purple-500 to-fuchsia-500' },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
@@ -16,7 +16,7 @@ const containerVariants = {
   }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
 };

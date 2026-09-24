@@ -1,5 +1,5 @@
 
-import { motion } from 'framer-motion';
+import { motion, Variants } from 'framer-motion';
 import { Mail, Shield, MoreVertical, Plus, UserPlus } from 'lucide-react';
 
 const members = [
@@ -9,12 +9,12 @@ const members = [
   { id: 4, name: 'David Sanchez', email: 'david@forgeai.com', role: 'Éditeur', avatar: 'DS', status: 'Actif' },
 ];
 
-const containerVariants = {
+const containerVariants: Variants = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { staggerChildren: 0.1 } }
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
   hidden: { opacity: 0, y: 20 },
   show: { opacity: 1, y: 0, transition: { type: 'spring', stiffness: 300, damping: 24 } }
 };
