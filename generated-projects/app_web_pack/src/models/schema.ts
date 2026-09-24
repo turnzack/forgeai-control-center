@@ -1,4 +1,23 @@
 import { z } from "zod";
+import { sqliteTable, text, integer } from 'drizzle-orm/sqlite-core';
+
+// --- DRIZZLE ORM SCHEMAS (SQLite / D1) ---
+export const users = sqliteTable('users', {
+  id: text('id').primaryKey(),
+  email: text('email').notNull().unique(),
+  name: text('name').notNull(),
+  role: text('role').notNull().default('member'),
+  createdAt: text('created_at').notNull(),
+  updatedAt: text('updated_at')
+});
+
+export const workspaces = sqliteTable('workspaces', {
+  id: text('id').primaryKey(),
+  name: text('name').notNull(),
+  ownerId: text('owner_id').notNull(),
+  plan: text('plan').notNull().default('free'),
+  createdAt: text('created_at').notNull()
+});
 
 // --- D1 SCHEMA DEFINITIONS (Types & Zod) ---
 
@@ -8,7 +27,7 @@ export const UserSchema = z.object({
   name: z.string().min(2).max(100),
   role: z.enum(["admin", "member", "guest"]).default("member"),
   createdAt: z.string().datetime(),
-  updatedAt: z.string().datetime(),
+  updatedAt: z.string().datetime().optional(),
 });
 
 export const WorkspaceSchema = z.object({
