@@ -20,13 +20,13 @@ function validateWorkerEnvelope(payload: any, expectedMissionId: string, expecte
     throw new Error('Réponse Worker invalide (status !== ok ou response absent).');
   }
   if (payload.response.length > MAX_RESPONSE_CHARS) {
-    throw new Error(\`Réponse Worker trop longue (\${payload.response.length} > \${MAX_RESPONSE_CHARS}).\`);
+    throw new Error(`Réponse Worker trop longue (${payload.response.length} > ${MAX_RESPONSE_CHARS}).`);
   }
   if (payload.missionId !== expectedMissionId) {
-    throw new Error(\`missionId absent ou incohérent. Reçu="\${payload.missionId}", attendu="\${expectedMissionId}"\`);
+    throw new Error(`missionId absent ou incohérent. Reçu="${payload.missionId}", attendu="${expectedMissionId}"`);
   }
   if (payload.lotId !== expectedLotId) {
-    throw new Error(\`lotId absent ou incohérent. Reçu="\${payload.lotId}", attendu="\${expectedLotId}"\`);
+    throw new Error(`lotId absent ou incohérent. Reçu="${payload.lotId}", attendu="${expectedLotId}"`);
   }
   return payload.response;
 }
@@ -82,7 +82,7 @@ export const CloudflareAIService = {
 
       if (!res.ok) {
         await CloudflareQuotaTracker.releaseQuota(quotaCheck.reservationId!, lotId);
-        return { ok: false, error: \`HTTP_\${res.status}\`, degraded: res.status >= 500 };
+        return { ok: false, error: `HTTP_${res.status}`, degraded: res.status >= 500 };
       }
 
       let payload;

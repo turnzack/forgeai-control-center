@@ -3,7 +3,7 @@ import path from "path";
 import fetch from "node-fetch"; // or built-in fetch if Node 18+
 
 export async function downloadRepoArchive(owner: string, repo: string, ref: string = "HEAD"): Promise<string> {
-  const zipUrl = \`https://github.com/\${owner}/\${repo}/archive/\${ref}.zip\`;
+  const zipUrl = `https://github.com/${owner}/${repo}/archive/${ref}.zip`;
   const workspaceRoot = process.env.WORKSPACE_ROOT || path.join(process.cwd(), "generated-projects", "app_web_pack");
   const sourcesDir = path.join(workspaceRoot, "github-sources");
 
@@ -11,11 +11,11 @@ export async function downloadRepoArchive(owner: string, repo: string, ref: stri
     fs.mkdirSync(sourcesDir, { recursive: true });
   }
 
-  const zipPath = path.join(sourcesDir, \`\${owner}-\${repo}-\${ref.replace(/[/\\:]/g, '-')}.zip\`);
+  const zipPath = path.join(sourcesDir, `${owner}-${repo}-${ref.replace(/[\/\\:]/g, '-')}.zip`);
 
   const response = await fetch(zipUrl);
   if (!response.ok) {
-    throw new Error(\`Erreur téléchargement GitHub: \${response.statusText}\`);
+    throw new Error(`Erreur téléchargement GitHub: ${response.statusText}`);
   }
 
   const buffer = await response.arrayBuffer();
@@ -26,7 +26,7 @@ export async function downloadRepoArchive(owner: string, repo: string, ref: stri
 
 export async function mountComponent(owner: string, repo: string, commit: string, spdxId: string): Promise<string> {
   const workspaceRoot = process.env.WORKSPACE_ROOT || path.join(process.cwd(), "generated-projects", "app_web_pack");
-  const mountDir = path.join(workspaceRoot, "src", "integrations", "github-adapted", \`\${owner}-\${repo}\`);
+  const mountDir = path.join(workspaceRoot, "src", "integrations", "github-adapted", `${owner}-${repo}`);
 
   if (!fs.existsSync(mountDir)) {
     fs.mkdirSync(mountDir, { recursive: true });
@@ -34,10 +34,10 @@ export async function mountComponent(owner: string, repo: string, commit: string
 
   const provenance = {
     source: "github",
-    repository: \`\${owner}/\${repo}\`,
+    repository: `${owner}/${repo}`,
     commit: commit,
     license: spdxId,
-    sourceUrl: \`https://github.com/\${owner}/\${repo}\`,
+    sourceUrl: `https://github.com/${owner}/${repo}`,
     auditedAt: new Date().toISOString()
   };
 

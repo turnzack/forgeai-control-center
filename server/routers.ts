@@ -67,7 +67,7 @@ export const appRouter = router({
         prompt: z.string().optional(),
       }))
       .mutation(async ({ input }) => {
-        const fullPrompt = \`Le pack est \${input.packId}. Le prompt utilisateur est: \${input.prompt || "Optimise pour ce pack."}. Génère les filtres GitHub stricts (mots-clés, licence MIT, frameworks).\`;
+        const fullPrompt = `Le pack est ${input.packId}. Le prompt utilisateur est: ${input.prompt || "Optimise pour ce pack."}. Génère les filtres GitHub stricts (mots-clés, licence MIT, frameworks).`;
         const aiResponse = await CloudflareAIService.ask({
           prompt: fullPrompt,
           missionId: "github-search",
