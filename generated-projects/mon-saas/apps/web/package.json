@@ -1,0 +1,21 @@
+{
+  "name": "@forgeai/web",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@forgeai/contracts": "workspace:*",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "vite": "^6.0.7",
+    "typescript": "^5.6.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.4"
+  }
+}
