@@ -2,6 +2,7 @@ import React from 'react';
 import { LayoutDashboard, Users, Settings, LogOut, Search, Bell } from 'lucide-react';
 import { Link, useLocation } from 'wouter';
 import { motion } from 'framer-motion';
+import { AnimatedBackground } from '../ui/AnimatedBackground';
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
   const [location] = useLocation();
@@ -70,7 +71,8 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
 
       {/* Main Content */}
       <div className="flex-1 flex flex-col min-w-0 overflow-hidden relative">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none"></div>
+        <AnimatedBackground />
+        
         {/* Top Header */}
         <header className="h-16 flex items-center justify-between px-6 lg:px-10 border-b border-gray-800/50 bg-gray-950/50 backdrop-blur-xl sticky top-0 z-20">
           <div className="flex-1 flex items-center">
