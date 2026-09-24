@@ -353,8 +353,5 @@ export class BridgeClient {
 }
 
 export const bridgeClient = new BridgeClient(
-  (import.meta as any).env?.VITE_API_URL || 
-  (typeof window !== "undefined" && window.location.origin.includes("localhost") 
-    ? "http://127.0.0.1:5006" 
-    : (typeof window !== "undefined" ? window.location.origin : "http://127.0.0.1:5006"))
+  (import.meta as any).env?.VITE_API_URL || "http://127.0.0.1:5006"
 );

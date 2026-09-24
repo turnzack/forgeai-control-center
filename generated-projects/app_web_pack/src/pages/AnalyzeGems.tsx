@@ -1,28 +1,58 @@
 import { useState } from 'react';
 import { Search, Loader2, Github, CheckCircle, Package, BrainCircuit, Box } from 'lucide-react';
 import { availablePacks } from '../data/packs';
-import { trpc } from '../lib/trpc';
+
 
 export function AnalyzeGems() {
   const [selectedPack, setSelectedPack] = useState<string | null>(null);
   const [prompt, setPrompt] = useState("");
   
-  const searchMutation = trpc.github.hermesSearch.useMutation();
-  const mountMutation = trpc.github.mount.useMutation();
+  const [searchState, setSearchState] = useState({ isLoading: false, isError: false, error: null as any, data: null as any });
+  const [mountState, setMountState] = useState({ isLoading: false, isError: false, error: null as any, data: null as any });
 
-  const handleSearch = () => {
-    if (!selectedPack) return;
-    searchMutation.mutate({ packId: selectedPack, prompt });
+  const getApiUrl = () => {
+    return (typeof window !== "undefined" && !window.location.origin.includes("localhost") && !window.location.origin.includes("127.0.0.1")
+      ? "http://127.0.0.1:3000/api/trpc/"
+      : "/api/trpc/");
   };
 
-  const handleMount = (gem: any) => {
-    mountMutation.mutate({
-      owner: gem.fullName.split('/')[0],
-      repo: gem.name,
-      commit: "HEAD",
-      spdxId: gem.license?.spdxId || "unknown",
-      packId: selectedPack || "app_web_pack"
-    });
+  const handleSearch = async () => {
+    if (!selectedPack) return;
+    setSearchState({ isLoading: true, isError: false, error: null, data: null });
+    try {
+      const res = await fetch(getApiUrl() + "github.hermesSearch", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ packId: selectedPack, prompt })
+      });
+      const json = await res.json();
+      if (!res.ok || json.error) throw new Error(json.error?.message || "Search failed");
+      setSearchState({ isLoading: false, isError: false, error: null, data: json.result.data });
+    } catch (e: any) {
+      setSearchState({ isLoading: false, isError: true, error: e, data: null });
+    }
+  };
+
+  const handleMount = async (gem: any) => {
+    setMountState({ isLoading: true, isError: false, error: null, data: null });
+    try {
+      const res = await fetch(getApiUrl() + "github.mount", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          owner: gem.fullName.split('/')[0],
+          repo: gem.name,
+          commit: "HEAD",
+          spdxId: gem.license?.spdxId || "unknown",
+          packId: selectedPack || "app_web_pack"
+        })
+      });
+      const json = await res.json();
+      if (!res.ok || json.error) throw new Error(json.error?.message || "Mount failed");
+      setMountState({ isLoading: false, isError: false, error: null, data: json.result.data });
+    } catch (e: any) {
+      setMountState({ isLoading: false, isError: true, error: e, data: null });
+    }
   };
 
   return (
@@ -50,13 +80,13 @@ export function AnalyzeGems() {
                 <div 
                   key={pack.id}
                   onClick={() => setSelectedPack(pack.id)}
-                  className={\`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-all \${
+                  className={`flex items-center gap-3 p-3 rounded-lg border cursor-pointer transition-all ${
                     selectedPack === pack.id 
                     ? 'border-cyan-500 bg-cyan-500/10' 
                     : 'border-white/5 hover:bg-white/5'
-                  }\`}
+                  }`}
                 >
-                  <Box className={\`w-4 h-4 \${selectedPack === pack.id ? 'text-cyan-400' : 'text-gray-500'}\`} />
+                  <Box className={`w-4 h-4 ${selectedPack === pack.id ? 'text-cyan-400' : 'text-gray-500'}`} />
                   <span className="text-sm font-medium text-white">{pack.name}</span>
                 </div>
               ))}
@@ -76,11 +106,11 @@ export function AnalyzeGems() {
             />
             <button
               onClick={handleSearch}
-              disabled={!selectedPack || searchMutation.isLoading}
+              disabled={!selectedPack || searchState.isLoading}
               className="w-full py-2.5 rounded-md bg-white text-black font-semibold text-sm hover:bg-gray-200 transition-colors disabled:opacity-50 flex items-center justify-center gap-2"
             >
-              {searchMutation.isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <BrainCircuit className="w-4 h-4" />}
-              {searchMutation.isLoading ? "Analyse Hermes en cours..." : "Lancer la recherche GitHub"}
+              {searchState.isLoading ? <Loader2 className="w-4 h-4 animate-spin" /> : <BrainCircuit className="w-4 h-4" />}
+              {searchState.isLoading ? "Analyse Hermes en cours..." : "Lancer la recherche GitHub"}
             </button>
           </div>
         </div>
@@ -93,13 +123,13 @@ export function AnalyzeGems() {
               3. Pépites (Gems) trouvées
             </h2>
 
-            {searchMutation.isError && (
+            {searchState.isError && (
               <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
-                Erreur: {searchMutation.error.message}
+                Erreur: {searchState.error.message}
               </div>
             )}
 
-            {!searchMutation.data && !searchMutation.isLoading && !searchMutation.isError && (
+            {!searchState.data && !searchState.isLoading && !searchState.isError && (
               <div className="flex flex-col items-center justify-center h-64 text-gray-500 text-sm">
                 <BrainCircuit className="w-12 h-12 mb-4 opacity-20" />
                 Sélectionnez un pack et lancez la recherche pour voir les résultats.
@@ -107,7 +137,7 @@ export function AnalyzeGems() {
             )}
 
             <div className="space-y-4">
-              {searchMutation.data?.results?.items?.map((repo: any) => (
+              {searchState.data?.results?.items?.map((repo: any) => (
                 <div key={repo.id} className="p-4 rounded-lg border border-white/10 bg-white/5 hover:bg-white/10 transition-colors flex items-start justify-between">
                   <div className="space-y-2">
                     <a href={repo.url} target="_blank" rel="noreferrer" className="text-cyan-400 hover:underline font-medium text-lg">
@@ -119,7 +149,7 @@ export function AnalyzeGems() {
                       <span className="text-xs px-2 py-1 bg-yellow-500/10 text-yellow-500 border border-yellow-500/20 rounded-md flex items-center gap-1">
                         ⭐ {repo.stars}
                       </span>
-                      <span className={\`text-xs px-2 py-1 rounded-md border \${repo.license?.status === 'approved' ? 'bg-green-500/10 text-green-400 border-green-500/20' : 'bg-gray-500/10 text-gray-400 border-gray-500/20'}\`}>
+                      <span className={`text-xs px-2 py-1 rounded-md border ${repo.license?.status === 'approved' ? 'bg-green-500/10 text-green-400 border-green-500/20' : 'bg-gray-500/10 text-gray-400 border-gray-500/20'}`}>
                         {repo.license?.spdxId}
                       </span>
                       {repo.badges?.map((badge: string, i: number) => (
@@ -136,10 +166,10 @@ export function AnalyzeGems() {
                     </div>
                     <button
                       onClick={() => handleMount(repo)}
-                      disabled={mountMutation.isLoading}
+                      disabled={mountState.isLoading}
                       className="px-3 py-1.5 rounded-md bg-cyan-500 text-black text-xs font-bold hover:bg-cyan-400 transition-colors flex items-center gap-1 disabled:opacity-50"
                     >
-                      {mountMutation.isLoading ? <Loader2 className="w-3 h-3 animate-spin" /> : <CheckCircle className="w-3 h-3" />}
+                      {mountState.isLoading ? <Loader2 className="w-3 h-3 animate-spin" /> : <CheckCircle className="w-3 h-3" />}
                       Monter
                     </button>
                   </div>
