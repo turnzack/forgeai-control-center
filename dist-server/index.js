@@ -1376,16 +1376,15 @@ var CloudflareAIService = {
 // server/githubDownload.ts
 import fs2 from "fs";
 import path2 from "path";
-import fetch2 from "node-fetch";
-async function downloadRepoArchive(owner, repo, ref = "HEAD") {
+async function downloadRepoArchive(owner, repo, ref = "HEAD", packId = "app_web_pack") {
   const zipUrl = `https://github.com/${owner}/${repo}/archive/${ref}.zip`;
-  const workspaceRoot = process.env.WORKSPACE_ROOT || path2.join(process.cwd(), "generated-projects", "app_web_pack");
+  const workspaceRoot = process.env.WORKSPACE_ROOT || path2.join(process.cwd(), "prodgit", packId.replace(/_/g, "-"));
   const sourcesDir = path2.join(workspaceRoot, "github-sources");
   if (!fs2.existsSync(sourcesDir)) {
     fs2.mkdirSync(sourcesDir, { recursive: true });
   }
   const zipPath = path2.join(sourcesDir, `${owner}-${repo}-${ref.replace(/[\/\\:]/g, "-")}.zip`);
-  const response = await fetch2(zipUrl);
+  const response = await fetch(zipUrl);
   if (!response.ok) {
     throw new Error(`Erreur t\xE9l\xE9chargement GitHub: ${response.statusText}`);
   }
@@ -1393,8 +1392,8 @@ async function downloadRepoArchive(owner, repo, ref = "HEAD") {
   fs2.writeFileSync(zipPath, Buffer.from(buffer));
   return zipPath;
 }
-async function mountComponent(owner, repo, commit, spdxId) {
-  const workspaceRoot = process.env.WORKSPACE_ROOT || path2.join(process.cwd(), "generated-projects", "app_web_pack");
+async function mountComponent(owner, repo, commit, spdxId, packId = "app_web_pack") {
+  const workspaceRoot = process.env.WORKSPACE_ROOT || path2.join(process.cwd(), "prodgit", packId.replace(/_/g, "-"));
   const mountDir = path2.join(workspaceRoot, "src", "integrations", "github-adapted", `${owner}-${repo}`);
   if (!fs2.existsSync(mountDir)) {
     fs2.mkdirSync(mountDir, { recursive: true });
@@ -1488,18 +1487,20 @@ var appRouter = router({
     download: publicProcedure.input(z2.object({
       owner: z2.string(),
       repo: z2.string(),
-      ref: z2.string().default("HEAD")
+      ref: z2.string().default("HEAD"),
+      packId: z2.string().default("app_web_pack")
     })).mutation(async ({ input }) => {
-      const zipPath = await downloadRepoArchive(input.owner, input.repo, input.ref);
+      const zipPath = await downloadRepoArchive(input.owner, input.repo, input.ref, input.packId);
       return { success: true, zipPath };
     }),
     mount: publicProcedure.input(z2.object({
       owner: z2.string(),
       repo: z2.string(),
       commit: z2.string(),
-      spdxId: z2.string()
+      spdxId: z2.string(),
+      packId: z2.string().default("app_web_pack")
     })).mutation(async ({ input }) => {
-      const mountPath = await mountComponent(input.owner, input.repo, input.commit, input.spdxId);
+      const mountPath = await mountComponent(input.owner, input.repo, input.commit, input.spdxId, input.packId);
       return { success: true, mountPath };
     })
   })
