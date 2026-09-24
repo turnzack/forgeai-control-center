@@ -177,7 +177,7 @@ export const CloudflareQuotaTracker = {
         return { reserved: false, reason: 'RATE_LIMIT_EXCEEDED' };
       }
 
-      const reservationId = \`res_\${missionId}_\${lotId}_\${now}_\${Math.random().toString(36).substring(2, 6)}\`;
+      const reservationId = `res_${missionId}_${lotId}_${now}_${Math.random().toString(36).substring(2, 6)}`;
       state.reservations.push({
         reservationId,
         missionId,
@@ -197,7 +197,7 @@ export const CloudflareQuotaTracker = {
       if (state.history.length > 300) state.history.splice(0, state.history.length - 300);
 
       _persistAtomic(state);
-      console.log(\`[QUOTA] RESERVED: \${cleanNeurons}N (\${reservationId}) [mission=\${missionId}][lot=\${lotId}] | used~=\${state.usedEstimated}/\${state.dailyLimit}\`);
+      console.log(`[QUOTA] RESERVED: ${cleanNeurons}N (${reservationId}) [mission=${missionId}][lot=${lotId}] | used~=${state.usedEstimated}/${state.dailyLimit}`);
       return { reserved: true, reservationId };
     } finally {
       _releaseLock();

@@ -940,6 +940,29 @@ function calculateRelevanceScore(repo, keywords) {
     badges
   };
 }
+function buildGitHubQuery(filters) {
+  const parts = [];
+  const cleanKeywords = filters.keywords.trim() || "react components";
+  parts.push(cleanKeywords);
+  if (filters.licenses && filters.licenses.length > 0) {
+    const licParts = filters.licenses.map(normalizeSpdx).map((l) => `license:${l}`);
+    if (licParts.length === 1) {
+      parts.push(licParts[0]);
+    } else {
+      parts.push(`(${licParts.join(" OR ")})`);
+    }
+  }
+  if (filters.language && filters.language !== "Tous") {
+    parts.push(`language:${filters.language}`);
+  }
+  if (filters.minStars && filters.minStars > 0) {
+    parts.push(`stars:>=${filters.minStars}`);
+  }
+  if (!filters.includeArchived) {
+    parts.push("NOT is:archived");
+  }
+  return parts.join(" ");
+}
 async function searchGitHubRepositories(params) {
   const page = Math.max(params.page || 1, 1);
   const perPage = Math.min(Math.max(params.perPage || 20, 1), 100);
@@ -1025,6 +1048,373 @@ async function searchGitHubRepositories(params) {
   };
 }
 
+// server/services/CloudflareQuotaTracker.ts
+import fs from "fs";
+import path from "path";
+var TMP_DIR = path.resolve(
+  process.env.APP_DATA_DIR || path.join(process.cwd(), ".tmp")
+);
+var QUOTA_FILE = path.join(TMP_DIR, "cloudflare_quota.json");
+var QUOTA_FILE_TMP = QUOTA_FILE + ".tmp";
+var DAILY_LIMIT = 1e4;
+var RATE_LIMIT_PER_MIN = 30;
+var RESERVATION_TTL_MS = 12e4;
+var _lock = false;
+var _lockQueue = [];
+function _acquireLock() {
+  return new Promise((resolve) => {
+    if (!_lock) {
+      _lock = true;
+      resolve();
+    } else {
+      _lockQueue.push(resolve);
+    }
+  });
+}
+function _releaseLock() {
+  if (_lockQueue.length > 0) {
+    const next = _lockQueue.shift();
+    if (next) next();
+  } else {
+    _lock = false;
+  }
+}
+function _getToday() {
+  return (/* @__PURE__ */ new Date()).toISOString().slice(0, 10);
+}
+function _freshState() {
+  const tomorrow = /* @__PURE__ */ new Date();
+  tomorrow.setUTCHours(24, 0, 0, 0);
+  return {
+    date: _getToday(),
+    dailyLimit: DAILY_LIMIT,
+    usedEstimated: 0,
+    reserved: 0,
+    remainingEstimated: DAILY_LIMIT,
+    resetAt: tomorrow.toISOString(),
+    callsThisMinute: 0,
+    minuteStart: Date.now(),
+    reservations: [],
+    history: []
+  };
+}
+function _recoverExpiredReservations(state) {
+  const now = Date.now();
+  const expired = (state.reservations || []).filter((r) => {
+    if (r.status === "sent") {
+      const sentTs = r.requestStartedAt || r.expiresAt;
+      return now - sentTs > 18e4;
+    }
+    return r.expiresAt < now;
+  });
+  if (expired.length > 0) {
+    const freed = expired.reduce((s, r) => s + (r.neurons || 0), 0);
+    state.reserved = Math.max(0, (state.reserved || 0) - freed);
+    state.usedEstimated = Math.max(0, state.usedEstimated - freed);
+    state.remainingEstimated = Math.max(0, state.dailyLimit - state.usedEstimated);
+    const expiredIds = new Set(expired.map((r) => r.reservationId));
+    state.reservations = state.reservations.filter((r) => !expiredIds.has(r.reservationId));
+    console.log(`[QUOTA] RESERVED_EXPIRED: ${expired.length} reservation(s) expiree(s) -> +${freed} Neurons liberes`);
+  }
+  return state;
+}
+function _loadOrInit() {
+  try {
+    if (fs.existsSync(QUOTA_FILE)) {
+      const stored = JSON.parse(fs.readFileSync(QUOTA_FILE, "utf8"));
+      if (stored.date === _getToday()) {
+        stored.reservations = stored.reservations || [];
+        stored.history = stored.history || [];
+        return _recoverExpiredReservations(stored);
+      }
+    }
+  } catch {
+  }
+  return _freshState();
+}
+function _persistAtomic(state) {
+  try {
+    if (!fs.existsSync(TMP_DIR)) fs.mkdirSync(TMP_DIR, { recursive: true });
+    fs.writeFileSync(QUOTA_FILE_TMP, JSON.stringify(state, null, 2), "utf8");
+    fs.renameSync(QUOTA_FILE_TMP, QUOTA_FILE);
+  } catch (error) {
+    console.error("[QUOTA] ERROR: Persistance atomique echouee:", error.message);
+  }
+}
+var CloudflareQuotaTracker = {
+  canCall() {
+    const state = _loadOrInit();
+    const now = Date.now();
+    if (state.usedEstimated >= state.dailyLimit) {
+      return { allowed: false, reason: "CLOUDFLARE_QUOTA_EXHAUSTED" };
+    }
+    const elapsed = now - state.minuteStart;
+    if (elapsed <= 6e4 && state.callsThisMinute >= RATE_LIMIT_PER_MIN) {
+      return { allowed: false, reason: "RATE_LIMIT_EXCEEDED" };
+    }
+    return { allowed: true };
+  },
+  async reserveQuota(missionId, lotId, neurons = 50) {
+    await _acquireLock();
+    try {
+      let cleanNeurons = Number(neurons);
+      if (!Number.isFinite(cleanNeurons) || cleanNeurons <= 0) {
+        return { reserved: false, reason: "INVALID_NEURON_ESTIMATE" };
+      }
+      cleanNeurons = Math.ceil(cleanNeurons);
+      const state = _loadOrInit();
+      const now = Date.now();
+      if (state.usedEstimated + cleanNeurons > state.dailyLimit) {
+        return { reserved: false, reason: "CLOUDFLARE_QUOTA_EXHAUSTED" };
+      }
+      if (now - state.minuteStart > 6e4) {
+        state.callsThisMinute = 0;
+        state.minuteStart = now;
+      }
+      if (state.callsThisMinute >= RATE_LIMIT_PER_MIN) {
+        return { reserved: false, reason: "RATE_LIMIT_EXCEEDED" };
+      }
+      const reservationId = `res_${missionId}_${lotId}_${now}_${Math.random().toString(36).substring(2, 6)}`;
+      state.reservations.push({
+        reservationId,
+        missionId,
+        lotId,
+        neurons: cleanNeurons,
+        status: "reserved",
+        createdAt: new Date(now).toISOString(),
+        expiresAt: now + RESERVATION_TTL_MS,
+        requestStartedAt: null
+      });
+      state.callsThisMinute += 1;
+      state.usedEstimated += cleanNeurons;
+      state.reserved += cleanNeurons;
+      state.remainingEstimated = Math.max(0, state.dailyLimit - state.usedEstimated);
+      state.history.push({ ts: now, missionId, lotId, action: "reserve", neurons: cleanNeurons, reservationId });
+      if (state.history.length > 300) state.history.splice(0, state.history.length - 300);
+      _persistAtomic(state);
+      console.log(`[QUOTA] RESERVED: ${cleanNeurons}N (${reservationId}) [mission=${missionId}][lot=${lotId}] | used~=${state.usedEstimated}/${state.dailyLimit}`);
+      return { reserved: true, reservationId };
+    } finally {
+      _releaseLock();
+    }
+  },
+  async markSent(reservationId) {
+    if (!reservationId) return;
+    await _acquireLock();
+    try {
+      const state = _loadOrInit();
+      const res = state.reservations.find((r) => r.reservationId === reservationId);
+      if (res) {
+        res.status = "sent";
+        res.requestStartedAt = Date.now();
+        _persistAtomic(state);
+      }
+    } finally {
+      _releaseLock();
+    }
+  },
+  async consumeQuota(reservationIdOrMissionId, lotId) {
+    await _acquireLock();
+    try {
+      const state = _loadOrInit();
+      let idx = -1;
+      if (reservationIdOrMissionId && reservationIdOrMissionId.startsWith("res_")) {
+        idx = state.reservations.findIndex((r) => r.reservationId === reservationIdOrMissionId);
+      } else {
+        idx = state.reservations.findIndex((r) => r.missionId === reservationIdOrMissionId && r.lotId === lotId);
+      }
+      if (idx !== -1) {
+        state.reserved = Math.max(0, state.reserved - state.reservations[idx].neurons);
+        state.reservations.splice(idx, 1);
+      }
+      state.history.push({ ts: Date.now(), reservationId: reservationIdOrMissionId, lotId, action: "consume" });
+      _persistAtomic(state);
+    } finally {
+      _releaseLock();
+    }
+  },
+  async releaseQuota(reservationIdOrMissionId, lotId) {
+    await _acquireLock();
+    try {
+      const state = _loadOrInit();
+      let idx = -1;
+      if (reservationIdOrMissionId && reservationIdOrMissionId.startsWith("res_")) {
+        idx = state.reservations.findIndex((r) => r.reservationId === reservationIdOrMissionId);
+      } else {
+        idx = state.reservations.findIndex((r) => r.missionId === reservationIdOrMissionId && r.lotId === lotId);
+      }
+      if (idx !== -1) {
+        const neurons = state.reservations[idx].neurons;
+        state.reservations.splice(idx, 1);
+        state.reserved = Math.max(0, state.reserved - neurons);
+        state.usedEstimated = Math.max(0, state.usedEstimated - neurons);
+        state.remainingEstimated = Math.max(0, state.dailyLimit - state.usedEstimated);
+      }
+      state.history.push({ ts: Date.now(), reservationId: reservationIdOrMissionId, lotId, action: "release" });
+      _persistAtomic(state);
+    } finally {
+      _releaseLock();
+    }
+  },
+  getStatus() {
+    const state = _loadOrInit();
+    return {
+      date: state.date,
+      dailyLimit: state.dailyLimit,
+      usedEstimated: state.usedEstimated,
+      reserved: state.reserved,
+      remainingEstimated: state.remainingEstimated,
+      exhausted: state.usedEstimated >= state.dailyLimit
+    };
+  }
+};
+
+// server/services/CloudflareAIService.ts
+var WORKER_URL = "https://kirov-worker.v0reponses.workers.dev";
+var REQUEST_TIMEOUT_MS = 3e4;
+var MAX_RESPONSE_CHARS = 16e3;
+function estimateNeurons({ prompt, maxOutputTokens = 384 }) {
+  const inputTokens = Math.ceil(prompt.length / 4);
+  const inputNeurons = inputTokens * 4625 / 1e6;
+  const outputNeurons = maxOutputTokens * 30475 / 1e6;
+  return Math.max(1, Math.ceil(inputNeurons + outputNeurons));
+}
+function _loadSecret() {
+  return process.env.KIROV_WORKER_SECRET || null;
+}
+function validateWorkerEnvelope(payload, expectedMissionId, expectedLotId) {
+  if (!payload || payload.status !== "ok" || typeof payload.response !== "string") {
+    throw new Error("R\xE9ponse Worker invalide (status !== ok ou response absent).");
+  }
+  if (payload.response.length > MAX_RESPONSE_CHARS) {
+    throw new Error(`R\xE9ponse Worker trop longue (${payload.response.length} > ${MAX_RESPONSE_CHARS}).`);
+  }
+  if (payload.missionId !== expectedMissionId) {
+    throw new Error(`missionId absent ou incoh\xE9rent. Re\xE7u="${payload.missionId}", attendu="${expectedMissionId}"`);
+  }
+  if (payload.lotId !== expectedLotId) {
+    throw new Error(`lotId absent ou incoh\xE9rent. Re\xE7u="${payload.lotId}", attendu="${expectedLotId}"`);
+  }
+  return payload.response;
+}
+var CloudflareAIService = {
+  async ask({
+    missionId = "hermes",
+    lotId = "pipeline",
+    prompt,
+    purpose = "plan",
+    requireJson = true
+  }) {
+    const cleanPrompt = (prompt || "").trim();
+    if (!cleanPrompt || cleanPrompt.length > 24e3) {
+      return { ok: false, error: "Prompt vide ou trop long (> 24 000 car.).", degraded: false };
+    }
+    const secret = _loadSecret();
+    if (!secret) {
+      console.warn("[HERMES] \u26A0\uFE0F Secret KIROV_WORKER_SECRET absent. Mode API Cloudflare direct non impl\xE9ment\xE9 sans token.");
+      return { ok: false, error: "Secret non configur\xE9.", degraded: true };
+    }
+    const neurons = estimateNeurons({ prompt: cleanPrompt, maxOutputTokens: 384 });
+    const quotaCheck = await CloudflareQuotaTracker.reserveQuota(missionId, lotId, neurons);
+    if (!quotaCheck.reserved) {
+      return { ok: false, error: quotaCheck.reason, degraded: true };
+    }
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+    try {
+      await CloudflareQuotaTracker.markSent(quotaCheck.reservationId);
+      const res = await fetch(WORKER_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "X-Kirov-Secret": secret
+        },
+        body: JSON.stringify({ missionId, lotId, purpose, prompt: cleanPrompt }),
+        signal: controller.signal
+      });
+      clearTimeout(timer);
+      if (!res.ok) {
+        await CloudflareQuotaTracker.releaseQuota(quotaCheck.reservationId, lotId);
+        return { ok: false, error: `HTTP_${res.status}`, degraded: res.status >= 500 };
+      }
+      let payload;
+      try {
+        payload = await res.json();
+      } catch (jsonErr) {
+        await CloudflareQuotaTracker.consumeQuota(quotaCheck.reservationId, lotId);
+        return { ok: false, error: "R\xE9ponse Worker non JSON.", degraded: false };
+      }
+      await CloudflareQuotaTracker.consumeQuota(quotaCheck.reservationId, lotId);
+      let responseText;
+      try {
+        responseText = validateWorkerEnvelope(payload, missionId, lotId);
+      } catch (envErr) {
+        return { ok: false, error: envErr.message, degraded: false };
+      }
+      let parsedResult = responseText;
+      if (requireJson) {
+        try {
+          parsedResult = JSON.parse(responseText);
+        } catch (parseErr) {
+          return { ok: false, error: "Sortie non-JSON.", degraded: false };
+        }
+      }
+      return {
+        ok: true,
+        response: parsedResult,
+        modelUsed: payload.modelUsed,
+        estimatedNeurons: neurons
+      };
+    } catch (err) {
+      clearTimeout(timer);
+      await CloudflareQuotaTracker.releaseQuota(quotaCheck.reservationId, lotId);
+      return { ok: false, error: "Inf\xE9rence \xE9chou\xE9e (r\xE9seau ou timeout).", degraded: true };
+    }
+  }
+};
+
+// server/githubDownload.ts
+import fs2 from "fs";
+import path2 from "path";
+import fetch2 from "node-fetch";
+async function downloadRepoArchive(owner, repo, ref = "HEAD") {
+  const zipUrl = `https://github.com/${owner}/${repo}/archive/${ref}.zip`;
+  const workspaceRoot = process.env.WORKSPACE_ROOT || path2.join(process.cwd(), "generated-projects", "app_web_pack");
+  const sourcesDir = path2.join(workspaceRoot, "github-sources");
+  if (!fs2.existsSync(sourcesDir)) {
+    fs2.mkdirSync(sourcesDir, { recursive: true });
+  }
+  const zipPath = path2.join(sourcesDir, `${owner}-${repo}-${ref.replace(/[\/\\:]/g, "-")}.zip`);
+  const response = await fetch2(zipUrl);
+  if (!response.ok) {
+    throw new Error(`Erreur t\xE9l\xE9chargement GitHub: ${response.statusText}`);
+  }
+  const buffer = await response.arrayBuffer();
+  fs2.writeFileSync(zipPath, Buffer.from(buffer));
+  return zipPath;
+}
+async function mountComponent(owner, repo, commit, spdxId) {
+  const workspaceRoot = process.env.WORKSPACE_ROOT || path2.join(process.cwd(), "generated-projects", "app_web_pack");
+  const mountDir = path2.join(workspaceRoot, "src", "integrations", "github-adapted", `${owner}-${repo}`);
+  if (!fs2.existsSync(mountDir)) {
+    fs2.mkdirSync(mountDir, { recursive: true });
+  }
+  const provenance = {
+    source: "github",
+    repository: `${owner}/${repo}`,
+    commit,
+    license: spdxId,
+    sourceUrl: `https://github.com/${owner}/${repo}`,
+    auditedAt: (/* @__PURE__ */ new Date()).toISOString()
+  };
+  const provenancePath = path2.join(mountDir, "provenance.json");
+  fs2.writeFileSync(provenancePath, JSON.stringify(provenance, null, 2));
+  if (!fs2.existsSync(path2.join(mountDir, "components"))) {
+    fs2.mkdirSync(path2.join(mountDir, "components"));
+  }
+  return mountDir;
+}
+
 // server/routers.ts
 import { z as z2 } from "zod";
 var appRouter = router({
@@ -1069,7 +1459,49 @@ var appRouter = router({
     })).query(({ input }) => searchGitHubRepositories(input)),
     validateLicense: publicProcedure.input(z2.object({
       spdxId: z2.string().optional()
-    })).query(({ input }) => validateRepositoryLicense(input.spdxId))
+    })).query(({ input }) => validateRepositoryLicense(input.spdxId)),
+    hermesSearch: publicProcedure.input(z2.object({
+      packId: z2.string(),
+      prompt: z2.string().optional()
+    })).mutation(async ({ input }) => {
+      const fullPrompt = `Le pack est ${input.packId}. Le prompt utilisateur est: ${input.prompt || "Optimise pour ce pack."}. G\xE9n\xE8re les filtres GitHub stricts (mots-cl\xE9s, licence MIT, frameworks).`;
+      const aiResponse = await CloudflareAIService.ask({
+        prompt: fullPrompt,
+        missionId: "github-search",
+        lotId: input.packId
+      });
+      if (!aiResponse.ok) {
+        throw new Error("Hermes a \xE9chou\xE9: " + aiResponse.error);
+      }
+      const query = buildGitHubQuery({
+        keywords: aiResponse.response.keywords?.join(" ") || input.packId.replace(/_/g, " "),
+        licenses: aiResponse.response.licenses || ["MIT", "Apache-2.0"],
+        frameworks: aiResponse.response.frameworks || ["react", "typescript"]
+      });
+      const results = await searchGitHubRepositories({ query });
+      return {
+        ai: aiResponse.response,
+        query,
+        results
+      };
+    }),
+    download: publicProcedure.input(z2.object({
+      owner: z2.string(),
+      repo: z2.string(),
+      ref: z2.string().default("HEAD")
+    })).mutation(async ({ input }) => {
+      const zipPath = await downloadRepoArchive(input.owner, input.repo, input.ref);
+      return { success: true, zipPath };
+    }),
+    mount: publicProcedure.input(z2.object({
+      owner: z2.string(),
+      repo: z2.string(),
+      commit: z2.string(),
+      spdxId: z2.string()
+    })).mutation(async ({ input }) => {
+      const mountPath = await mountComponent(input.owner, input.repo, input.commit, input.spdxId);
+      return { success: true, mountPath };
+    })
   })
   // TODO: add feature routers here, e.g.
   // todo: router({
@@ -1096,34 +1528,34 @@ async function createContext(opts) {
 
 // server/_core/vite.ts
 import express from "express";
-import fs2 from "fs";
+import fs4 from "fs";
 import { nanoid } from "nanoid";
-import path2 from "path";
+import path4 from "path";
 import { createServer as createViteServer } from "vite";
 
 // vite.config.ts
 import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import fs from "node:fs";
-import path from "node:path";
+import fs3 from "node:fs";
+import path3 from "node:path";
 import { defineConfig } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 var PROJECT_ROOT = import.meta.dirname;
-var LOG_DIR = path.join(PROJECT_ROOT, ".manus-logs");
+var LOG_DIR = path3.join(PROJECT_ROOT, ".manus-logs");
 var MAX_LOG_SIZE_BYTES = 1 * 1024 * 1024;
 var TRIM_TARGET_BYTES = Math.floor(MAX_LOG_SIZE_BYTES * 0.6);
 function ensureLogDir() {
-  if (!fs.existsSync(LOG_DIR)) {
-    fs.mkdirSync(LOG_DIR, { recursive: true });
+  if (!fs3.existsSync(LOG_DIR)) {
+    fs3.mkdirSync(LOG_DIR, { recursive: true });
   }
 }
 function trimLogFile(logPath, maxSize) {
   try {
-    if (!fs.existsSync(logPath) || fs.statSync(logPath).size <= maxSize) {
+    if (!fs3.existsSync(logPath) || fs3.statSync(logPath).size <= maxSize) {
       return;
     }
-    const lines = fs.readFileSync(logPath, "utf-8").split("\n");
+    const lines = fs3.readFileSync(logPath, "utf-8").split("\n");
     const keptLines = [];
     let keptBytes = 0;
     const targetSize = TRIM_TARGET_BYTES;
@@ -1134,19 +1566,19 @@ function trimLogFile(logPath, maxSize) {
       keptLines.unshift(lines[i]);
       keptBytes += lineBytes;
     }
-    fs.writeFileSync(logPath, keptLines.join("\n"), "utf-8");
+    fs3.writeFileSync(logPath, keptLines.join("\n"), "utf-8");
   } catch {
   }
 }
 function writeToLogFile(source, entries) {
   if (entries.length === 0) return;
   ensureLogDir();
-  const logPath = path.join(LOG_DIR, `${source}.log`);
+  const logPath = path3.join(LOG_DIR, `${source}.log`);
   const lines = entries.map((entry) => {
     const ts = (/* @__PURE__ */ new Date()).toISOString();
     return `[${ts}] ${JSON.stringify(entry)}`;
   });
-  fs.appendFileSync(logPath, `${lines.join("\n")}
+  fs3.appendFileSync(logPath, `${lines.join("\n")}
 `, "utf-8");
   trimLogFile(logPath, MAX_LOG_SIZE_BYTES);
 }
@@ -1226,16 +1658,16 @@ var vite_config_default = defineConfig({
   ],
   resolve: {
     alias: {
-      "@": path.resolve(import.meta.dirname, "client", "src"),
-      "@shared": path.resolve(import.meta.dirname, "shared"),
-      "@assets": path.resolve(import.meta.dirname, "attached_assets")
+      "@": path3.resolve(import.meta.dirname, "client", "src"),
+      "@shared": path3.resolve(import.meta.dirname, "shared"),
+      "@assets": path3.resolve(import.meta.dirname, "attached_assets")
     }
   },
-  envDir: path.resolve(import.meta.dirname),
-  root: path.resolve(import.meta.dirname, "client"),
-  publicDir: path.resolve(import.meta.dirname, "client", "public"),
+  envDir: path3.resolve(import.meta.dirname),
+  root: path3.resolve(import.meta.dirname, "client"),
+  publicDir: path3.resolve(import.meta.dirname, "client", "public"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist"),
+    outDir: path3.resolve(import.meta.dirname, "dist"),
     emptyOutDir: true
   },
   server: {
@@ -1273,13 +1705,13 @@ async function setupVite(app, server) {
   app.use("*", async (req, res, next) => {
     const url = req.originalUrl;
     try {
-      const clientTemplate = path2.resolve(
+      const clientTemplate = path4.resolve(
         import.meta.dirname,
         "../..",
         "client",
         "index.html"
       );
-      let template = await fs2.promises.readFile(clientTemplate, "utf-8");
+      let template = await fs4.promises.readFile(clientTemplate, "utf-8");
       template = template.replace(
         `src="/src/main.tsx"`,
         `src="/src/main.tsx?v=${nanoid()}"`
@@ -1293,15 +1725,15 @@ async function setupVite(app, server) {
   });
 }
 function serveStatic(app) {
-  const distPath = process.env.NODE_ENV === "development" ? path2.resolve(import.meta.dirname, "../..", "dist") : path2.resolve(import.meta.dirname, "public");
-  if (!fs2.existsSync(distPath)) {
+  const distPath = process.env.NODE_ENV === "development" ? path4.resolve(import.meta.dirname, "../..", "dist") : path4.resolve(import.meta.dirname, "public");
+  if (!fs4.existsSync(distPath)) {
     console.error(
       `Could not find the build directory: ${distPath}, make sure to build the client first`
     );
   }
   app.use(express.static(distPath));
   app.use("*", (_req, res) => {
-    res.sendFile(path2.resolve(distPath, "index.html"));
+    res.sendFile(path4.resolve(distPath, "index.html"));
   });
 }
 
