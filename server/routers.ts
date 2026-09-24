@@ -78,10 +78,11 @@ export const appRouter = router({
           throw new Error("Hermes a échoué: " + aiResponse.error);
         }
 
+        const baseKeywords = aiResponse.response.keywords?.join(" ") || input.packId.replace(/_/g, " ");
+        const frameworks = aiResponse.response.frameworks?.join(" ") || "react typescript";
         const query = buildGitHubQuery({
-          keywords: aiResponse.response.keywords?.join(" ") || input.packId.replace(/_/g, " "),
-          licenses: aiResponse.response.licenses || ["MIT", "Apache-2.0"],
-          frameworks: aiResponse.response.frameworks || ["react", "typescript"]
+          keywords: `${baseKeywords} ${frameworks}`,
+          licenses: aiResponse.response.licenses || ["MIT", "Apache-2.0"]
         });
 
         const results = await searchGitHubRepositories({ query });

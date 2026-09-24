@@ -1472,10 +1472,11 @@ var appRouter = router({
       if (!aiResponse.ok) {
         throw new Error("Hermes a \xE9chou\xE9: " + aiResponse.error);
       }
+      const baseKeywords = aiResponse.response.keywords?.join(" ") || input.packId.replace(/_/g, " ");
+      const frameworks = aiResponse.response.frameworks?.join(" ") || "react typescript";
       const query = buildGitHubQuery({
-        keywords: aiResponse.response.keywords?.join(" ") || input.packId.replace(/_/g, " "),
-        licenses: aiResponse.response.licenses || ["MIT", "Apache-2.0"],
-        frameworks: aiResponse.response.frameworks || ["react", "typescript"]
+        keywords: `${baseKeywords} ${frameworks}`,
+        licenses: aiResponse.response.licenses || ["MIT", "Apache-2.0"]
       });
       const results = await searchGitHubRepositories({ query });
       return {
@@ -1761,6 +1762,21 @@ async function startServer() {
   const server = createServer(app);
   app.use(express2.json({ limit: "50mb" }));
   app.use(express2.urlencoded({ limit: "50mb", extended: true }));
+  app.use((req, res, next) => {
+    const origin = req.headers.origin;
+    if (origin) {
+      res.setHeader("Access-Control-Allow-Origin", origin);
+      res.setHeader("Access-Control-Allow-Credentials", "true");
+    } else {
+      res.setHeader("Access-Control-Allow-Origin", "*");
+    }
+    res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    if (req.method === "OPTIONS") {
+      return res.sendStatus(200);
+    }
+    next();
+  });
   registerStorageProxy(app);
   registerOAuthRoutes(app);
   app.use(
