@@ -1,8 +1,8 @@
 @import "./design-system/tokens.css";
 
 :root {
-  --primary: #10B981;
-  --accent: #06B6D4;
+  --primary: #0EA5E9;
+  --accent: #6366F1;
   --bg-primary: #0b0f19;
   --bg-secondary: #0f172a;
   --bg-card: rgba(255, 255, 255, 0.03);
@@ -38,6 +38,6 @@ button {
 }
 
 @keyframes pulseGlow {
-  0%, 100% { filter: drop-shadow(0 0 15px #10B98144); }
-  50% { filter: drop-shadow(0 0 30px #06B6D466); }
+  0%, 100% { filter: drop-shadow(0 0 15px #0EA5E944); }
+  50% { filter: drop-shadow(0 0 30px #6366F166); }
 }

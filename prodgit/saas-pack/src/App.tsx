@@ -65,7 +65,7 @@ export function App() {
           }}
         >
           <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-            <AnimatedLogo label="🛒 PACK E-COMMERCE" />
+            <AnimatedLogo label="🧾 PACK SAAS BILLING PRO" />
             <span
               style={{
                 fontSize: "11px",
@@ -81,7 +81,7 @@ export function App() {
                 gap: 5,
               }}
             >
-              <Sparkles size={11} color="#10B981" /> SaaS Souverain Actif
+              <Sparkles size={11} color="#0EA5E9" /> SaaS Souverain Actif
             </span>
           </div>
 
@@ -112,7 +112,7 @@ export function App() {
                     fontWeight: isActive ? 700 : 500,
                     cursor: "pointer",
                     background: isActive
-                      ? "linear-gradient(135deg, #10B981 0%, #06B6D4 100%)"
+                      ? "linear-gradient(135deg, #0EA5E9 0%, #6366F1 100%)"
                       : "transparent",
                     color: isActive ? "#ffffff" : "#94a3b8",
                     border: "none",

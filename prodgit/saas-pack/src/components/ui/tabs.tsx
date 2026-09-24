@@ -3,7 +3,7 @@
  * Source: shadcn/ui Tabs adaptation
  * License: MIT
  * Adapted by: ForgeAI Studio
- * Generated: 2026-09-24T01:35:31.288Z
+ * Generated: 2026-09-24T09:30:36.373Z
  */
 
 import React, { useState } from "react";

@@ -1,11 +1,13 @@
-# 02 — Architecture Technique & Câblage
+# Architecture Technique du Projet
 
-## 1. Stack Technique
-- **Runtime :** Node.js / Browser ES2022
-- **Core :** React 18 + Vite + TypeScript
-- **Styling :** CSS Tokens HSL / Tailwind compatible
-- **Icons :** Lucide-React
-
-## 2. Cartographie des Intégrations GitHub
-Toutes les briques extraites sont encapsulées dans `src/integrations/github-adapted/` et exposées via `src/integrations/index.ts`.
-Elles ne doivent jamais être modifiées sans mise à jour du fichier `PROVENANCE.md` associé.
+## Arborescence
+```text
+src/
+├── App.tsx             # Shell applicatif fluide & réactif
+├── index.css           # Design Tokens & variables CSS (:root)
+├── animation/          # Couche visuelle (AnimatedGradient, ParticleField, Logo 3D)
+├── components/ui/      # Kit UI Shadcn-like (Button, Card, Input, Tabs)
+├── features/           # Pages fonctionnelles complètes
+├── services/           # Services métiers réactifs autonomes
+└── integrations/       # Modules adaptés avec cartouche @provenance
+```

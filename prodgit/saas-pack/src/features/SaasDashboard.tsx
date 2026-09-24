@@ -107,7 +107,7 @@ export const SaasDashboard: React.FC<SaasDashboardProps> = ({ defaultTab }) => {
             style={{
               fontSize: "10px",
               fontWeight: 800,
-              color: "#10B981",
+              color: "#0EA5E9",
               background: "rgba(14, 165, 233, 0.15)",
               padding: "2px 8px",
               borderRadius: 4,
@@ -124,7 +124,7 @@ export const SaasDashboard: React.FC<SaasDashboardProps> = ({ defaultTab }) => {
               color: "#f8fafc",
             }}
           >
-            🛒 PACK E-COMMERCE
+            🧾 PACK SAAS BILLING PRO
           </h1>
         </div>
 
@@ -147,7 +147,7 @@ export const SaasDashboard: React.FC<SaasDashboardProps> = ({ defaultTab }) => {
               fontWeight: activeTab === "overview" ? 700 : 500,
               background:
                 activeTab === "overview"
-                  ? "linear-gradient(135deg, #10B981 0%, #06B6D4 100%)"
+                  ? "linear-gradient(135deg, #0EA5E9 0%, #6366F1 100%)"
                   : "transparent",
               color: "#fff",
               border: "none",
@@ -165,7 +165,7 @@ export const SaasDashboard: React.FC<SaasDashboardProps> = ({ defaultTab }) => {
               fontWeight: activeTab === "billing" ? 700 : 500,
               background:
                 activeTab === "billing"
-                  ? "linear-gradient(135deg, #10B981 0%, #06B6D4 100%)"
+                  ? "linear-gradient(135deg, #0EA5E9 0%, #6366F1 100%)"
                   : "transparent",
               color: "#fff",
               border: "none",
@@ -186,7 +186,7 @@ export const SaasDashboard: React.FC<SaasDashboardProps> = ({ defaultTab }) => {
               fontWeight: activeTab === "team" ? 700 : 500,
               background:
                 activeTab === "team"
-                  ? "linear-gradient(135deg, #10B981 0%, #06B6D4 100%)"
+                  ? "linear-gradient(135deg, #0EA5E9 0%, #6366F1 100%)"
                   : "transparent",
               color: "#fff",
               border: "none",
@@ -374,7 +374,7 @@ export const SaasDashboard: React.FC<SaasDashboardProps> = ({ defaultTab }) => {
                 showToast("✓ 2 500 requêtes API simulées avec succès !");
               }}
               style={{
-                background: "linear-gradient(135deg, #10B981 0%, #06B6D4 100%)",
+                background: "linear-gradient(135deg, #0EA5E9 0%, #6366F1 100%)",
                 color: "#fff",
                 border: "none",
                 padding: "10px 18px",
@@ -409,7 +409,7 @@ export const SaasDashboard: React.FC<SaasDashboardProps> = ({ defaultTab }) => {
                       ? "rgba(14, 165, 233, 0.12)"
                       : "rgba(15, 23, 42, 0.75)",
                     border: isCurrent
-                      ? "2px solid #10B981"
+                      ? "2px solid #0EA5E9"
                       : "1px solid rgba(255, 255, 255, 0.08)",
                     borderRadius: 16,
                     padding: "24px",
@@ -443,7 +443,7 @@ export const SaasDashboard: React.FC<SaasDashboardProps> = ({ defaultTab }) => {
                         <span
                           style={{
                             fontSize: "10px",
-                            background: "#10B981",
+                            background: "#0EA5E9",
                             color: "#000",
                             padding: "2px 8px",
                             borderRadius: 4,
@@ -497,9 +497,9 @@ export const SaasDashboard: React.FC<SaasDashboardProps> = ({ defaultTab }) => {
                       cursor: "pointer",
                       background: isCurrent
                         ? "rgba(14, 165, 233, 0.2)"
-                        : "linear-gradient(135deg, #10B981 0%, #06B6D4 100%)",
+                        : "linear-gradient(135deg, #0EA5E9 0%, #6366F1 100%)",
                       color: isCurrent ? "#38bdf8" : "#fff",
-                      border: isCurrent ? "1px solid #10B981" : "none",
+                      border: isCurrent ? "1px solid #0EA5E9" : "none",
                     }}
                   >
                     {isCurrent ? "✓ Plan Actuellement Actif" : "Passer au plan " + plan.name}
@@ -614,7 +614,7 @@ export const SaasDashboard: React.FC<SaasDashboardProps> = ({ defaultTab }) => {
               <button
                 onClick={() => setShowInviteModal(true)}
                 style={{
-                  background: "linear-gradient(135deg, #10B981 0%, #06B6D4 100%)",
+                  background: "linear-gradient(135deg, #0EA5E9 0%, #6366F1 100%)",
                   color: "#fff",
                   border: "none",
                   padding: "10px 18px",
@@ -651,7 +651,7 @@ export const SaasDashboard: React.FC<SaasDashboardProps> = ({ defaultTab }) => {
                         width: 36,
                         height: 36,
                         borderRadius: "50%",
-                        background: "linear-gradient(135deg, #10B981 0%, #06B6D4 100%)",
+                        background: "linear-gradient(135deg, #0EA5E9 0%, #6366F1 100%)",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -811,7 +811,7 @@ export const SaasDashboard: React.FC<SaasDashboardProps> = ({ defaultTab }) => {
                   style={{
                     padding: "8px 18px",
                     borderRadius: 8,
-                    background: "#10B981",
+                    background: "#0EA5E9",
                     color: "#000",
                     fontWeight: 700,
                     border: "none",

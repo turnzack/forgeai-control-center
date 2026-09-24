@@ -3,7 +3,7 @@
  * Source: ForgeAI Studio motion config
  * License: MIT
  * Adapted by: ForgeAI Studio
- * Generated: 2026-09-24T01:35:31.275Z
+ * Generated: 2026-09-24T09:30:35.259Z
  */
 
 export const MOTION_CONFIG = {

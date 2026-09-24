@@ -3,7 +3,7 @@
  * Source: shadcn/ui utils adaptation
  * License: MIT
  * Adapted by: ForgeAI Studio
- * Generated: 2026-09-24T01:35:31.283Z
+ * Generated: 2026-09-24T09:30:35.927Z
  */
 
 import { clsx, type ClassValue } from "clsx";

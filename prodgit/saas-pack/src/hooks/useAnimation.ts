@@ -3,7 +3,7 @@
  * Source: ForgeAI Studio animation hook
  * License: MIT
  * Adapted by: ForgeAI Studio
- * Generated: 2026-09-24T01:35:31.277Z
+ * Generated: 2026-09-24T09:30:35.402Z
  */
 
 import { useReducedMotion } from "./useReducedMotion";

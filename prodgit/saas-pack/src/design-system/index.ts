@@ -3,7 +3,7 @@
  * Source: ForgeAI Studio design-system barrel
  * License: MIT
  * Adapted by: ForgeAI Studio
- * Generated: 2026-09-24T01:35:31.293Z
+ * Generated: 2026-09-24T09:30:36.540Z
  */
 
 export * from "./animation-config";

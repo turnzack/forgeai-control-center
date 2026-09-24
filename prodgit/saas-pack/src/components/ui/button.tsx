@@ -3,7 +3,7 @@
  * Source: shadcn/ui Button adaptation
  * License: MIT
  * Adapted by: ForgeAI Studio
- * Generated: 2026-09-24T01:35:31.284Z
+ * Generated: 2026-09-24T09:30:36.148Z
  */
 
 import * as React from "react";

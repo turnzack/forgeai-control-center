@@ -1,7 +1,7 @@
 {
   "projectName": "saas-pack",
-  "packSlug": "ecommerce_pack",
-  "packName": "🛒 PACK E-COMMERCE",
+  "packSlug": "prd_saas_billing_pro",
+  "packName": "🧾 PACK SAAS BILLING PRO",
   "archetype": "saas",
   "generationMode": "sovereign",
   "externalSources": [],
@@ -49,5 +49,5 @@
       "synchronized": false
     }
   ],
-  "generatedAt": "2026-09-24T01:35:31.327Z"
+  "generatedAt": "2026-09-24T09:30:37.842Z"
 }
