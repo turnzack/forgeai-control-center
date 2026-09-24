@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Activity, CreditCard, Users, ArrowUpRight, ShieldCheck, Database, Zap, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 
