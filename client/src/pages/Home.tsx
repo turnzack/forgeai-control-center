@@ -2457,7 +2457,7 @@ function LivePreview() {
           </a>
         </div>
       </div>
-      <iframe key={key} title="Aperçu live de l’application générée" src="http://localhost:5173" className="live-preview-frame" />
+      <iframe key={key} title="Aperçu live de l’application générée" src="http://109.205.182.17:5173" className="live-preview-frame" />
     </div>
   );
 }
