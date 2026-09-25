@@ -367,5 +367,5 @@ export class BridgeClient {
 }
 
 export const bridgeClient = new BridgeClient(
-  import.meta.env.VITE_API_URL || ""
+  "http://109.205.182.17:5006"
 );
