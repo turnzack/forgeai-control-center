@@ -1,0 +1,24 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/trpc/:match*",
+      "destination": "http://109.205.182.17:3000/api/trpc/:match*"
+    },
+    {
+      "source": "/bridge/:match*",
+      "destination": "http://109.205.182.17:5006/:match*"
+    },
+    {
+      "source": "/api/bridge/:match*",
+      "destination": "http://109.205.182.17:5006/:match*"
+    },
+    {
+      "source": "/v1/:match*",
+      "destination": "http://109.205.182.17:5006/v1/:match*"
+    },
+    {
+      "source": "/health",
+      "destination": "http://109.205.182.17:5006/health"
+    }
+  ]
+}
