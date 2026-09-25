@@ -304,10 +304,10 @@ export class BridgeClient {
     });
   }
 
-  async assembleFinalApp(projectName: string, packSlug?: string | null, forceOverwrite = true): Promise<{ success: boolean; projectName: string; filesCreated: number; message: string }> {
+  async assembleFinalApp(projectName: string, packSlug?: string | null, forceOverwrite = true, projectIdea?: string): Promise<{ success: boolean; projectName: string; filesCreated: number; message: string }> {
     return this.request(`/v1/projects/${encodeURIComponent(projectName)}/assemble-final-app`, {
       method: "POST",
-      body: JSON.stringify({ packSlug, forceOverwrite }),
+      body: JSON.stringify({ packSlug, forceOverwrite, prompt: projectIdea }),
     });
   }
 

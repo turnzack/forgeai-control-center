@@ -2358,7 +2358,7 @@ const server = http.createServer(async (req, res) => {
 
       const projDir = path.join(ROOT, safeSegment(projName));
       const forceOverwrite = payload.forceOverwrite !== undefined ? Boolean(payload.forceOverwrite) : true;
-      const result = await assembleFinalApplication(projDir, projName, payload.packSlug || null, forceOverwrite);
+      const result = await assembleFinalApplication(projDir, projName, payload.packSlug || null, forceOverwrite, payload.prompt);
       return send(res, 200, { projectId: projName, ...result });
     }
 

@@ -2446,13 +2446,13 @@ function LivePreview() {
       <div className="live-preview-toolbar">
         <div>
           <span className="section-kicker">LIVE PREVIEW</span>
-          <b>localhost:5173</b>
+          <b>109.205.182.17:5173</b>
         </div>
         <div className="live-preview-actions">
           <button className="ghost-button" onClick={() => setKey((value) => value + 1)}>
             <RefreshCw size={13} /> Actualiser
           </button>
-          <a className="ghost-button" href="http://localhost:5173" target="_blank" rel="noreferrer">
+          <a className="ghost-button" href="http://109.205.182.17:5173" target="_blank" rel="noreferrer">
             <ExternalLink size={13} /> Ouvrir
           </a>
         </div>
@@ -3442,6 +3442,7 @@ function FilesWorkspace({
         packName={selectedPack?.name}
         buttonLabel={packArchetype.buttonLabel}
         activeDevUrl={activeDevUrl}
+        projectIdea={projectIdea}
       />
 
       <div className="files-layout">

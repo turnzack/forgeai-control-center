@@ -11,6 +11,7 @@ type Props = {
   packName?: string;
   buttonLabel?: string;
   activeDevUrl?: string;
+  projectIdea?: string;
   onLog?: (message: string) => void;
 };
 
@@ -27,7 +28,7 @@ function generatedFiles(projectName: string, sources: Props["sources"]): Project
   ];
 }
 
-export function ProjectExportActions({ projectName, sources, files: projectFiles, packSlug, packName, buttonLabel, activeDevUrl = "http://localhost:5173", onLog }: Props) {
+export function ProjectExportActions({ projectName, sources, files: projectFiles, packSlug, packName, buttonLabel, activeDevUrl = "http://localhost:5173", projectIdea, onLog }: Props) {
   const files = useMemo(() => projectFiles?.length ? projectFiles : generatedFiles(projectName, sources), [projectName, projectFiles, sources]);
   const [busy, setBusy] = useState<string | null>(null);
   const [message, setMessage] = useState("");
@@ -129,7 +130,7 @@ export function ProjectExportActions({ projectName, sources, files: projectFiles
         <button
           disabled={!!busy}
           onClick={() => run("assemble", async () => {
-            const res = await bridgeClient.assembleFinalApp(projectName, packSlug);
+            const res = await bridgeClient.assembleFinalApp(projectName, packSlug, true, projectIdea);
             return `Application finale multi-pages générée avec succès (${res.filesCreated} fichiers câblés dans App.tsx).`;
           })}
           style={{ borderColor: "rgba(16, 185, 129, 0.4)", background: "rgba(16, 185, 129, 0.08)" }}

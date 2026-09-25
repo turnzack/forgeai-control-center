@@ -16,6 +16,48 @@ const PRD_PACKS_DIR = path.resolve(__dirname, "..", "prd_packs");
 /**
  * Résout et charge le pack PRD associé au projet
  */
+/**
+ * 🚀 SPRINT 2: Client Cloudflare Workers AI pour le Code Agent
+ * Exécute le modèle d'inférence (Llama 3 par défaut) pour générer du code React.
+ */
+async function generateCodeWithAI(systemPrompt, userPrompt) {
+  const accountId = process.env.CLOUDFLARE_ACCOUNT_ID;
+  const apiToken = process.env.CLOUDFLARE_API_TOKEN;
+  const aiModel = process.env.CLOUDFLARE_AI_MODEL || "@cf/meta/llama-3.1-8b-instruct";
+
+  if (!accountId || !apiToken) {
+    throw new Error("Variables d'environnement Cloudflare manquantes (CLOUDFLARE_ACCOUNT_ID, CLOUDFLARE_API_TOKEN).");
+  }
+
+  const url = `https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/${aiModel}`;
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${apiToken}`,
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      max_tokens: 3500,
+      messages: [
+        { role: "system", content: systemPrompt },
+        { role: "user", content: userPrompt }
+      ]
+    })
+  });
+
+  if (!response.ok) {
+    const errText = await response.text();
+    throw new Error(`Erreur API Cloudflare (${response.status}): ${errText}`);
+  }
+
+  const data = await response.json();
+  if (data.success && data.result && data.result.response) {
+    return data.result.response;
+  }
+  
+  throw new Error("Réponse Cloudflare AI invalide ou vide.");
+}
+
 export async function resolvePrdPack(projDir, packSlug = null) {
   let targetSlug = packSlug;
 
@@ -294,7 +336,7 @@ button {
   console.log(`[Universal Generator] ✓ index.css mis à jour avec les Design Tokens (${primary} / ${accent})`);
 }
 
-export async function assembleFinalApplication(projDir, projectName, packSlug = null, forceOverwrite = true) {
+export async function assembleFinalApplication(projDir, projectName, packSlug = null, forceOverwrite = true, userPrompt = "") {
   const pack = await resolvePrdPack(projDir, packSlug);
   const archetype = detectArchetype(pack, projDir);
 
@@ -357,6 +399,52 @@ export async function assembleFinalApplication(projDir, projectName, packSlug = 
   let filesCreated = 0;
 
   if (appNeedsGeneration) {
+    let aiSuccess = false;
+    if (userPrompt) {
+      try {
+        console.log(`[Universal Generator] Lancement de l'Agent de Code Dynamique via Cloudflare AI...`);
+        let availableGems = "";
+        try {
+          const manifestContent = await fs.readFile(path.join(projDir, "src", "integrations", "github-adapted", "MOUNTED_MANIFEST.json"), "utf-8");
+          const manifest = JSON.parse(manifestContent);
+          availableGems = manifest.map(g => `- ${g.gemKey} : import { ... } from '@/integrations/github-adapted/${g.targetFile.replace('.tsx', '').replace('.ts', '')}'`).join("\n");
+        } catch (_) { }
+
+        const systemPrompt = `Tu es un Expert React/Vite Senior. 
+Ton objectif est de générer UNIQUEMENT le code complet et fonctionnel pour le fichier \`App.tsx\` du projet.
+Archétype du projet : ${archetype}
+Nom du projet : ${projectName}
+Pépites (composants) disponibles localement que tu DOIS utiliser si pertinent :
+${availableGems}
+
+CONSIGNES CRITIQUES :
+1. Renvoie UNIQUEMENT le code source TSX, entouré de \`\`\`tsx ... \`\`\`.
+2. Pas de texte introductif ou conclusif.
+3. Le composant par défaut doit s'appeler App (export default App).
+4. Utilise \`lucide-react\` pour les icônes.
+5. Sois créatif : intègre le design et la thématique demandée par l'utilisateur (belles couleurs, interfaces premium, animations simples).`;
+
+        const codeResponse = await generateCodeWithAI(systemPrompt, userPrompt);
+        
+        // Extraction du code avec Regex
+        const match = codeResponse.match(/```(?:tsx|jsx)?\s*([\s\S]*?)\s*```/);
+        let finalCode = match ? match[1] : codeResponse;
+        
+        if (!finalCode.includes("export default App") && !finalCode.includes("export default function App")) {
+           throw new Error("Le code généré ne contient pas l'export de 'App'.");
+        }
+        
+        await fs.writeFile(appTsxPath, finalCode.trim(), "utf-8");
+        filesCreated++;
+        aiSuccess = true;
+        console.log(`[Universal Generator] ✓ App.tsx généré dynamiquement par l'IA Cloudflare !`);
+        
+      } catch (aiError) {
+        console.warn(`[Universal Generator] Échec de la génération IA (${aiError.message}). Fallback sur le template générique.`);
+      }
+    }
+    
+    if (!aiSuccess) {
     if (archetype === "ui_kit") {
       filesCreated += await generateUiKitApp(projDir, projectName, pack);
     } else if (archetype === "chat") {
@@ -376,6 +464,7 @@ export async function assembleFinalApplication(projDir, projectName, packSlug = 
     } else {
       filesCreated += await generateUniversalApp(projDir, projectName, pack);
     }
+  }
   } else {
     console.log(`[Universal Generator] App.tsx existant personnalisé pour ${projectName} — câblage industriel uniquement`);
   }
