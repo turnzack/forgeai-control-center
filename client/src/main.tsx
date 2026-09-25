@@ -41,7 +41,7 @@ const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
       url: (typeof window !== "undefined" && window.location.hostname.includes("vercel.app"))
-        ? "http://127.0.0.1:3000/api/trpc"
+        ? "http://109.205.182.17:3000/api/trpc"
         : (import.meta.env.VITE_TRPC_URL || "/api/trpc"),
       transformer: superjson,
       headers() {
