@@ -40,10 +40,9 @@ queryClient.getMutationCache().subscribe(event => {
 const trpcClient = trpc.createClient({
   links: [
     httpBatchLink({
-      url: import.meta.env.VITE_TRPC_URL || 
-        (typeof window !== "undefined" && !window.location.origin.includes("localhost") && !window.location.origin.includes("127.0.0.1")
-          ? "http://127.0.0.1:3000/api/trpc"
-          : "/api/trpc"),
+      url: (typeof window !== "undefined" && window.location.hostname.includes("vercel.app"))
+        ? "http://127.0.0.1:3000/api/trpc"
+        : (import.meta.env.VITE_TRPC_URL || "/api/trpc"),
       transformer: superjson,
       headers() {
         // Preview auto-login fallback: when the browser blocks iframe cookies

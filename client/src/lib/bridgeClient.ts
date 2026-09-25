@@ -367,5 +367,7 @@ export class BridgeClient {
 }
 
 export const bridgeClient = new BridgeClient(
-  import.meta.env.VITE_API_URL || "http://127.0.0.1:5006"
+  (typeof window !== "undefined" && window.location.hostname.includes("vercel.app")) 
+    ? "http://127.0.0.1:5006" 
+    : (import.meta.env.VITE_API_URL || "http://127.0.0.1:5006")
 );
