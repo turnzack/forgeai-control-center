@@ -434,6 +434,10 @@ CONSIGNES CRITIQUES :
         if (!finalCode.includes("export default App") && !finalCode.includes("export default function App")) {
            throw new Error("Le code généré ne contient pas l'export de 'App'.");
         }
+
+        if (finalCode.match(/import\s+.*from\s+['"]\.\/(features|components|pages|layouts|views|utils|hooks).*['"]/i)) {
+           throw new Error("L'IA a généré des imports locaux interdits (hallucination). Fallback forcé sur le template natif.");
+        }
         
         await fs.writeFile(appTsxPath, finalCode.trim(), "utf-8");
         filesCreated++;
