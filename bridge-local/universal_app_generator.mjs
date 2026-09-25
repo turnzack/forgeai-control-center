@@ -422,7 +422,8 @@ CONSIGNES CRITIQUES :
 2. Pas de texte introductif ou conclusif.
 3. Le composant par défaut doit s'appeler App (export default App).
 4. Utilise \`lucide-react\` pour les icônes.
-5. Sois créatif : intègre le design et la thématique demandée par l'utilisateur (belles couleurs, interfaces premium, animations simples).`;
+5. Sois créatif : intègre le design et la thématique demandée par l'utilisateur (belles couleurs, interfaces premium, animations simples).
+6. INTERDICTION FORMELLE d'importer des fichiers locaux inexistants (ex: import { CrmKanban } from "./features/..."). TOUT composant personnalisé (features, pages, layout) DOIT être codé ENTIÈREMENT EN INLINE dans ce même fichier App.tsx, à l'exception des pépites fournies ci-dessus.`;
 
         const codeResponse = await generateCodeWithAI(systemPrompt, userPrompt);
         
