@@ -1700,7 +1700,7 @@ export default function Home() {
 
       setActiveStage(7);
       setRunState("done");
-      addLog("🚀 Montage et câblage terminés avec succès ! Application disponible sur http://localhost:5173", "success");
+      addLog("🚀 Montage et câblage terminés avec succès ! Application disponible sur http://109.205.182.17:5173", "success");
     } catch (err) {
       addLog(`Erreur lors du montage : ${err instanceof Error ? err.message : String(err)}`, "error");
       setRunState("approval");
@@ -3039,7 +3039,7 @@ function FilesWorkspace({
     }
   };
 
-  const [activeDevUrl, setActiveDevUrl] = useState("http://localhost:5173");
+  const [activeDevUrl, setActiveDevUrl] = useState("http://109.205.182.17:5173");
 
   const refreshDevUrl = async (proj = selectedProject) => {
     try {

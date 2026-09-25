@@ -28,7 +28,7 @@ function generatedFiles(projectName: string, sources: Props["sources"]): Project
   ];
 }
 
-export function ProjectExportActions({ projectName, sources, files: projectFiles, packSlug, packName, buttonLabel, activeDevUrl = "http://localhost:5173", projectIdea, onLog }: Props) {
+export function ProjectExportActions({ projectName, sources, files: projectFiles, packSlug, packName, buttonLabel, activeDevUrl = "http://109.205.182.17:5173", projectIdea, onLog }: Props) {
   const files = useMemo(() => projectFiles?.length ? projectFiles : generatedFiles(projectName, sources), [projectName, projectFiles, sources]);
   const [busy, setBusy] = useState<string | null>(null);
   const [message, setMessage] = useState("");
