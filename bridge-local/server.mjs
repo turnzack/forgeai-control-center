@@ -310,7 +310,7 @@ async function runCommand(projectName, command) {
 
   // 2. Pour pnpm dev : libérer le port 5173 et lancer le serveur en arrière-plan
   killDevPorts([5173, 5174, 5175, 5176, 5177]);
-  projectDevUrls.set(projectName, "http://localhost:5173");
+  projectDevUrls.set(projectName, "http://109.205.182.17:5173");
   let output = "";
 
   try {
@@ -326,10 +326,12 @@ async function runCommand(projectName, command) {
       const text = String(chunk);
       output = `${output}${text}`.slice(-8000);
       console.log(`[Bridge Command ${projectName}]`, text.trim());
-      const match = text.match(/https?:\/\/localhost:\d+/i) || text.match(/https?:\/\/127\.0\.0\.1:\d+/i);
+      const match = text.match(/https?:\/\/localhost:(\d+)/i) || text.match(/https?:\/\/127\.0\.0\.1:(\d+)/i);
       if (match) {
-        projectDevUrls.set(projectName, match[0]);
-        console.log(`[Bridge Dev Server] 🚀 URL active enregistrée pour ${projectName} : ${match[0]}`);
+        const port = match[1];
+        const publicUrl = `http://109.205.182.17:${port}`;
+        projectDevUrls.set(projectName, publicUrl);
+        console.log(`[Bridge Dev Server] 🚀 URL active enregistrée pour ${projectName} : ${publicUrl}`);
       }
     });
     child.stderr?.on("data", (chunk) => {
@@ -352,8 +354,8 @@ async function runCommand(projectName, command) {
       status: "started",
       pid: child.pid,
       output,
-      url: projectDevUrls.get(projectName) || "http://localhost:5173",
-      message: `${command} lancé dans prodgit/${projectName} sur http://localhost:5173`,
+      url: projectDevUrls.get(projectName) || "http://109.205.182.17:5173",
+      message: `${command} lancé dans prodgit/${projectName} sur http://109.205.182.17:5173`,
     };
   } catch (spawnError) {
     console.error(`[Bridge Spawn Error]`, spawnError);
@@ -2369,7 +2371,7 @@ const server = http.createServer(async (req, res) => {
       return send(res, 200, {
         success: true,
         projectName: projName,
-        url: projectDevUrls.get(projName) || "http://localhost:5173",
+        url: projectDevUrls.get(projName) || "http://109.205.182.17:5173",
         isRunning: Boolean(running.get(projName)),
       });
     }
