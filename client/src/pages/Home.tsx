@@ -556,7 +556,7 @@ const stageDefinitions = [
 ];
 
 const initialLogs: LogItem[] = [
-  { time: "00:02:11", tone: "success", text: "Bridge local connecté sur http://127.0.0.1:5006" },
+  { time: "00:02:11", tone: "success", text: "Bridge local connecté sur http://109.205.182.17:5006" },
   { time: "00:02:16", tone: "info", text: "113 Packs PRD chargés depuis prd_packs/" },
   { time: "00:02:19", tone: "info", text: "Architect Agent — provenance injectée dans le contexte" },
   { time: "00:02:26", tone: "success", text: "Pack PRD actif : E-Commerce Suite — 7 briques cibles configurées" },
@@ -1700,7 +1700,7 @@ export default function Home() {
 
       setActiveStage(7);
       setRunState("done");
-      addLog("🚀 Montage et câblage terminés avec succès ! Application disponible sur http://localhost:5173", "success");
+      addLog("🚀 Montage et câblage terminés avec succès ! Application disponible sur http://109.205.182.17:5173", "success");
     } catch (err) {
       addLog(`Erreur lors du montage : ${err instanceof Error ? err.message : String(err)}`, "error");
       setRunState("approval");
@@ -2452,12 +2452,12 @@ function LivePreview() {
           <button className="ghost-button" onClick={() => setKey((value) => value + 1)}>
             <RefreshCw size={13} /> Actualiser
           </button>
-          <a className="ghost-button" href="http://localhost:5173" target="_blank" rel="noreferrer">
+          <a className="ghost-button" href="http://109.205.182.17:5173" target="_blank" rel="noreferrer">
             <ExternalLink size={13} /> Ouvrir
           </a>
         </div>
       </div>
-      <iframe key={key} title="Aperçu live de l’application générée" src="http://localhost:5173" className="live-preview-frame" />
+      <iframe key={key} title="Aperçu live de l’application générée" src="http://109.205.182.17:5173" className="live-preview-frame" />
     </div>
   );
 }
@@ -3039,7 +3039,7 @@ function FilesWorkspace({
     }
   };
 
-  const [activeDevUrl, setActiveDevUrl] = useState("http://localhost:5173");
+  const [activeDevUrl, setActiveDevUrl] = useState("http://109.205.182.17:5173");
 
   const refreshDevUrl = async (proj = selectedProject) => {
     try {
@@ -3841,4 +3841,5 @@ function CloudflareDialog({
     </div>
   );
 }
+
 

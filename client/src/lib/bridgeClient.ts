@@ -137,7 +137,7 @@ export type ControlStatus = {
 export class BridgeClient {
   baseUrl: string;
 
-  constructor(baseUrl = "http://127.0.0.1:5006") {
+  constructor(baseUrl = "http://109.205.182.17:5006") {
     this.baseUrl = baseUrl.replace(/\/$/, "");
   }
 
@@ -367,6 +367,7 @@ export class BridgeClient {
 }
 
 export const bridgeClient = new BridgeClient(
-  "http://localhost:5006"
+  "http://109.205.182.17:5006"
 );
+
 
