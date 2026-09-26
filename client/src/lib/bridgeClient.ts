@@ -367,5 +367,6 @@ export class BridgeClient {
 }
 
 export const bridgeClient = new BridgeClient(
-  "http://109.205.182.17:5006"
+  "http://localhost:5006"
 );
+
