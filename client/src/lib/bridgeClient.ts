@@ -147,7 +147,7 @@ export class BridgeClient {
       const timeout = window.setTimeout(() => {
         window.removeEventListener("message", onMessage);
         reject(new Error("Extension relay indisponible"));
-      }, 7000);
+      }, 120000);
       const onMessage = (event: MessageEvent) => {
         if (event.source !== window || event.data?.source !== "forgeai-extension" || event.data.requestId !== requestId) return;
         window.clearTimeout(timeout);
@@ -164,7 +164,7 @@ export class BridgeClient {
 
   private async request<T>(path: string, init?: RequestInit): Promise<T> {
     const controller = new AbortController();
-    const timeout = window.setTimeout(() => controller.abort(), 7000);
+    const timeout = window.setTimeout(() => controller.abort(), 120000);
     try {
       const response = await fetch(`${this.baseUrl}${path}`, {
         ...init,
