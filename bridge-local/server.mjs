@@ -487,7 +487,7 @@ async function analyzeProjectGems(projectName, packSlug = null, limit = 100) {
     const paths = Object.keys(unzipped);
     for (const filePath of paths) {
       if (filePath.endsWith("/")) continue;
-      if (!/\.(ts|tsx|js|jsx|py)$/i.test(filePath)) continue;
+      if (!/\.(ts|tsx|js|jsx|py|md|mdx|css|scss|json)$/i.test(filePath)) continue;
       if (/(\.github|\.vscode|\.git|node_modules|dist|build|coverage|__pycache__)\//i.test(filePath)) continue;
       if (/\.(min|bundle|d)\.js$/i.test(filePath)) continue;
       if (filePath.includes("/tests/") || filePath.includes("/test/") || filePath.endsWith(".test.ts") || filePath.endsWith(".spec.ts")) continue;
@@ -519,7 +519,7 @@ async function analyzeProjectGems(projectName, packSlug = null, limit = 100) {
 
       let score = 55;
       if (/export\s+(class|function|const|interface)/i.test(content)) score += 15;
-      if (/\.(ts|tsx)$/i.test(filePath)) score += 10;
+      if (/\.(ts|tsx|md|mdx)$/i.test(filePath)) score += 10;
       if (lineCount >= 40 && lineCount <= 500) score += 10;
       if (hasTests) score += 5;
       if (hasSecrets) score = Math.max(10, score - 50);

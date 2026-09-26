@@ -2446,7 +2446,7 @@ function LivePreview() {
       <div className="live-preview-toolbar">
         <div>
           <span className="section-kicker">LIVE PREVIEW</span>
-          <b>localhost:5173</b>
+          <b>109.205.182.17:5173</b>
         </div>
         <div className="live-preview-actions">
           <button className="ghost-button" onClick={() => setKey((value) => value + 1)}>
